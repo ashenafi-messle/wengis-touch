@@ -119,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="grid grid-cols-2 gap-1.5 sm:gap-4 py-1.5 sm:py-3 border-y border-[#FAF7F1]/10 text-left">
             <div>
               <span className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] block">{t('hero.handcrafted')}</span>
-              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Organic Cotton</span>
+              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Acrylic Yarn</span>
             </div>
             <div>
               <span className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] block">{t('hero.masterArtisan')}</span>
@@ -177,133 +177,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src={currentProduct.image}
                   alt={currentProduct.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
                 
-                {/* Overlay Info */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2747] via-transparent to-transparent opacity-80" />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
-                  <div className="flex items-center justify-between mb-1 sm:mb-2">
-                    <span className="text-[9px] sm:text-[11px] uppercase font-bold tracking-widest text-[#C95A1A]">
+                {/* Hover Info Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2747]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-6">
+                  <div className="space-y-1 sm:space-y-2">
+                    <span className="text-[9px] sm:text-[11px] uppercase tracking-widest text-[#D8C3A5] font-bold block">
                       {currentProduct.category}
                     </span>
-                    <div className="flex items-center space-x-1">
-                      <Layers className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#D8C3A5]" />
-                      <span className="text-[9px] sm:text-[11px] text-[#D8C3A5] font-medium">
+                    <h3 className="font-serif-luxury text-sm sm:text-lg font-bold text-[#FAF7F1] leading-tight">
+                      {currentProduct.title}
+                    </h3>
+                    <p className="text-[10px] sm:text-xs text-[#D8C3A5] line-clamp-2 sm:line-clamp-none font-light">
+                      {currentProduct.desc}
+                    </p>
+                    <div className="flex items-center justify-between pt-1 sm:pt-2">
+                      <span className="font-serif-luxury text-base sm:text-lg font-bold text-[#C95A1A]">
+                        {formatCurrency(currentProduct.price)}
+                      </span>
+                      <span className="text-[8px] sm:text-[10px] text-[#D8C3A5] font-light">
                         {currentProduct.craftTime}
                       </span>
                     </div>
                   </div>
-                  
-                  <h3 className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] mb-1 sm:mb-2 line-clamp-1">
-                    {currentProduct.title}
-                  </h3>
-                  
-                  <p className="text-[10px] sm:text-xs text-[#D8C3A5] line-clamp-2 mb-2 sm:mb-3 font-light">
-                    {currentProduct.desc}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="font-serif-luxury text-base sm:text-2xl font-bold text-[#C95A1A]">
-                      {formatCurrency(currentProduct.price)}
-                    </span>
-                    <div className="flex items-center space-x-1 text-[#FAF7F1]/80 text-[10px] sm:text-xs">
-                      <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                      <span>Quick View</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Action Badges */}
-                <div className="absolute top-2 sm:top-3 right-2 sm:right-3 flex flex-col space-y-1.5 sm:space-y-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FAF7F1] text-[#0F2747] flex items-center justify-center shadow-lg hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors cursor-pointer">
-                    <Heart className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                  </button>
-                  <button className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FAF7F1] text-[#0F2747] flex items-center justify-center shadow-lg hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors cursor-pointer">
-                    <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                  </button>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Round Progress Indicator Dots */}
-          <div className="flex items-center space-x-1.5 pt-1.5 sm:pt-3">
-            {SHOWCASE_PRODUCTS.map((item, idx) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-1 sm:h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
-                  idx === currentIndex ? 'w-6 sm:w-8 bg-[#C95A1A]' : 'w-2 bg-[#FAF7F1]/30 hover:bg-[#FAF7F1]/60'
-                }`}
-                title={item.title}
-              />
-            ))}
-          </div>
-
-          {/* Layered Floating Accent Card 1 (Top Right) */}
-          {SHOWCASE_PRODUCTS.length > 1 && (
-            <motion.div
-              style={{
-                x: mousePos.x * -1.2,
-                y: mousePos.y * -1.2,
-              }}
-              transition={{ type: 'spring', stiffness: 80, damping: 15 }}
-              className="absolute top-8 -right-2 sm:-right-6 z-30 w-44 sm:w-52 p-3 bg-[#142E52]/90 backdrop-blur-md rounded-xl border border-[#C95A1A]/30 shadow-2xl animate-float-slow hidden sm:block"
-            >
-              <div className="flex items-center space-x-3">
-                <img
-                  src={SHOWCASE_PRODUCTS[1]?.image}
-                  alt={SHOWCASE_PRODUCTS[1]?.title}
-                  className="w-12 h-12 rounded-lg object-cover border border-[#C95A1A]/30"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="text-left">
-                  <span className="text-[10px] uppercase text-[#C95A1A] font-bold block">Round 1</span>
-                  <p className="text-xs font-semibold text-[#FAF7F1] truncate">{SHOWCASE_PRODUCTS[1]?.title}</p>
-                  <p className="text-[11px] text-[#D8C3A5] font-serif-luxury">{formatCurrency(SHOWCASE_PRODUCTS[1]?.price || 0)}</p>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Layered Floating Accent Card 2 (Bottom Left) */}
-          {SHOWCASE_PRODUCTS.length > 2 && (
-            <motion.div
-              style={{
-                x: mousePos.x * 1.5,
-                y: mousePos.y * 1.5,
-              }}
-              transition={{ type: 'spring', stiffness: 90, damping: 18 }}
-              className="absolute bottom-4 -left-2 sm:-left-8 z-30 w-48 sm:w-56 p-3 bg-[#142E52]/90 backdrop-blur-md rounded-xl border border-[#C95A1A]/30 shadow-2xl animate-float-reverse hidden sm:block"
-            >
-              <div className="flex items-center space-x-3">
-                <img
-                  src={SHOWCASE_PRODUCTS[2]?.image}
-                  alt={SHOWCASE_PRODUCTS[2]?.title}
-                  className="w-12 h-14 rounded-lg object-cover border border-[#C95A1A]/30"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="text-left">
-                  <div className="flex items-center space-x-1 text-[#C95A1A]">
-                    <ShieldCheck className="w-3 h-3" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider">Round 2</span>
-                  </div>
-                  <p className="text-xs font-semibold text-[#FAF7F1] truncate">{SHOWCASE_PRODUCTS[2]?.title}</p>
-                  <p className="text-[11px] text-[#D8C3A5] font-serif-luxury">{formatCurrency(SHOWCASE_PRODUCTS[2]?.price || 0)}</p>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Decorative Floating Golden Yarn Badge */}
-          <div className="absolute top-1/2 -left-12 z-10 w-24 h-24 rounded-full border border-[#D8C3A5]/20 bg-[#0F2747]/80 backdrop-blur-sm flex items-center justify-center p-2 animate-spin [animation-duration:20s] hidden md:flex">
-            <span className="text-[9px] uppercase tracking-widest text-[#D8C3A5] text-center font-semibold">
-              Wengi's Touch • Bespoke • Artisanal •
-            </span>
-          </div>
 
         </div>
 
