@@ -110,7 +110,6 @@ export default function App() {
       }
       return [...prev, { product, selectedColor, quantity: 1 }];
     });
-    setIsCartOpen(true);
   };
 
   const handleAddToCartWithSpecs = (product: Product, selectedColor: string, quantity: number) => {
