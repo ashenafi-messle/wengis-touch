@@ -219,7 +219,6 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders, onUpdateOrderS
                             />
                             <span className="text-[10px] text-[#C95A1A]">{item.color}</span>
                           </div>
-                          <span className="text-[10px] text-[#D8C3A5]">• {item.size}</span>
                         </div>
                       </div>
                     </div>
