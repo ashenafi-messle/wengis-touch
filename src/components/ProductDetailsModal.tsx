@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { X, ShoppingCart, ShieldCheck, Sparkles, Check, Heart } from 'lucide-react';
+import { X, ShoppingCart, ShieldCheck, Sparkles, Check, Heart, Maximize2, ZoomIn } from 'lucide-react';
 import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
+import { ImageLightbox } from './ImageLightbox';
 
 interface ProductDetailsModalProps {
   product: Product | null;
@@ -29,6 +30,8 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
   });
   const [quantity, setQuantity] = useState<number>(1);
   const [addedNotice, setAddedNotice] = useState<boolean>(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const handleAdd = () => {
     onAddToCartWithSpecs(product, selectedColor, quantity);
@@ -62,6 +65,16 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
               <span className="absolute top-3 left-3 bg-[#C95A1A] text-[#FAF7F1] text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
                 {translated.category}
               </span>
+              <button
+                onClick={() => {
+                  setLightboxIndex(activeImageIndex);
+                  setLightboxOpen(true);
+                }}
+                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#0F2747]/80 text-[#FAF7F1] flex items-center justify-center hover:bg-[#C95A1A] transition-colors cursor-pointer shadow-md"
+                title={language === 'am' ? 'ሙሉ ቅጽበታይ እይ' : 'View Fullscreen'}
+              >
+                <Maximize2 className="w-4 h-4" />
+              </button>
             </div>
 
             {/* Thumbnail Navigation */}
@@ -71,9 +84,14 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                   <button
                     key={idx}
                     onClick={() => setActiveImageIndex(idx)}
+                    onDoubleClick={() => {
+                      setLightboxIndex(idx);
+                      setLightboxOpen(true);
+                    }}
                     className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                       activeImageIndex === idx ? 'border-[#C95A1A] scale-105' : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
+                    title={language === 'am' ? 'ለማሳየት ይጫኑ' : 'Double-click to view full size'}
                   >
                     <img src={img} alt="Thumbnail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   </button>
@@ -189,6 +207,16 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
 
           </div>
         </div>
+
+        {/* Image Lightbox */}
+        {lightboxOpen && (
+          <ImageLightbox
+            images={product.images}
+            initialIndex={lightboxIndex}
+            onClose={() => setLightboxOpen(false)}
+            alt={translated.title}
+          />
+        )}
 
       </div>
     </div>

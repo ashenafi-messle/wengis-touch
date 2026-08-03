@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { Sparkles, Eye, Clock, Check, Filter, Layers, ShoppingCart } from 'lucide-react';
+import { Sparkles, Eye, Clock, Check, Filter, Layers, ShoppingCart, Maximize2 } from 'lucide-react';
 import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
+import { ImageLightbox } from './ImageLightbox';
 
 interface ProductShowcaseProps {
   products: Product[];
@@ -22,6 +23,8 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   const [inStockOnly, setInStockOnly] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high'>('featured');
   const [selectedColors, setSelectedColors] = useState<Record<string, string>>({});
+  const [lightboxImages, setLightboxImages] = useState<string[] | null>(null);
+  const [lightboxInitialIndex, setLightboxInitialIndex] = useState<number>(0);
 
   // Extract unique categories from products dynamically
   const categories = React.useMemo(() => {
@@ -33,6 +36,15 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     if (cat === 'All') return t('showcase.cat.all');
     // For dynamic categories, just return the category name as-is
     return cat;
+  };
+
+  const handleImagePreview = (images: string[], index: number = 0) => {
+    setLightboxImages(images);
+    setLightboxInitialIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setLightboxImages(null);
   };
 
   // Filter products based on search, category, availability
@@ -155,6 +167,17 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        handleImagePreview(product.images, 0);
+                      }}
+                      className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F1] text-[#0F2747] text-[9px] sm:text-xs font-semibold flex items-center space-x-1 shadow-md hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors"
+                      title={language === 'am' ? 'ምስል በሙሉ እይ' : 'View full image'}
+                    >
+                      <Maximize2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                      <span className="hidden sm:inline">{language === 'am' ? 'ሙሉ ምስል' : 'Full Image'}</span>
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
                         onSelectProduct(product);
                       }}
                       className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F1] text-[#0F2747] text-[9px] sm:text-xs font-semibold flex items-center space-x-1 shadow-md hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors"
@@ -245,6 +268,16 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             );
           })}
         </div>
+      )}
+
+      {/* Image Lightbox */}
+      {lightboxImages && (
+        <ImageLightbox
+          images={lightboxImages}
+          initialIndex={lightboxInitialIndex}
+          onClose={closeLightbox}
+          alt="Product image preview"
+        />
       )}
     </section>
   );
