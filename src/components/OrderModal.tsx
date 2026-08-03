@@ -97,7 +97,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
             </div>
             <div>
               <h3 className="font-serif-luxury text-xl font-bold text-[#FAF7F1]">
-                {submittedOrder ? (language === 'am' ? 'ትእዛዝዎ ተረጋግጧል' : 'Order Confirmed') : t('modal.orderTitle')}
+                {submittedOrder ? (language === 'am' ? 'ትእዛዝዎ ተረጋግጧል' : 'Order Confirmed') : t('orderModal.title')}
               </h3>
               <p className="text-[11px] text-[#D8C3A5]">
                 {submittedOrder ? (language === 'am' ? 'ወንጊስ ታች ስለመረጡ እናመሰግናለን' : 'Thank you for choosing Wengi\'s Touch') : (language === 'am' ? 'የእጅ ጥበብ ትእዛዝ' : 'Bespoke Handcrafted Order')}
@@ -137,19 +137,19 @@ export const OrderModal: React.FC<OrderModalProps> = ({
             {/* Order Details Summary Box */}
             <div className="bg-[#F3E7D3] p-5 rounded-2xl border border-[#D8C3A5] text-left space-y-3">
               <div className="flex justify-between text-xs border-b border-black/10 pb-2 font-medium text-[#0F2747]">
-                <span>{t('modal.name')}:</span>
+                <span>{t('orderModal.customerName')}:</span>
                 <span>{submittedOrder.customerName}</span>
               </div>
               <div className="flex justify-between text-xs border-b border-black/10 pb-2 font-medium text-[#0F2747]">
-                <span>{t('modal.phone')}:</span>
+                <span>{t('orderModal.customerPhone')}:</span>
                 <span>{submittedOrder.customerPhone}</span>
               </div>
               <div className="flex justify-between text-xs border-b border-black/10 pb-2 font-medium text-[#0F2747]">
-                <span>{t('modal.delivery')}:</span>
+                <span>{t('orderModal.deliveryOption')}:</span>
                 <span>{submittedOrder.deliveryPreference}</span>
               </div>
               <div className="flex justify-between text-xs font-bold text-[#0F2747] pt-1">
-                <span>{t('modal.total')}:</span>
+                <span>{t('orderModal.totalAmount')}:</span>
                 <span className="text-[#C95A1A] text-base font-serif-luxury">{formatCurrency(submittedOrder.totalAmount)}</span>
               </div>
             </div>
@@ -194,7 +194,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
                 ))}
               </div>
               <div className="flex justify-between items-center pt-2 border-t border-black/10 text-xs font-bold text-[#0F2747]">
-                <span>{t('modal.total')}:</span>
+                <span>{t('orderModal.totalAmount')}:</span>
                 <span className="text-lg font-serif-luxury text-[#C95A1A]">{formatCurrency(totalAmount)}</span>
               </div>
             </div>
@@ -208,7 +208,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-[11px] font-semibold text-[#0F2747] uppercase block mb-1">
-                    {t('modal.name')} *
+                    {t('orderModal.nameLabel')} *
                   </label>
                   <input
                     type="text"
@@ -222,7 +222,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
 
                 <div>
                   <label className="text-[11px] font-semibold text-[#0F2747] uppercase block mb-1">
-                    {t('modal.phone')} *
+                    {t('orderModal.phoneLabel')} *
                   </label>
                   <input
                     type="tel"
@@ -237,7 +237,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
 
               <div>
                 <label className="text-[11px] font-semibold text-[#0F2747] uppercase block mb-1">
-                  {t('modal.delivery')} *
+                  {t('orderModal.deliveryLabel')} *
                 </label>
                 <select
                   value={deliveryPreference}
@@ -263,7 +263,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
                 <span>{language === 'am' ? 'ትእዛዝዎ በመካሄድ ላይ ነው...' : 'Processing Order...'}</span>
               ) : (
                 <>
-                  <span>{t('modal.placeOrder')} ({formatCurrency(totalAmount)})</span>
+                  <span>{t('orderModal.placeOrder')} ({formatCurrency(totalAmount)})</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}

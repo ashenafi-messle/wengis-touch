@@ -90,6 +90,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Order Modal
     'orderModal.title': 'Complete Your Order',
+    'orderModal.orderTitle': 'Complete Your Order',
     'orderModal.subtitle': 'Provide your contact details and choose your delivery timeframe.',
     'orderModal.sectionTitle': 'Order Information',
     'orderModal.nameLabel': 'Full Name *',

@@ -116,7 +116,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           <div className="p-5 bg-[#F3E7D3] border-t border-[#D8C3A5] space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0F2747]">
-                {t('modal.total')}:
+                {t('orderModal.totalAmount')}:
               </span>
               <span className="font-serif-luxury text-2xl font-bold text-[#C95A1A]">{formatCurrency(total)}</span>
             </div>
@@ -128,7 +128,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               }}
               className="w-full py-4 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-xs font-semibold uppercase tracking-wider transition-colors shadow-lg flex items-center justify-center space-x-2 cursor-pointer"
             >
-              <span>{t('modal.placeOrder')}</span>
+              <span>{t('orderModal.placeOrder')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
