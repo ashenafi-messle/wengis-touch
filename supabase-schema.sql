@@ -54,6 +54,7 @@ ALTER TABLE order_items ADD COLUMN IF NOT EXISTS color VARCHAR(100);
 -- Drop old columns if they exist
 ALTER TABLE order_items DROP COLUMN IF EXISTS color_name;
 ALTER TABLE order_items DROP COLUMN IF EXISTS color_hex;
+ALTER TABLE order_items DROP COLUMN IF EXISTS size;
 
 -- Products Table (for fresh installations)
 CREATE TABLE IF NOT EXISTS products (
