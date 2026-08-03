@@ -129,7 +129,7 @@ export const dbOrders = {
             productId: item.product_id,
             productTitle: item.product_title,
             productImage: item.product_image,
-            color: item.color || item.color_name,
+            color: item.color,
             quantity: item.quantity,
             price: Number(item.price)
           })) || [],
@@ -231,7 +231,7 @@ export const dbOrders = {
         productId: item.product_id,
         productTitle: item.product_title,
         productImage: item.product_image,
-        color: item.color || item.color_name,
+        color: item.color,
         quantity: item.quantity,
         price: Number(item.price)
       })) || [],

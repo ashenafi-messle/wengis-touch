@@ -48,8 +48,10 @@ ALTER TABLE products DROP COLUMN IF EXISTS materials;
 DROP INDEX IF EXISTS idx_products_featured;
 
 -- Step 9: Update order_items table schema to match current database
--- First, let's check what columns actually exist and add/remove accordingly
+-- Add color column if it doesn't exist
 ALTER TABLE order_items ADD COLUMN IF NOT EXISTS color VARCHAR(100);
+
+-- Drop old columns if they exist
 ALTER TABLE order_items DROP COLUMN IF EXISTS color_name;
 ALTER TABLE order_items DROP COLUMN IF EXISTS color_hex;
 
