@@ -25,7 +25,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
   // Extract unique categories from products dynamically
   const categories = React.useMemo(() => {
-    const uniqueCategories = new Set(products.map(p => p.category));
+    const uniqueCategories = new Set(products.map(p => p.category.toLowerCase().trim()));
     return ['All', ...Array.from(uniqueCategories).sort()];
   }, [products]);
 
@@ -44,7 +44,9 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.category.toLowerCase().includes(searchQuery.toLowerCase());
     
-    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'All' || 
+      product.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+      selectedCategory.toLowerCase().includes(product.category.toLowerCase());
     const matchesStock = !inStockOnly || product.available;
 
     return matchesSearch && matchesCategory && matchesStock;

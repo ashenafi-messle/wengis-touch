@@ -101,7 +101,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
 
     const productPayload = {
       title,
-      category,
+      category: category.toLowerCase().trim(),
       description,
       price: Number(price),
       images: [finalImageUrl],
@@ -122,7 +122,9 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
   const filteredProducts = products.filter(p => {
     const matchSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       p.category.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchCat = filterCat === 'All' || p.category === filterCat;
+    const matchCat = filterCat === 'All' || 
+      p.category.toLowerCase().includes(filterCat.toLowerCase()) ||
+      filterCat.toLowerCase().includes(p.category.toLowerCase());
     return matchSearch && matchCat;
   });
 
@@ -173,7 +175,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
             className="bg-[#FAF7F1] text-[11px] sm:text-xs text-[#0F2747] border border-[#D8C3A5] rounded-lg sm:rounded-xl px-2 sm:px-3 py-1.5 sm:py-2 focus:outline-none"
           >
             <option value="All">{t('adminProd.allCategories')}</option>
-            {Array.from(new Set(products.map(p => p.category))).sort().map(cat => (
+            {Array.from(new Set(products.map(p => p.category.toLowerCase().trim()))).sort().map(cat => (
               <option key={cat} value={cat}>{cat}</option>
             ))}
           </select>
