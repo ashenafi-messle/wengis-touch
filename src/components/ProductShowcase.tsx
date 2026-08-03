@@ -192,13 +192,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                                   {col.trim()}
                                 </option>
                               ))
-                            : Array.isArray(product.colors) 
-                              ? product.colors.map((col: any, i: number) => (
-                                  <option key={i} value={col.name || col}>
-                                    {col.name || col}
-                                  </option>
-                                ))
-                              : <option value="">No colors</option>
+                            : <option value="">No colors</option>
                           }
                         </select>
                       </div>
@@ -233,9 +227,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                       onClick={() => {
                         const colorText = typeof product.colors === 'string' 
                           ? product.colors.split(',')[0]?.trim() || ''
-                          : Array.isArray(product.colors) 
-                            ? product.colors[0]?.name || ''
-                            : '';
+                          : '';
                         onAddToCart(product, selectedColors[product.id] || colorText);
                       }}
                       className="px-2 py-1 sm:px-4 sm:py-2.5 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-[9px] sm:text-xs font-semibold tracking-wider uppercase transition-colors shadow-md flex items-center space-x-1 cursor-pointer shrink-0"

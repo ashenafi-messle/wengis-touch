@@ -26,8 +26,6 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
   const [selectedColor, setSelectedColor] = useState<string>(() => {
     if (typeof product.colors === 'string') {
       return product.colors.split(',')[0]?.trim() || '';
-    } else if (Array.isArray(product.colors)) {
-      return product.colors[0]?.name || '';
     }
     return '';
   });
@@ -144,13 +142,7 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                           {col.trim()}
                         </option>
                       ))
-                    : Array.isArray(product.colors) 
-                      ? product.colors.map((col: any, idx: number) => (
-                          <option key={idx} value={col.name || col}>
-                            {col.name || col}
-                          </option>
-                        ))
-                      : <option value="">No colors</option>
+                    : <option value="">No colors</option>
                   }
                 </select>
               </div>
