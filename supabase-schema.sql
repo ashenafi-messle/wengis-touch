@@ -47,7 +47,10 @@ ALTER TABLE products DROP COLUMN IF EXISTS materials;
 -- Step 8: Remove old indexes that reference dropped columns
 DROP INDEX IF EXISTS idx_products_featured;
 
--- Step 9: Remove color_hex column from order_items table
+-- Step 9: Update order_items table schema to match current database
+-- First, let's check what columns actually exist and add/remove accordingly
+ALTER TABLE order_items ADD COLUMN IF NOT EXISTS color VARCHAR(100);
+ALTER TABLE order_items DROP COLUMN IF EXISTS color_name;
 ALTER TABLE order_items DROP COLUMN IF EXISTS color_hex;
 
 -- Products Table (for fresh installations)
@@ -88,8 +91,7 @@ CREATE TABLE order_items (
     product_id UUID NOT NULL REFERENCES products(id),
     product_title VARCHAR(255) NOT NULL,
     product_image TEXT NOT NULL,
-    color_name VARCHAR(100) NOT NULL,
-    color_hex VARCHAR(20) NOT NULL,
+    color VARCHAR(100) NOT NULL,
     quantity INTEGER NOT NULL CHECK (quantity > 0),
     price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
