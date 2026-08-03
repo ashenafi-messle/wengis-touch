@@ -45,7 +45,7 @@ export const BrandStory: React.FC = () => {
                   {language === 'am' ? 'ተፈጥሯዊ የቅንጦት ጥበብ' : 'Ethical Luxury'}
                 </h4>
                 <p className="text-[10px] sm:text-xs text-[#D8C3A5] font-light mt-0.5 line-clamp-2 sm:line-clamp-none">
-                  {language === 'am' ? '100% ተፈጥሯዊ የጥጥ ክር አጠቃቀም' : '100% natural organic cotton & alpaca yarn.'}
+                  {language === 'am' ? '100% ተፈጥሯዊ የአክሪሊክ ጥጥ' : '100% natural acrylic yarn.'}
                 </p>
               </div>
               <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
