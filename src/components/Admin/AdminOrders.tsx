@@ -215,7 +215,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders, onUpdateOrderS
                           <div className="flex items-center space-x-1">
                             <div 
                               className="w-3 h-3 rounded-full border border-white/30"
-                              style={{ backgroundColor: item.colorHex || '#0F2747' }}
+                              style={{ backgroundColor: '#0F2747' }}
                             />
                             <span className="text-[10px] text-[#C95A1A]">{item.color}</span>
                           </div>

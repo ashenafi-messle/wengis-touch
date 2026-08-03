@@ -105,7 +105,6 @@ export const INITIAL_ORDERS: Order[] = [
         productTitle: 'The Royal Atelier Structured Tote',
         productImage: toteImg,
         color: 'Classic Navy',
-        colorHex: '#0F2747',
         quantity: 1,
         price: 285
       }
@@ -129,7 +128,6 @@ export const INITIAL_ORDERS: Order[] = [
         productTitle: 'Artisanal Botanical Bouquet Set',
         productImage: flowersImg,
         color: 'Sunset Harmony',
-        colorHex: '#FF6B35',
         quantity: 1,
         price: 165
       },
@@ -138,7 +136,6 @@ export const INITIAL_ORDERS: Order[] = [
         productTitle: 'Wengi Signature Micro Shoulder Bag',
         productImage: heroImg,
         color: 'Warm Adobe',
-        colorHex: '#C95A1A',
         quantity: 1,
         price: 195
       }
@@ -162,7 +159,6 @@ export const INITIAL_ORDERS: Order[] = [
         productTitle: 'Parisian Lattice Knit Cardigan',
         productImage: cardiganImg,
         color: 'Cream Beige',
-        colorHex: '#F3E7D3',
         quantity: 1,
         price: 340
       }

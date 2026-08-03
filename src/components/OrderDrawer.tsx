@@ -153,7 +153,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
                           <div className="flex items-center space-x-1 mt-0.5">
                             <div 
                               className="w-2 h-2 rounded-full border border-white/30"
-                              style={{ backgroundColor: item.colorHex || '#0F2747' }}
+                              style={{ backgroundColor: '#0F2747' }}
                             />
                             <span className="text-[#D8C3A5] text-[10px]">{item.color}</span>
                           </div>
