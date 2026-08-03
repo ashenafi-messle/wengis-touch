@@ -2,8 +2,8 @@ import React from 'react';
 import { Sparkles, Heart, Shield, Award, Feather } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const heroImg = '/src/assets/images/wengi_hero_crochet_1785323531326.jpg';
-const flowersImg = '/src/assets/images/wengi_crochet_flowers_1785323568097.jpg';
+const heroImg = 'https://res.cloudinary.com/dr9umkixr/image/upload/v1785740760/5999336664565747219_lwjry4.jpg';
+const flowersImg = 'https://res.cloudinary.com/dr9umkixr/image/upload/v1785740760/5999336664565747217_bl8dmp.jpg';
 
 export const BrandStory: React.FC = () => {
   const { language, t } = useLanguage();
@@ -94,4 +94,3 @@ export const BrandStory: React.FC = () => {
     </section>
   );
 };
-
