@@ -15,7 +15,6 @@ export interface OrderItem {
   productTitle: string;
   productImage: string;
   color: string;
-  colorHex: string;
   quantity: number;
   price: number;
 }

@@ -47,6 +47,9 @@ ALTER TABLE products DROP COLUMN IF EXISTS materials;
 -- Step 8: Remove old indexes that reference dropped columns
 DROP INDEX IF EXISTS idx_products_featured;
 
+-- Step 9: Remove color_hex column from order_items table
+ALTER TABLE order_items DROP COLUMN IF EXISTS color_hex;
+
 -- Products Table (for fresh installations)
 CREATE TABLE IF NOT EXISTS products (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

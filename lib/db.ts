@@ -130,7 +130,6 @@ export const dbOrders = {
             productTitle: item.product_title,
             productImage: item.product_image,
             color: item.color_name,
-            colorHex: item.color_hex,
             quantity: item.quantity,
             price: Number(item.price)
           })) || [],
@@ -177,7 +176,6 @@ export const dbOrders = {
       product_title: item.productTitle,
       product_image: item.productImage,
       color_name: item.color,
-      color_hex: item.colorHex,
       quantity: item.quantity,
       price: item.price
     }));
@@ -234,8 +232,6 @@ export const dbOrders = {
         productTitle: item.product_title,
         productImage: item.product_image,
         color: item.color_name,
-        colorHex: item.color_hex,
-        size: item.size,
         quantity: item.quantity,
         price: Number(item.price)
       })) || [],

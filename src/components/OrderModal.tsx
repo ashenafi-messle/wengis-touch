@@ -49,7 +49,6 @@ export const OrderModal: React.FC<OrderModalProps> = ({
       productTitle: ci.product.title,
       productImage: ci.product.images[0],
       color: ci.selectedColor,
-      colorHex: '#0F2747',
       quantity: ci.quantity,
       price: ci.product.price
     }));
