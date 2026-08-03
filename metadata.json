@@ -1,0 +1,6 @@
+{
+  "name": "Wengi's Touch",
+  "description": "Luxury handmade crochet e-commerce platform and protected admin portal featuring handcrafted bags, garments, and artisanal accessories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
