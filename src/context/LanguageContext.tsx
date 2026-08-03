@@ -73,6 +73,7 @@ const translations: Record<Language, Record<string, string>> = {
     'showcase.craftTime': 'Hours Handwoven',
     'showcase.madeToOrder': 'Made to Order Only',
     'showcase.empty': 'No crochet pieces found matching your criteria.',
+    'showcase.addToCart': 'Add to Cart',
 
     // Details Modal
     'details.craftSpecs': 'Craftsmanship Specifications',
@@ -328,6 +329,7 @@ const translations: Record<Language, Record<string, string>> = {
     'showcase.showing': 'የሚታዩት',
     'showcase.pieces': 'የክሮሼት ስራዎች',
     'showcase.order': 'እዘዝ',
+    'showcase.addToCart': 'ወደ ጋሪ አክል',
     'showcase.viewDetails': 'ዝርዝር ይመልከቱ',
     'showcase.bestseller': 'በብዛት የተወደደ',
     'showcase.featured': 'ልዩ አቴሌየር',

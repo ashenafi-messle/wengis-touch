@@ -127,12 +127,6 @@ export default function App() {
     });
   };
 
-  const handleDirectOrderNow = (product: Product, selectedColor: string, quantity: number) => {
-    handleAddToCartWithSpecs(product, selectedColor, quantity);
-    setSelectedProduct(null);
-    setIsOrderModalOpen(true);
-  };
-
   const handleUpdateCartQuantity = (index: number, newQty: number) => {
     setCart(prev => {
       const updated = [...prev];
@@ -433,7 +427,6 @@ export default function App() {
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
         onAddToCartWithSpecs={handleAddToCartWithSpecs}
-        onDirectOrderNow={handleDirectOrderNow}
       />
 
       {/* Cart Drawer */}

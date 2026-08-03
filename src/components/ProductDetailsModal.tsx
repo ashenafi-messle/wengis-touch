@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { X, ShoppingCart, ShieldCheck, Sparkles, Check, ArrowRight, Heart } from 'lucide-react';
+import { X, ShoppingCart, ShieldCheck, Sparkles, Check, Heart } from 'lucide-react';
 import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 
@@ -8,14 +8,12 @@ interface ProductDetailsModalProps {
   product: Product | null;
   onClose: () => void;
   onAddToCartWithSpecs: (product: Product, selectedColor: string, quantity: number) => void;
-  onDirectOrderNow: (product: Product, selectedColor: string, quantity: number) => void;
 }
 
 export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
   product,
   onClose,
-  onAddToCartWithSpecs,
-  onDirectOrderNow
+  onAddToCartWithSpecs
 }) => {
   if (!product) return null;
 
@@ -36,10 +34,6 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
     onAddToCartWithSpecs(product, selectedColor, quantity);
     setAddedNotice(true);
     setTimeout(() => setAddedNotice(false), 2000);
-  };
-
-  const handleOrder = () => {
-    onDirectOrderNow(product, selectedColor, quantity);
   };
 
   return (
@@ -180,27 +174,17 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
               {addedNotice && (
                 <div className="p-2.5 bg-emerald-100 text-emerald-800 text-xs rounded-xl flex items-center justify-center space-x-2 animate-bounce">
                   <Check className="w-4 h-4 text-emerald-600" />
-                  <span>{language === 'am' ? 'ወደ ትእዛዝ ዝርዝርዎ ተጨምሯል!' : 'Added to your order list!'}</span>
+                  <span>{language === 'am' ? 'ወደ ጋሪዎ ተጨምሯል!' : 'Added to your cart!'}</span>
                 </div>
               )}
 
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={handleAdd}
-                  className="w-full py-3.5 rounded-full bg-[#0F2747] hover:bg-[#142E52] text-[#FAF7F1] text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center space-x-2 shadow-md cursor-pointer"
-                >
-                  <ShoppingCart className="w-4 h-4 text-[#C95A1A]" />
-                  <span>{t('showcase.order')}</span>
-                </button>
-
-                <button
-                  onClick={handleOrder}
-                  className="w-full py-3.5 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center space-x-2 shadow-md cursor-pointer"
-                >
-                  <span>{t('modal.orderNow')}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+              <button
+                onClick={handleAdd}
+                className="w-full py-3.5 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center space-x-2 shadow-md cursor-pointer"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                <span>{t('showcase.addToCart')}</span>
+              </button>
             </div>
 
           </div>

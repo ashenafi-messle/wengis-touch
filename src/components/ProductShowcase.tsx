@@ -233,7 +233,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                       className="px-2 py-1 sm:px-4 sm:py-2.5 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-[9px] sm:text-xs font-semibold tracking-wider uppercase transition-colors shadow-md flex items-center space-x-1 cursor-pointer shrink-0"
                     >
                       <ShoppingCart className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
-                      <span className="hidden sm:inline">{t('showcase.order')}</span>
+                      <span className="hidden sm:inline">{t('showcase.addToCart')}</span>
                       <span className="inline sm:hidden">+</span>
                     </button>
                   </div>

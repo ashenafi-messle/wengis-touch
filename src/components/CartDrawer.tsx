@@ -35,7 +35,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           <div className="flex items-center space-x-2">
             <ShoppingCart className="w-5 h-5 text-[#C95A1A]" />
             <span className="font-serif-luxury text-lg font-bold">
-              {language === 'am' ? `የትእዛዝ ዝርዝርዎ (${cart.length})` : `Your Order List (${cart.length})`}
+              {language === 'am' ? `የጋሪዎ (${cart.length})` : `Your Cart (${cart.length})`}
             </span>
           </div>
           <button
