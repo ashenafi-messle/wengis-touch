@@ -296,7 +296,7 @@ export default function App() {
 
         {/* Customer Public Website: Contact Page */}
         {!isLoading && activeTab === 'contact' && (
-          <ContactPage />
+          <ContactPage onBack={() => setActiveTab('home')} />
         )}
 
         {/* Protected Admin Portal */}
@@ -306,6 +306,7 @@ export default function App() {
               <AdminLogin
                 session={adminSession}
                 onLoginSuccess={handleAdminLoginSuccess}
+                onBack={() => setActiveTab('home')}
               />
             ) : (
               <div className="max-w-7xl mx-auto space-y-8">
@@ -385,6 +386,7 @@ export default function App() {
                       setAdminTab('products');
                       setIsAdminAddProductOpen(true);
                     }}
+                    onBack={() => setActiveTab('home')}
                   />
                 )}
 
@@ -396,6 +398,7 @@ export default function App() {
                     onDeleteProduct={handleDeleteProduct}
                     isAddOpen={isAdminAddProductOpen}
                     setIsAddOpen={setIsAdminAddProductOpen}
+                    onBack={() => setActiveTab('home')}
                   />
                 )}
 
@@ -403,6 +406,7 @@ export default function App() {
                   <AdminOrders
                     orders={orders}
                     onUpdateOrderStatus={handleUpdateOrderStatus}
+                    onBack={() => setActiveTab('home')}
                   />
                 )}
 
@@ -411,6 +415,7 @@ export default function App() {
                     messages={messages}
                     onToggleReadMessage={handleToggleReadMessage}
                     onDeleteMessage={handleDeleteMessage}
+                    onBack={() => setActiveTab('home')}
                   />
                 )}
 

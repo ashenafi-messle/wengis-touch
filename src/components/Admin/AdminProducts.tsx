@@ -3,6 +3,7 @@ import { Product } from '../../types';
 import { Plus, Edit2, Trash2, CheckCircle, XCircle, Search, Sparkles, Image as ImageIcon, Layers, Eye, Upload } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { supabaseAdmin } from '../../../lib/supabase';
+import { BackButton } from '../BackButton';
 const heroImg = '/src/assets/images/wengi_hero_crochet_1785323531326.jpg';
 const toteImg = '/src/assets/images/wengi_crochet_tote_1785323544902.jpg';
 const cardiganImg = '/src/assets/images/wengi_crochet_cardigan_1785323557878.jpg';
@@ -15,6 +16,7 @@ interface AdminProductsProps {
   onDeleteProduct: (id: string) => Promise<void>;
   isAddOpen: boolean;
   setIsAddOpen: (open: boolean) => void;
+  onBack: () => void;
 }
 
 export const AdminProducts: React.FC<AdminProductsProps> = ({
@@ -23,7 +25,8 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
   onUpdateProduct,
   onDeleteProduct,
   isAddOpen,
-  setIsAddOpen
+  setIsAddOpen,
+  onBack
 }) => {
   const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
@@ -130,6 +133,11 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({
 
   return (
     <div className="space-y-4 sm:space-y-6 text-left animate-fadeIn">
+      
+      {/* Back Button */}
+      <div className="mb-4">
+        <BackButton onClick={onBack} />
+      </div>
 
       {/* Header Toolbar */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 bg-[#142E52] p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-[#C95A1A]/30 text-[#FAF7F1]">

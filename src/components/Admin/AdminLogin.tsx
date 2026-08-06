@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Lock, ShieldAlert, ArrowRight } from 'lucide-react';
 import { AdminSession } from '../../types';
+import { BackButton } from '../BackButton';
 
 interface AdminLoginProps {
   session: AdminSession;
   onLoginSuccess: (session: AdminSession) => void;
+  onBack: () => void;
 }
 
-export const AdminLogin: React.FC<AdminLoginProps> = ({ session, onLoginSuccess }) => {
+export const AdminLogin: React.FC<AdminLoginProps> = ({ session, onLoginSuccess, onBack }) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -42,6 +44,11 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ session, onLoginSuccess 
 
   return (
     <div className="py-20 px-4 max-w-md mx-auto text-left animate-fadeIn">
+      {/* Back Button */}
+      <div className="mb-6">
+        <BackButton onClick={onBack} />
+      </div>
+      
       <div className="bg-[#0F2747] text-[#FAF7F1] p-8 rounded-3xl border border-[#C95A1A]/30 shadow-2xl space-y-6">
         
         {/* Header */}

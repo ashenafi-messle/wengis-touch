@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Instagram, MessageCircle, Clock, Sparkles } from 'lucide-react';
 import { Message } from '../types';
 import { useLanguage } from '../context/LanguageContext';
+import { BackButton } from './BackButton';
 
-export const ContactPage: React.FC = () => {
+interface ContactPageProps {
+  onBack: () => void;
+}
+
+export const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
   const { language, t } = useLanguage();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -48,6 +53,11 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="py-6 sm:py-16 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto text-left animate-fadeIn">
+      
+      {/* Back Button */}
+      <div className="mb-4 sm:mb-6">
+        <BackButton onClick={onBack} />
+      </div>
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">

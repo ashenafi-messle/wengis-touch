@@ -23,11 +23,11 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.badge': 'Parisian & Ethiopian High-Fashion Atelier',
-    'hero.title': 'Haute Crochet Artisan Crafted in Paris & Addis',
-    'hero.description': 'Discover exclusive handcrafted crochet totes, luxury lace garments, and botanical textile arrangements woven with master French architectural discipline and Ethiopian heritage.',
+    'hero.title': 'Best Hand made Crochet in Ethiopia',
+    'hero.description': 'Explore our handmade crochet beanies, Shrugs, Durags, Fingerless gloves and more ,made for your everyday style!',
     'hero.exploreBtn': 'Explore Collection',
     'hero.customRequestBtn': 'Request Custom Piece',
-    'hero.handcrafted': '100% Handcrafted',
+    'hero.handcrafted': 'crochet with',
     'hero.masterArtisan': 'Master Artisan',
 
     // Hero rotating products
@@ -57,8 +57,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Showcase
     'showcase.subtitle': 'Handcrafted Luxury',
-    'showcase.title': 'Bespoke Crochet Collections',
-    'showcase.desc': 'Explore our limited-edition handcrafted pieces woven with organic cotton yarns and luxury merino blends.',
+    'showcase.title': 'Our crochet 🧶 collection',
+    'showcase.desc': '',
     'showcase.cat.all': 'All Pieces',
     'showcase.cat.bags': 'Bags & Totes',
     'showcase.cat.garments': 'Haute Garments',
@@ -286,11 +286,11 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.badge': 'የፓሪስ እና የኢትዮጵያ ከፍተኛ ደረጃ የክሮሼት አቴሌየር',
-    'hero.title': 'በእጅ የተሰሩ ከፍተኛ ደረጃ የክሮሼት ጥበቦች',
-    'hero.description': 'በፓሪስ የህንጻ ጥበብ እና በኢትዮጵያ ባህላዊ የእጅ ጥበብ ቅርስ በተፈጥሮ ጥጥ በእጅ የተሰሩ ልዩ የክሮሼት ቦርሳዎች፣ አልባሳት እና የጌጣጌጥ ውጤቶችን ያግኙ።',
+    'hero.title': 'በኢትዮጵያ የእጅ የተሰሩ የክሮሼት ምርቶች በጣም ጥሩ',
+    'hero.description': 'የእጅ የተሰሩ የክሮሼት ቢኒዎች፣ ሹርጊዎች፣ ዱራጎች፣ ያሉት እጃቸው የሌለው ጓንትሎች እና ሌሎችንም ይመልከቱ፣ ለየዓመቱ የእርስዎ ዘይቤ የተሰሩ!',
     'hero.exploreBtn': 'ስብስቡን ይመልከቱ',
     'hero.customRequestBtn': 'ልዩ ትእዛዝ ይጠይቁ',
-    'hero.handcrafted': '100% በእጅ የተሰራ',
+    'hero.handcrafted': 'ከክሮሼት ጋር',
     'hero.masterArtisan': 'ባለሙያ የክሮሼት አርቲስት',
 
     // Hero rotating products
@@ -320,8 +320,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Showcase
     'showcase.subtitle': 'በእጅ የተሰራ የቅንጦት ጥበብ',
-    'showcase.title': 'ልዩ የተመረጡ የክሮሼት ስብስቦች',
-    'showcase.desc': 'በተፈጥሮ ጥጥ እና ከፍተኛ ጥራት ባላቸው ፈትሎች በእጅ የተሰሩ የክሮሼት ስብስቦቻችንን ይመልከቱ።',
+    'showcase.title': 'የእኛ የክሮሼት ስብስብ 🧶',
+    'showcase.desc': '',
     'showcase.cat.all': 'ሁሉም ምርቶች',
     'showcase.cat.bags': 'ቦርሳዎች',
     'showcase.cat.garments': 'አልባሳት',

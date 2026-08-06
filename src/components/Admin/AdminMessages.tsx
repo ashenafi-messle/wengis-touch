@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import { Message } from '../../types';
 import { Mail, Trash2, CheckCircle2, MessageSquare, Phone, Clock, Search, Eye } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { BackButton } from '../BackButton';
 
 interface AdminMessagesProps {
   messages: Message[];
   onToggleReadMessage: (id: string, currentRead: boolean) => Promise<void>;
   onDeleteMessage: (id: string) => Promise<void>;
+  onBack: () => void;
 }
 
 export const AdminMessages: React.FC<AdminMessagesProps> = ({
   messages,
   onToggleReadMessage,
-  onDeleteMessage
+  onDeleteMessage,
+  onBack
 }) => {
   const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,6 +36,11 @@ export const AdminMessages: React.FC<AdminMessagesProps> = ({
 
   return (
     <div className="space-y-4 sm:space-y-6 text-left animate-fadeIn">
+      
+      {/* Back Button */}
+      <div className="mb-4">
+        <BackButton onClick={onBack} />
+      </div>
 
       {/* Header */}
       <div className="bg-[#142E52] p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#C95A1A]/30 text-[#FAF7F1] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">

@@ -119,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="grid grid-cols-2 gap-1.5 sm:gap-4 py-1.5 sm:py-3 border-y border-[#FAF7F1]/10 text-left">
             <div>
               <span className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] block">{t('hero.handcrafted')}</span>
-              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Acrylic Yarn</span>
+              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Acrylic yarn</span>
             </div>
             <div>
               <span className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] block">{t('hero.masterArtisan')}</span>

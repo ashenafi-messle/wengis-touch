@@ -3,6 +3,7 @@ import { Product, Order, Message } from '../../types';
 import { ShoppingCart, CheckCircle, Clock, DollarSign, MessageSquare, Plus, ArrowUpRight, TrendingUp, Package } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { formatCurrency } from '../../utils/currency';
+import { BackButton } from '../BackButton';
 
 interface AdminDashboardProps {
   products: Product[];
@@ -10,6 +11,7 @@ interface AdminDashboardProps {
   messages: Message[];
   onNavigateTab: (tab: 'products' | 'orders' | 'messages') => void;
   onOpenAddProduct: () => void;
+  onBack: () => void;
 }
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({
@@ -17,7 +19,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   orders,
   messages,
   onNavigateTab,
-  onOpenAddProduct
+  onOpenAddProduct,
+  onBack
 }) => {
   const { t } = useLanguage();
   const totalProducts = products.length;
@@ -32,6 +35,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
   return (
     <div className="space-y-4 sm:space-y-8 text-left animate-fadeIn">
+      
+      {/* Back Button */}
+      <div className="mb-4">
+        <BackButton onClick={onBack} />
+      </div>
 
       {/* Overview Metric Banner Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-5">

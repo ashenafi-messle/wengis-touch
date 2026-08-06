@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Heart, Shield, Award, Feather } from 'lucide-react';
+import { Sparkles, Heart, Shield, Award } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const heroImg = 'https://res.cloudinary.com/dr9umkixr/image/upload/v1785740760/5999336664565747219_lwjry4.jpg';
@@ -18,43 +18,29 @@ export const BrandStory: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center">
           
           {/* Visual Showcase Collage - Compact 2-column flex on mobile */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-2.5 sm:gap-4">
-            <div className="space-y-2.5 sm:space-y-4">
-              <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
-                <img
-                  src={heroImg}
-                  alt="Wengi Atelier Craft"
-                  className="w-full h-36 sm:h-72 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="bg-[#142E52] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[#C95A1A]/20 text-left">
-                <Feather className="w-4 h-4 sm:w-6 sm:h-6 text-[#C95A1A] mb-1 sm:mb-2" />
-                <h4 className="font-serif-luxury text-xs sm:text-lg font-bold text-[#FAF7F1]">
-                  {language === 'am' ? 'ህንፃዊ ሌስ ሽመና' : 'Architectural Lace'}
-                </h4>
-                <p className="text-[10px] sm:text-xs text-[#D8C3A5] font-light mt-0.5 line-clamp-2 sm:line-clamp-none">
-                  {language === 'am' ? 'ከፈረንሳይ ፓሪስ አርኪቴክቸር ጥበብ የተወሰደ' : 'Inspired by classic Parisian stone arches & lace balconies.'}
-                </p>
-              </div>
+          <div className="lg:col-span-6 space-y-2.5 sm:space-y-4">
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
+              <img
+                src={heroImg}
+                alt="Wengi Atelier Craft"
+                className="w-full h-36 sm:h-72 object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-
-            <div className="space-y-2.5 sm:space-y-4 sm:pt-8">
-              <div className="bg-[#142E52] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[#C95A1A]/20 text-left">
-                <Award className="w-4 h-4 sm:w-6 sm:h-6 text-[#C95A1A] mb-1 sm:mb-2" />
-                <h4 className="font-serif-luxury text-xs sm:text-lg font-bold text-[#FAF7F1]">
-                  {language === 'am' ? 'ተፈጥሯዊ የቅንጦት ጥበብ' : 'Ethical Luxury'}
-                </h4>
-                <p className="text-[10px] sm:text-xs text-[#D8C3A5] font-light mt-0.5 line-clamp-2 sm:line-clamp-none">
-                  {language === 'am' ? '100% ተፈጥሯዊ የአክሪሊክ ጥጥ' : '100% natural acrylic yarn.'}
-                </p>
-              </div>
-              <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
-                <img
-                  src={flowersImg}
-                  alt="Crochet Floral Art"
-                  className="w-full h-32 sm:h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+            <div className="bg-[#142E52] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[#C95A1A]/20 text-left">
+              <Award className="w-4 h-4 sm:w-6 sm:h-6 text-[#C95A1A] mb-1 sm:mb-2" />
+              <h4 className="font-serif-luxury text-xs sm:text-lg font-bold text-[#FAF7F1]">
+                {language === 'am' ? 'ተፈጥሯዊ የቅንጦት ጥበብ' : 'Ethical Luxury'}
+              </h4>
+              <p className="text-[10px] sm:text-xs text-[#D8C3A5] font-light mt-0.5 line-clamp-2 sm:line-clamp-none">
+                {language === 'am' ? '100% ተፈጥሯዊ የአክሪሊክ ጥጥ' : '100% natural acrylic yarn.'}
+              </p>
+            </div>
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
+              <img
+                src={flowersImg}
+                alt="Crochet Floral Art"
+                className="w-full h-32 sm:h-64 object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </div>
 
