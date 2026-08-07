@@ -38,23 +38,42 @@ export const Navbar: React.FC<NavbarProps> = ({
           <motion.div
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center space-x-2 sm:space-x-3 cursor-pointer group select-none"
+            className="flex items-center space-x-3 sm:space-x-4 cursor-pointer group select-none"
             onClick={() => setActiveTab('home')}
           >
             <motion.div
               animate={{
-                rotate: [0, 8, -8, 0],
-                scale: [1, 1.08, 1],
-                boxShadow: [
-                  "0 0 0px rgba(201,90,26,0)",
-                  "0 0 16px rgba(201,90,26,0.5)",
-                  "0 0 0px rgba(201,90,26,0)"
+                rotate: [0, 5, -5, 0],
+                scale: [1, 1.05, 1],
+                filter: [
+                  "brightness(1) saturate(1)",
+                  "brightness(1.1) saturate(1.2)",
+                  "brightness(1) saturate(1)"
                 ]
               }}
-              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#C95A1A] flex items-center justify-center text-[#FAF7F1] shadow-md border border-[#F3E7D3]/30 shrink-0"
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-[#C95A1A]/50 shrink-0 relative"
             >
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse text-[#FAF7F1]" />
+              <motion.img
+                src="/logo.jpg"
+                alt="Wengi's Touch Logo"
+                className="w-full h-full object-cover"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                animate={{
+                  boxShadow: [
+                    "inset 0 0 0px rgba(201,90,26,0)",
+                    "inset 0 0 20px rgba(201,90,26,0.3)",
+                    "inset 0 0 0px rgba(201,90,26,0)"
+                  ]
+                }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              />
             </motion.div>
 
             <motion.div
@@ -64,15 +83,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex flex-col text-left"
             >
               <motion.span
-                animate={{ y: [0, -1.5, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                className="font-serif-luxury text-base sm:text-2xl font-bold tracking-wider text-[#FAF7F1] block group-hover:text-[#C95A1A] transition-colors leading-tight"
+                animate={{
+                  y: [0, -2, 0],
+                  color: [
+                    "#FAF7F1",
+                    "#C95A1A",
+                    "#F3E7D3",
+                    "#FAF7F1"
+                  ]
+                }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                className="font-serif-luxury text-lg sm:text-3xl font-bold tracking-wider leading-tight"
               >
-                Wengi's <span className="italic font-normal text-[#F3E7D3] group-hover:text-[#FAF7F1] transition-colors">Touch</span>
+                Wengi's <span className="italic font-normal">Touch</span>
               </motion.span>
-              <span className="text-[8px] sm:text-[10px] tracking-[0.22em] text-[#D8C3A5] uppercase block font-medium hidden sm:block">
-                Haute Crochet Atelier
-              </span>
             </motion.div>
           </motion.div>
 
@@ -224,6 +248,49 @@ export const Navbar: React.FC<NavbarProps> = ({
             transition={{ duration: 0.3 }}
             className="md:hidden bg-[#0F2747] border-b border-[#C95A1A]/30 px-4 sm:px-5 pt-2 sm:pt-3 pb-4 sm:pb-6 space-y-2 sm:space-y-3 overflow-hidden"
           >
+            {/* Animated Logo in Mobile Menu */}
+            <motion.div
+              animate={{
+                scale: [1, 1.05, 1],
+                filter: [
+                  "brightness(1) saturate(1)",
+                  "brightness(1.1) saturate(1.2)",
+                  "brightness(1) saturate(1)"
+                ]
+              }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="flex justify-center mb-4"
+            >
+              <motion.div
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="w-20 h-20 rounded-full overflow-hidden shadow-lg border-2 border-[#C95A1A]/50 relative"
+              >
+                <motion.img
+                  src="/logo.jpg"
+                  alt="Wengi's Touch Logo"
+                  className="w-full h-full object-cover"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full"
+                  animate={{
+                    boxShadow: [
+                      "inset 0 0 0px rgba(201,90,26,0)",
+                      "inset 0 0 20px rgba(201,90,26,0.3)",
+                      "inset 0 0 0px rgba(201,90,26,0)"
+                    ]
+                  }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                />
+              </motion.div>
+            </motion.div>
+
             {/* Language Selection in Mobile Menu */}
             <div className="flex items-center justify-between pb-3 border-b border-[#C95A1A]/20">
               <span className="text-xs text-[#D8C3A5] font-semibold flex items-center space-x-1.5">

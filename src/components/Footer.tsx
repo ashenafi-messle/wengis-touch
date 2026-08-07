@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Mail, ArrowRight, Heart, Code, Phone, User } from 'lucide-react';
+import { Mail, ArrowRight, Heart, Code, Phone, User } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
@@ -37,19 +37,54 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             onClick={() => setActiveTab('home')}
           >
             <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#C95A1A] flex items-center justify-center text-[#FAF7F1] shadow-md border border-[#F3E7D3]/30 shrink-0"
+              animate={{
+                rotate: [0, 5, -5, 0],
+                scale: [1, 1.05, 1],
+                filter: [
+                  "brightness(1) saturate(1)",
+                  "brightness(1.1) saturate(1.2)",
+                  "brightness(1) saturate(1)"
+                ]
+              }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-lg border-2 border-[#C95A1A]/50 shrink-0 relative"
             >
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F1]" />
+              <motion.img
+                src="/logo.jpg"
+                alt="Wengi's Touch Logo"
+                className="w-full h-full object-cover"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                animate={{
+                  boxShadow: [
+                    "inset 0 0 0px rgba(201,90,26,0)",
+                    "inset 0 0 20px rgba(201,90,26,0.3)",
+                    "inset 0 0 0px rgba(201,90,26,0)"
+                  ]
+                }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              />
             </motion.div>
             <div className="flex flex-col text-left">
-              <span className="font-serif-luxury text-lg sm:text-2xl font-bold tracking-wider text-[#FAF7F1] block">
-                {language === 'am' ? 'ወንጊስ' : 'Wengi\'s'} <span className="italic font-normal text-[#F3E7D3]">{language === 'am' ? 'ታች' : 'Touch'}</span>
-              </span>
-              <span className="text-[8px] sm:text-[10px] tracking-[0.22em] text-[#D8C3A5] uppercase block font-medium">
-                {language === 'am' ? 'የእጅ የክሮሼት ጥበብ አቴሊየር' : 'Haute Crochet Atelier'}
-              </span>
+              <motion.span
+                animate={{
+                  color: [
+                    "#FAF7F1",
+                    "#C95A1A",
+                    "#F3E7D3",
+                    "#FAF7F1"
+                  ]
+                }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                className="font-serif-luxury text-lg sm:text-2xl font-bold tracking-wider block"
+              >
+                {language === 'am' ? 'ወንጊስ' : 'Wengi\'s'} <span className="italic font-normal">{language === 'am' ? 'ታች' : 'Touch'}</span>
+              </motion.span>
             </div>
           </motion.div>
 

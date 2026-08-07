@@ -22,7 +22,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.orderList': 'Order List',
 
     // Hero
-    'hero.badge': 'Parisian & Ethiopian High-Fashion Atelier',
+    'hero.badge': 'Best Handmade Crochet in Ethiopia',
     'hero.title': 'Best Hand made Crochet in Ethiopia',
     'hero.description': 'Explore our handmade crochet beanies, Shrugs, Durags, Fingerless gloves and more ,made for your everyday style!',
     'hero.exploreBtn': 'Explore Collection',
@@ -150,7 +150,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hoursVal': 'Monday - Saturday: 9:00 AM - 7:00 PM',
 
     // Footer
-    'footer.tagline': 'High-end handcrafted crochet handbags, garments, and floral textile sculptures.',
+    'footer.tagline': 'Handmade crochet beanies, shrugs, durags, fingerless gloves and more for your everyday style.',
     'footer.quickNav': 'Quick Navigation',
     'footer.gazette': 'Atelier Gazette',
     'footer.gazetteDesc': 'Receive exclusive preview invites to new collection drops and bespoke releases.',
@@ -285,7 +285,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.orderList': 'የትእዛዝ ዝርዝር',
 
     // Hero
-    'hero.badge': 'የፓሪስ እና የኢትዮጵያ ከፍተኛ ደረጃ የክሮሼት አቴሌየር',
+    'hero.badge': 'በኢትዮጵያ የእጅ የተሰሩ የክሮሼት ምርቶች በጣም ጥሩ',
     'hero.title': 'በኢትዮጵያ የእጅ የተሰሩ የክሮሼት ምርቶች በጣም ጥሩ',
     'hero.description': 'የእጅ የተሰሩ የክሮሼት ቢኒዎች፣ ሹርጊዎች፣ ዱራጎች፣ ያሉት እጃቸው የሌለው ጓንትሎች እና ሌሎችንም ይመልከቱ፣ ለየዓመቱ የእርስዎ ዘይቤ የተሰሩ!',
     'hero.exploreBtn': 'ስብስቡን ይመልከቱ',
@@ -412,7 +412,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hoursVal': 'ሰኞ - ቅዳሜ፡ ከጠዋቱ 3:00 - ከሰአት 1:00',
 
     // Footer
-    'footer.tagline': 'በእጅ የተሰሩ ከፍተኛ ደረጃ የክሮሼት ቦርሳዎች፣ አልባሳት እና አበቦች።',
+    'footer.tagline': 'የእጅ የተሰሩ የክሮሼት ቢኒዎች፣ ሹርጊዎች፣ ዱራጎች፣ ያሉት እጃቸው የሌለው ጓንትሎች እና ሌሎችንም ለየዓመቱ የእርስዎ ዘይቤ የተሰሩ!',
     'footer.quickNav': 'ፈጣን ማውጫ',
     'footer.gazette': 'የአቴሌየር ዜና',
     'footer.gazetteDesc': 'ስለ አዳዲስ የምርት ስብስቦች እና ልዩ ቅናሾች መረጃ ለማግኘት ይመዝገቡ።',
