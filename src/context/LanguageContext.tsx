@@ -23,7 +23,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.badge': 'Best Handmade Crochet in Ethiopia',
-    'hero.title': 'Best Hand made Crochet in Ethiopia',
+    'hero.title': 'Crafted in Ethiopia',
     'hero.description': 'Explore our handmade crochet beanies, Shrugs, Durags, Fingerless gloves and more ,made for your everyday style!',
     'hero.exploreBtn': 'Explore Collection',
     'hero.customRequestBtn': 'Request Custom Piece',
