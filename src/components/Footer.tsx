@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <div className="flex items-center gap-2 pt-1">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border border-[#C95A1A]/40 shadow-sm shrink-0">
               <img
-                src="https://res.cloudinary.com/oydsg6yc/image/upload/v1791528555/ee6fe89a61780d65c8c1f2aa501c3470.jpg"
+                src="https://res.cloudinary.com/oydsg6yc/image/upload/v1791546044/5926965701123970020.jpg"
                 alt="Wengi Atelier Craft"
                 loading="lazy"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
