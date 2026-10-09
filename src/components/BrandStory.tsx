@@ -2,7 +2,7 @@ import React from 'react';
 import { Sparkles, Heart, Shield, Award } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const heroImg = 'https://res.cloudinary.com/oydsg6yc/image/upload/v1791528555/ee6fe89a61780d65c8c1f2aa501c3470.jpg';
+const heroImg = 'https://res.cloudinary.com/oydsg6yc/image/upload/v1791546044/5926965701123970020.jpg';
 const flowersImg = 'https://res.cloudinary.com/oydsg6yc/image/upload/v1791528542/5ed8cbca7e257097c4672381d8b0a7a2.jpg';
 
 export const BrandStory: React.FC = () => {
@@ -30,10 +30,10 @@ export const BrandStory: React.FC = () => {
             <div className="bg-[#142E52] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[#C95A1A]/20 text-left">
               <Award className="w-4 h-4 sm:w-6 sm:h-6 text-[#C95A1A] mb-1 sm:mb-2" />
               <h4 className="font-serif-luxury text-xs sm:text-lg font-bold text-[#FAF7F1]">
-                {language === 'am' ? 'የእጅ የተሰሩ የጥበብ ስራዎች' : 'Ethical Luxury'}
+                {language === 'am' ? 'በእጅ የተሰሩ ስራዎች' : 'Ethical Luxury'}
               </h4>
               <p className="text-[10px] sm:text-xs text-[#D8C3A5] font-light mt-0.5 line-clamp-2 sm:line-clamp-none">
-                {language === 'am' ? '100% ተፈጥሯዊ የአክሪሊክ ጥጥ' : 'acrylic and polyester yarn'}
+                {language === 'am' ? '100% ተፈጥሯዊ የአክሪሊክ ጥጥ' : '100% acrylic and polyester yarn.'}
               </p>
             </div>
             <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
