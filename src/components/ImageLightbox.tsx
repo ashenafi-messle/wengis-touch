@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getZoomImageUrl } from '../utils/imageOptimizer';
 
 interface ImageLightboxProps {
   images: string[];
@@ -58,7 +59,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <img
-          src={images[currentIndex] || images[0]}
+          src={getZoomImageUrl(images[currentIndex] || images[0])}
           alt={`${alt} ${currentIndex + 1}`}
           className="w-full h-full object-contain rounded-2xl shadow-2xl"
           referrerPolicy="no-referrer"

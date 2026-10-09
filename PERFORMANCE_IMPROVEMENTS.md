@@ -57,9 +57,9 @@ npm install @tanstack/react-query
 - Implement virtual scrolling for large lists
 
 ### 10. **Database Optimization**
-- Add proper indexes to Supabase tables
-- Use Supabase Realtime for live updates
-- Implement edge functions for compute-heavy operations
+- Add proper indexes to Neon PostgreSQL tables
+- Use connection pooling for efficient serverless queries
+- Implement prepared statements and cached queries
 
 ### 11. **Bundle Analysis**
 ```bash
@@ -70,17 +70,16 @@ npm install @next/bundle-analyzer
 
 ### 12. **CDN for Static Assets**
 - Serve images from CDN
-- Use Supabase Storage with CDN
+- Optimize local uploads and static media delivery
 - Consider Cloudflare or AWS CloudFront
 
 ## Next Steps to Implement
 
 1. **Install React Query** for better data fetching
-2. **Add Supabase Realtime** for live order updates
-3. **Implement code splitting** between admin and customer sections
-4. **Add bundle analyzer** to identify large dependencies
-5. **Optimize images** (compress before upload)
-6. **Consider edge deployment** (Vercel Edge Functions)
+2. **Implement code splitting** between admin and customer sections
+3. **Add bundle analyzer** to identify large dependencies
+4. **Optimize images** (compress before upload)
+5. **Consider edge deployment** (Vercel Edge Functions)
 
 ## Performance Monitoring
 

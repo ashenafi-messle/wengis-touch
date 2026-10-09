@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, message: 'Password is required' }, { status: 400 });
     }
     
-    // Verify password against Supabase
+    // Verify password against database
     const isValid = await dbAdmin.verifyPassword(password);
     
     if (isValid) {

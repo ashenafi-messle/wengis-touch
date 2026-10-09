@@ -1,6 +1,6 @@
 # Wengi's Touch - Full-Stack E-Commerce Application
 
-A beautiful, full-stack Next.js e-commerce application for handcrafted crochet products, now powered by Supabase for data persistence.
+A beautiful, full-stack Next.js e-commerce application for handcrafted crochet products, powered by Neon PostgreSQL for robust data persistence.
 
 ## Features
 
@@ -11,13 +11,13 @@ A beautiful, full-stack Next.js e-commerce application for handcrafted crochet p
 - **Multi-language Support**: English and Amharic (Ethiopian) language support
 - **Ethiopian Birr Currency**: All prices displayed in ETB (ብር)
 - **Responsive Design**: Beautiful UI that works on all devices
-- **Real-time Database**: Powered by Supabase for reliable data storage
+- **PostgreSQL Database**: Powered by Neon PostgreSQL for scalable serverless database operations
 
 ## Tech Stack
 
 - **Frontend**: Next.js 15, React 19, TypeScript
 - **Styling**: Tailwind CSS
-- **Database**: Supabase (PostgreSQL)
+- **Database**: Neon PostgreSQL (`pg` with connection pooling)
 - **Icons**: Lucide React
 - **Animations**: Motion (Framer Motion)
 
@@ -26,7 +26,7 @@ A beautiful, full-stack Next.js e-commerce application for handcrafted crochet p
 ### Prerequisites
 
 - Node.js 18+ and npm
-- A Supabase account (free tier works)
+- A Neon PostgreSQL database account or connection string
 - Git
 
 ### Installation
@@ -42,23 +42,22 @@ A beautiful, full-stack Next.js e-commerce application for handcrafted crochet p
    npm install
    ```
 
-3. Set up Supabase:
-   - Follow the detailed setup guide in [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
-   - Create a Supabase project
-   - Run the database schema from `supabase-schema.sql`
-   - Configure your environment variables
+3. Set up Neon PostgreSQL:
+   - Create a project on [Neon](https://neon.tech)
+   - Copy your connection string into `.env` as `DATABASE_URL`
+   - Run the schema migration:
+     ```bash
+     node scripts/migrate-data-to-neon.js
+     ```
 
 4. Set up environment variables:
    ```bash
-   cp .env.example .env.local
+   cp .env.example .env
    ```
    
-   Edit `.env.local` with your Supabase credentials:
+   Edit `.env` with your Neon connection string:
    ```env
-   NEXT_PUBLIC_SUPABASE_URL=your-project-url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-   SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-   ADMIN_PASSWORD=wengi123
+   DATABASE_URL=postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=require
    ```
 
 5. Run the development server:
@@ -77,7 +76,9 @@ wengi's-touch/
 │   │   ├── products/       # Product CRUD endpoints
 │   │   ├── orders/         # Order management endpoints
 │   │   ├── messages/       # Contact message endpoints
-│   │   └── admin/          # Admin authentication
+│   │   ├── admin/          # Admin authentication
+│   │   ├── health/         # Health check & database connection test
+│   │   └── upload/         # Media upload endpoint
 │   ├── layout.tsx          # Root layout
 │   └── page.tsx            # Home page
 ├── src/
@@ -94,26 +95,33 @@ wengi's-touch/
 │   │   └── currency.ts    # Currency formatting
 │   └── data/              # Initial data
 ├── lib/                   # Library files
-│   ├── supabase.ts       # Supabase client configuration
+│   ├── neon.ts           # Neon PostgreSQL connection pool
 │   ├── db.ts             # Database operations
-│   └── store.ts          # Legacy in-memory store (deprecated)
-├── supabase-schema.sql   # Database schema
-├── .env.example          # Environment variables template
-└── SUPABASE_SETUP.md     # Detailed Supabase setup guide
+│   └── store.ts          # Legacy in-memory store
+├── scripts/
+│   ├── migrate-data-to-neon.js      # Migration script
+│   └── test-neon-db.js              # Database test script
+├── neon-schema.sql        # Database schema
+└── .env.example           # Environment variables template
 ```
 
 ## Database Schema
 
-The application uses four main tables:
+The application uses five main tables:
 
-- **products**: Product information with colors, sizes, materials
+- **products**: Product information with colors, categories, and images
 - **orders**: Customer orders with status tracking
 - **order_items**: Individual items within orders
 - **messages**: Contact form submissions
+- **admin_settings**: Admin password management
 
-See [supabase-schema.sql](./supabase-schema.sql) for the complete schema definition.
+See [neon-schema.sql](./neon-schema.sql) for the complete schema definition.
 
 ## API Endpoints
+
+### Health
+- `GET /api/health` - Basic health check
+- `GET /api/health/database` - Neon PostgreSQL connection verification
 
 ### Products
 - `GET /api/products` - Get all products
@@ -134,86 +142,13 @@ See [supabase-schema.sql](./supabase-schema.sql) for the complete schema definit
 
 ### Admin
 - `POST /api/admin/login` - Admin authentication
+- `POST /api/admin/initialize` - Admin password initialization
 
-## Admin Panel
-
-Access the admin panel by clicking the admin link in the footer or navigating to `/admin`.
-
-**Default credentials:**
-- Username: `admin` or `wengi`
-- Password: `wengi123` (configurable via `ADMIN_PASSWORD` env var)
-
-## Currency
-
-All prices are displayed in Ethiopian Birr (ETB):
-- Format: `ETB 1,234` or `1,234 ብር`
-- Stored as numbers in the database
-- Formatted using the `formatCurrency` utility function
-
-## Language Support
-
-The application supports:
-- English (en)
-- Amharic (am) - Ethiopian language
-
-Language can be toggled via the language switcher in the navigation.
-
-## Building for Production
-
-```bash
-npm run build
-npm start
-```
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import project in Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy
-
-### Other Platforms
-
-The application can be deployed to any platform that supports Next.js:
-- Netlify
-- Railway
-- AWS
-- Digital Ocean
-- etc.
+### Upload
+- `POST /api/upload` - Product image upload endpoint
 
 ## Environment Variables
 
 Required environment variables:
 
-- `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anon key
-- `SUPABASE_SERVICE_ROLE_KEY` - Your Supabase service role key
-- `ADMIN_PASSWORD` - Admin panel password
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is proprietary software. All rights reserved.
-
-## Support
-
-For detailed Supabase setup instructions, see [SUPABASE_SETUP.md](./SUPABASE_SETUP.md).
-
-For issues or questions, please contact the development team.
-
-## Acknowledgments
-
-- Beautiful crochet products by Wengi
-- Built with modern web technologies
-- Powered by Supabase and Next.js
+- `DATABASE_URL` - Neon PostgreSQL connection string (Server-side only)

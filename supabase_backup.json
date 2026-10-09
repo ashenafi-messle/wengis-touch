@@ -1,0 +1,2497 @@
+{
+  "products": [
+    {
+      "id": "2a02fe8f-ac83-4608-8a89-9df60d9fd776",
+      "title": "Cat beanies",
+      "category": "cat beanies",
+      "description": "Men’s edition ",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673419364-IMG_6787.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T05:43:40.696764+00:00",
+      "updated_at": "2026-10-04T06:21:31.261746+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3b50f82b-9016-4495-a62d-a8cd64c90f4f",
+      "title": "Beanie with a cross",
+      "category": "beanies",
+      "description": "Need some touch",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788643392520-IMG_6766.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:23:14.825011+00:00",
+      "updated_at": "2026-10-04T06:24:32.827582+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "26a9c66f-de6d-4b5d-8853-86070a1c889b",
+      "title": "3",
+      "category": "checkered beanies",
+      "description": "all varities",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785757862751-a12087ca4fdd5ca684e60ff6e9f81665.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:51:09.641424+00:00",
+      "updated_at": "2026-10-04T07:07:05.511939+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d5701424-3d2b-4af9-aa79-c59c2b61ad83",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "all varities",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785758183475-47083013026e6dccc8cfa2f939923b4e.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:56:29.458451+00:00",
+      "updated_at": "2026-08-24T13:58:24.988679+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "63390531-5043-4f18-8ecb-ddba80580f09",
+      "title": "1",
+      "category": "checkered beanies",
+      "description": "all varities",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785757768995-8841878010f2ab95037e33d7f7f63861.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:49:36.477163+00:00",
+      "updated_at": "2026-10-04T07:07:46.727829+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "da2f34a5-6442-4ebe-9c7c-86b67b67e720",
+      "title": "2",
+      "category": "checkered beanies",
+      "description": "all varities",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785757820076-e631335fd4c14b60d1836d522d45ed7e.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:50:28.2839+00:00",
+      "updated_at": "2026-10-04T07:08:02.319288+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "64729ecd-e591-40ed-ad9d-75fab4c60d63",
+      "title": "B",
+      "category": "bandana",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715684385-IMG_6802.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:28:05.615549+00:00",
+      "updated_at": "2026-10-04T08:27:25.366686+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "b674f958-97e2-4d66-9c66-e7e81ea615d1",
+      "title": "G",
+      "category": "bandana",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715558508-IMG_6811.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:25:59.774572+00:00",
+      "updated_at": "2026-10-04T08:28:11.239348+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3a31c9b1-e317-435b-8008-2c51017c3c79",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "B",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642541554-IMG_6713.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:09:03.754152+00:00",
+      "updated_at": "2026-10-04T08:37:48.471228+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "43f84c16-560f-453a-a34f-54d43b2b140c",
+      "title": "1",
+      "category": "gloves",
+      "description": "black and white ",
+      "price": 500,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785749644281-5999336664565747225.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T09:34:11.896106+00:00",
+      "updated_at": "2026-10-04T08:48:30.889895+00:00",
+      "color": null,
+      "colors": "black"
+    },
+    {
+      "id": "fa5913f5-7733-4af0-8069-c9d76c251067",
+      "title": "Mesh cap",
+      "category": "mesh cap",
+      "description": "all varities",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785855770648-IMG_6224.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:07:19.540185+00:00",
+      "updated_at": "2026-08-04T15:02:52.404274+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f845f3a7-e1c0-4808-a250-415d8871ef4a",
+      "title": "3",
+      "category": "mesh cap",
+      "description": "white",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785755118133-23cb3e64dd673acdf71364b6e0a0519e.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:05:26.510073+00:00",
+      "updated_at": "2026-08-03T11:05:26.510073+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "c0eb3b69-5e0f-4afc-adb5-5ab1f7310369",
+      "title": "4",
+      "category": "mesh cap",
+      "description": "all varities",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785755156010-552244c683c7878ac8b2b4d292c40a79.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:06:02.354724+00:00",
+      "updated_at": "2026-08-03T11:06:02.354724+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "63683407-1db1-4799-8ed5-1cb11fa8698a",
+      "title": "Granny square shrug",
+      "category": "wardrobe",
+      "description": "Brand new",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791106924765-IMG_7356.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T09:42:24.060563+00:00",
+      "updated_at": "2026-10-04T09:49:41.213473+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "a6bfdb0e-8343-4000-9340-2842c032b5ac",
+      "title": "Granny square shrug",
+      "category": "wardrobe",
+      "description": "Brand new ",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791106716110-IMG_7358.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T09:38:38.95319+00:00",
+      "updated_at": "2026-10-04T09:50:50.266322+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "a69b6ffa-24b2-43ba-8f2f-665b49007a4f",
+      "title": "Leg warmers ",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108121438-IMG_7352.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:02:04.634188+00:00",
+      "updated_at": "2026-10-04T10:02:04.634188+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "48f7e654-59d8-42af-b07a-10e979fd71c9",
+      "title": "Leg warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108471970-IMG_7348.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:08:00.991837+00:00",
+      "updated_at": "2026-10-04T10:08:00.991837+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "632868de-4b46-4c16-a403-190998d6fa3e",
+      "title": "Leg warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108695809-IMG_7339.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:11:39.557661+00:00",
+      "updated_at": "2026-10-04T10:11:39.557661+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "07ee89d7-face-4f87-8267-f6259f11a16e",
+      "title": "Cap",
+      "category": "mesh cap",
+      "description": "Made from acrylic yarn for ladies",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785856052470-IMG_6232.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T15:07:35.065107+00:00",
+      "updated_at": "2026-08-04T15:07:35.065107+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f2d8f17d-a00e-425b-a72a-92e64c3f61e9",
+      "title": "Beanies",
+      "category": "slouchy beanies",
+      "description": "Acrylic ",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785856423835-IMG_6251.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T15:13:44.97153+00:00",
+      "updated_at": "2026-08-04T15:13:44.97153+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "def75b9d-e9e1-42d6-9422-1937e22e7312",
+      "title": "2",
+      "category": "slouchy beanies",
+      "description": "Ac",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785862852305-IMG_6256.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:00:53.481235+00:00",
+      "updated_at": "2026-08-04T17:00:53.481235+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f04e20d7-a6ae-4e6d-a3a0-147d9af3b92f",
+      "title": "2",
+      "category": "slouchy beanies",
+      "description": "Wd",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785862927202-IMG_6260.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:02:09.70742+00:00",
+      "updated_at": "2026-08-04T17:02:09.70742+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d3ca5734-80df-4e90-83a2-a9284b530b53",
+      "title": "R",
+      "category": "slouchy beanies",
+      "description": "S",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785862987925-IMG_6253.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:03:09.713828+00:00",
+      "updated_at": "2026-08-04T17:03:09.713828+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "b25328e1-eb14-454f-9cc5-db113ecc0976",
+      "title": "D",
+      "category": "slouchy beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863034495-IMG_6258.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:03:56.081542+00:00",
+      "updated_at": "2026-08-04T17:03:56.081542+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "18decfc3-85f3-499e-99cf-f7402d6f04b4",
+      "title": "W",
+      "category": "slouchy beanies",
+      "description": "T",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863114444-IMG_6252.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:05:16.238363+00:00",
+      "updated_at": "2026-08-04T17:05:16.238363+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "34ce5779-eda0-430b-96d6-122855c09fe9",
+      "title": "S",
+      "category": "slouchy beanies",
+      "description": "D",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863154074-IMG_6262.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:05:55.294377+00:00",
+      "updated_at": "2026-08-04T17:05:55.294377+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "5b4b2e9e-d739-4018-ba1c-bb8ea8f806b0",
+      "title": "F",
+      "category": "slouchy beanies",
+      "description": "B",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863262528-IMG_6255.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:07:45.433358+00:00",
+      "updated_at": "2026-08-04T17:07:45.433358+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "45cdf297-8267-4d85-91f3-1d6112e7284a",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "all varities",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785758124816-7f71547b75e2d2130909a0992bef715f.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:55:31.869426+00:00",
+      "updated_at": "2026-08-24T13:56:51.415359+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "23bb2be7-98a3-43e0-b172-285672c058f6",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "all varities",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785758212149-bb36752c9980af4797556b9e0551c1a1.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:56:59.023129+00:00",
+      "updated_at": "2026-08-24T13:57:34.820136+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "08916b41-bc5a-428b-af92-637fd6ddee08",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "all varities",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785758154178-0f002fb2f979726555cd1adb75333d04.jpg"
+      ],
+      "available": true,
+      "created_at": "2026-08-03T11:56:00.205255+00:00",
+      "updated_at": "2026-08-24T13:58:02.148735+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "866beff9-e8b0-4916-b229-335a0c1630cb",
+      "title": "G",
+      "category": "slouchy beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863291906-IMG_6257.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:08:12.958787+00:00",
+      "updated_at": "2026-08-04T17:08:12.958787+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "70048f86-9bff-487f-84a4-b905fd342525",
+      "title": "F",
+      "category": "slouchy beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863326821-IMG_6249.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:08:47.834066+00:00",
+      "updated_at": "2026-08-04T17:08:47.834066+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3df601b9-91fd-4ba1-b9ed-a868215f242b",
+      "title": "F",
+      "category": "slouchy beanies",
+      "description": "C",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863367217-IMG_6250.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:09:28.66884+00:00",
+      "updated_at": "2026-08-04T17:09:28.66884+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3920ee2d-4f78-4513-a096-22e3561bf0d8",
+      "title": "C",
+      "category": "slouchy beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785863536111-IMG_6156.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T17:12:18.814868+00:00",
+      "updated_at": "2026-08-04T17:12:18.814868+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0d09ec97-06b1-47f1-b589-f7619eb2cf73",
+      "title": "F",
+      "category": "mesh cap",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785866900059-IMG_6228.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:08:22.475858+00:00",
+      "updated_at": "2026-08-04T18:08:22.475858+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "fde1e70d-a56f-4c46-b0a0-5e83f1c2e373",
+      "title": "G",
+      "category": "mesh cap",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785866952017-IMG_6229.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:09:12.970858+00:00",
+      "updated_at": "2026-08-04T18:09:12.970858+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "74c01009-29c0-4270-b5ac-92317df2a582",
+      "title": "G",
+      "category": "mesh cap",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785866984026-IMG_6235.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:09:45.549842+00:00",
+      "updated_at": "2026-08-04T18:09:45.549842+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "99c2b707-a375-45cc-a6d0-10d017e4cf55",
+      "title": "V",
+      "category": "mesh cap",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867015408-IMG_6226.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:10:16.884426+00:00",
+      "updated_at": "2026-08-04T18:10:16.884426+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1932e5ed-764c-4eef-85cf-ac6b8194cacf",
+      "title": "C",
+      "category": "mesh cap",
+      "description": "T",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867065525-IMG_6234.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:11:07.004438+00:00",
+      "updated_at": "2026-08-04T18:11:07.004438+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f8ebb292-2e9c-4fab-ba98-35c8c66d73a7",
+      "title": "G",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867206099-IMG_6198.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:13:28.294501+00:00",
+      "updated_at": "2026-08-04T18:13:28.294501+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d3b88341-1192-4a9b-9bc6-d81b2d5ba02c",
+      "title": "V",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867249384-IMG_6205.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:14:10.38949+00:00",
+      "updated_at": "2026-08-04T18:14:10.38949+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "04a68c9a-a0ef-4af4-8d74-6d18393a7122",
+      "title": "F",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867290753-IMG_6196.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:14:51.612933+00:00",
+      "updated_at": "2026-08-04T18:14:51.612933+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0a75d751-c5a1-4679-95ff-3d1a5fdea35c",
+      "title": "C",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867340077-IMG_6191.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:15:41.484931+00:00",
+      "updated_at": "2026-08-04T18:15:41.484931+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "ce413ac0-85fb-440e-b7bd-7028389ae86b",
+      "title": "G",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867386735-IMG_6183.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:16:28.399727+00:00",
+      "updated_at": "2026-08-04T18:16:28.399727+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "6fb5e06e-1850-411c-9593-20b282f0c98b",
+      "title": "B",
+      "category": "cat beanies",
+      "description": "V",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867421575-IMG_6201.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:17:02.802245+00:00",
+      "updated_at": "2026-08-04T18:17:02.802245+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "ef75d543-b21c-4d50-998d-c5e3072be590",
+      "title": "V",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867462750-IMG_6194.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:17:43.884071+00:00",
+      "updated_at": "2026-08-04T18:17:43.884071+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "acb5fde9-b9de-4ac7-8f9b-1bd09b0b8e05",
+      "title": "B",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867495145-IMG_6199.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:18:16.259187+00:00",
+      "updated_at": "2026-08-04T18:18:16.259187+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "35a423e1-7f02-4a3c-909c-2a94f55d5bec",
+      "title": "V",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867535867-IMG_6184.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:18:57.265976+00:00",
+      "updated_at": "2026-08-04T18:18:57.265976+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "615e19ac-080d-4390-963f-153b930c5f9c",
+      "title": "V",
+      "category": "cat beanies",
+      "description": "T",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867571487-IMG_6202.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:19:32.190028+00:00",
+      "updated_at": "2026-08-04T18:19:32.190028+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "eaf3ba02-e2f2-4b74-b28e-08deb09477b3",
+      "title": "F",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867662099-IMG_6185.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:21:03.469416+00:00",
+      "updated_at": "2026-08-04T18:21:03.469416+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "e56d4985-7477-4ddb-b8de-eed88a370f8c",
+      "title": "G",
+      "category": "cat beanies",
+      "description": "Y",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867697247-IMG_6193.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:21:38.210031+00:00",
+      "updated_at": "2026-08-04T18:21:38.210031+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "23061d37-a196-472f-a1f1-f0fd8f323739",
+      "title": "G",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867733230-IMG_6192.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:22:14.596277+00:00",
+      "updated_at": "2026-08-04T18:22:14.596277+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "99e7ba4c-bc63-4e93-88f9-f5d4a5afd097",
+      "title": "Granny square cat beanies",
+      "category": "cat beanies",
+      "description": "Wearing diffrent",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673444421-IMG_6788.jpeg"
+      ],
+      "available": false,
+      "created_at": "2026-09-06T05:44:06.136259+00:00",
+      "updated_at": "2026-10-04T06:20:35.698687+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "9f79a325-ebd3-423c-9d61-6464796bc1a0",
+      "title": "F",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867772494-IMG_6204.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:22:53.708262+00:00",
+      "updated_at": "2026-10-04T06:33:48.732594+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "71fe250e-8818-4e03-840a-ac4d5d61ecf2",
+      "title": "F",
+      "category": "cat beanies",
+      "description": "F",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867608557-IMG_6186.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:20:09.745638+00:00",
+      "updated_at": "2026-10-04T06:34:13.390467+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0fb35cc3-80c4-4106-86a8-a4077f7d9509",
+      "title": "Granny square beanies ",
+      "category": "beanies",
+      "description": "H",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788643449485-IMG_6720.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:24:11.333552+00:00",
+      "updated_at": "2026-10-04T07:08:51.354259+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "c8ba512f-71b6-44e0-9fa4-9a5734f75187",
+      "title": "X",
+      "category": "bandana",
+      "description": "F",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715708749-IMG_6801.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:28:30.227209+00:00",
+      "updated_at": "2026-10-04T08:27:11.991415+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "adfeb59e-3f9f-4f62-89be-8701b5263652",
+      "title": "B",
+      "category": "bandana",
+      "description": "G",
+      "price": 500,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715590976-IMG_6808.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:26:32.539246+00:00",
+      "updated_at": "2026-10-04T08:29:20.787665+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "2e2ba0d2-2a97-41a9-8f2f-a6e079f9be76",
+      "title": "F",
+      "category": "gloves",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867125027-IMG_6206.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:12:06.186563+00:00",
+      "updated_at": "2026-10-04T08:47:35.878537+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "bdd3991c-f45f-419f-8346-d98d7611b43d",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "B",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642593342-IMG_6710.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:09:55.015424+00:00",
+      "updated_at": "2026-10-04T08:33:56.490467+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "5625bc33-4f9e-4a55-bb4d-5a57269d0936",
+      "title": "Granny square shrug",
+      "category": "wardrobe",
+      "description": "Brand new",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791106804400-IMG_7355.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T09:40:08.434597+00:00",
+      "updated_at": "2026-10-04T09:50:20.998395+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f1fb2ad8-6765-4335-b4af-84d6282dda1e",
+      "title": "Granny square shrug",
+      "category": "wardrobe",
+      "description": "Brand new",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791107304891-IMG_7360.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T09:44:20.645742+00:00",
+      "updated_at": "2026-10-04T09:50:21.176475+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "52d21692-203d-4a41-9d2a-1703cf13086c",
+      "title": "V",
+      "category": "gloves",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868084580-IMG_6211.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:28:06.010215+00:00",
+      "updated_at": "2026-10-04T08:42:31.978604+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d28c9587-36f3-4f39-aea7-099747366088",
+      "title": "Granny square beanies",
+      "category": "beanies",
+      "description": "H",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788643488592-IMG_6715.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:24:49.817026+00:00",
+      "updated_at": "2026-10-04T07:09:19.146449+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "bea88a21-3f76-49e7-994d-00de1beecf20",
+      "title": "G",
+      "category": "durag",
+      "description": "G",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868623318-IMG_6245.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:37:04.990064+00:00",
+      "updated_at": "2026-10-04T07:18:07.29284+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3ff1d6e0-b757-4896-a129-e2f5f6695cf2",
+      "title": "H",
+      "category": "durag",
+      "description": "H",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868593972-IMG_6247.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:36:35.890089+00:00",
+      "updated_at": "2026-10-04T07:13:32.748269+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1e54fe13-be1f-479f-9472-779272e6fa36",
+      "title": "V",
+      "category": "durag",
+      "description": "C",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868646658-IMG_6244.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:37:27.5686+00:00",
+      "updated_at": "2026-10-04T07:20:12.530207+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3de16bf0-6b41-4a6b-ae23-92e9077a7a32",
+      "title": "V",
+      "category": "durag",
+      "description": "G",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868673182-IMG_6239.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:37:54.741318+00:00",
+      "updated_at": "2026-10-04T07:20:34.459808+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "80b3d15a-55c6-4663-b856-1bf64d2d8501",
+      "title": "G",
+      "category": "gloves",
+      "description": "H",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868421213-IMG_6209.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:33:42.451241+00:00",
+      "updated_at": "2026-08-04T18:33:42.451241+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "bc88804f-cfe2-4e9d-a5f7-892287f12f59",
+      "title": "G",
+      "category": "durag",
+      "description": "G",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868853420-IMG_6243.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:41:04.125215+00:00",
+      "updated_at": "2026-10-04T07:22:20.381173+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "ad2245aa-5c4c-429c-b3c7-d4652900ddf8",
+      "title": "V",
+      "category": "durag",
+      "description": "G",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868744017-IMG_6241.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:39:05.388024+00:00",
+      "updated_at": "2026-10-04T07:22:34.653258+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1fab137e-342f-4108-ba49-ce1b9b81cc8a",
+      "title": "B",
+      "category": "checkered beanies",
+      "description": "H",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642716191-IMG_6765.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:11:58.129007+00:00",
+      "updated_at": "2026-10-04T08:33:19.129613+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "33c3790b-2540-4c52-b337-9724913f490d",
+      "title": "Ties",
+      "category": "accessories",
+      "description": "Tight and Neat",
+      "price": 700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787578826660-IMG_6278.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T13:40:31.527722+00:00",
+      "updated_at": "2026-08-24T13:40:31.527722+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "dba47f8d-5837-4139-9acc-61efd494ce55",
+      "title": "V",
+      "category": "gloves",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867991853-IMG_6210.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:26:32.864052+00:00",
+      "updated_at": "2026-10-04T08:42:12.79601+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "9473a52e-3052-4dd7-848f-2bcccd1c374d",
+      "title": "Ties",
+      "category": "accessories",
+      "description": "Tight and Clean",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787579368919-IMG_6279.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T13:49:31.626754+00:00",
+      "updated_at": "2026-08-24T13:49:31.626754+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "18e9ae1f-f937-410d-8727-55b737302f02",
+      "title": "Shoulder bags",
+      "category": "bags",
+      "description": "Granny square edition",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787579588169-IMG_6305.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T13:53:10.046737+00:00",
+      "updated_at": "2026-08-24T13:53:10.046737+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "9b65c6cd-8c58-429d-9fe8-350b302cbcb6",
+      "title": "Shoulder bags",
+      "category": "bags",
+      "description": "Granny square edition",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787579666853-IMG_6167.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T13:54:32.101516+00:00",
+      "updated_at": "2026-08-24T13:54:32.101516+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "2b5cc921-81d1-4441-841e-e8ed6b789d3b",
+      "title": "B",
+      "category": "gloves",
+      "description": "H",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868120012-IMG_6217.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:28:41.315232+00:00",
+      "updated_at": "2026-10-04T08:42:47.991034+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f2bf7e34-c7a8-41b5-b702-acd8ddc0035c",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787580326909-IMG_6479.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T14:05:31.178803+00:00",
+      "updated_at": "2026-08-24T14:05:31.178803+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "4ed58345-c61d-4667-837f-91279b34547e",
+      "title": "G",
+      "category": "gloves",
+      "description": "G",
+      "price": 300,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868267064-IMG_6222.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:31:08.531547+00:00",
+      "updated_at": "2026-10-04T08:44:59.811893+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "42955f85-46ef-4ff0-bb08-4a2bfdd1cabb",
+      "title": "Poncho",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787580467106-IMG_6370.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T14:07:48.80424+00:00",
+      "updated_at": "2026-08-24T14:07:48.80424+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "fe910ef2-abd3-41ce-8fe6-9337a470f0e5",
+      "title": "H",
+      "category": "gloves",
+      "description": "H",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868307973-IMG_6212.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:31:49.706653+00:00",
+      "updated_at": "2026-10-04T08:45:15.750551+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0fbdbc2d-9c49-4d46-8f39-7422bebd8066",
+      "title": "Ruffle hat",
+      "category": "hat",
+      "description": "Chic and cute",
+      "price": 1000,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1787579754250-IMG_6486.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-24T13:55:57.530608+00:00",
+      "updated_at": "2026-09-02T14:48:00.399164+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "8eb32659-b121-456a-b53b-c398d0082110",
+      "title": "B",
+      "category": "gloves",
+      "description": "H",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868368128-IMG_6216.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:32:49.597059+00:00",
+      "updated_at": "2026-10-04T08:45:42.352687+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1a60d77b-472b-4c57-af50-963846d7caa8",
+      "title": "H",
+      "category": "gloves",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868393367-IMG_6223.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:33:14.663186+00:00",
+      "updated_at": "2026-10-04T08:45:56.057061+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f4644ad1-2f59-4111-b7e3-4637a9c7a80c",
+      "title": "B",
+      "category": "gloves",
+      "description": "H",
+      "price": 450,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868475393-IMG_6207.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:34:37.302545+00:00",
+      "updated_at": "2026-10-04T08:46:35.009823+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "38ff105f-9929-46ce-922f-5a902feba854",
+      "title": "N",
+      "category": "gloves",
+      "description": "H",
+      "price": 300,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868511443-IMG_6219.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:35:12.980499+00:00",
+      "updated_at": "2026-10-04T08:47:04.575386+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "8d0bbd0c-a2ea-4b10-9e9d-b59c0978a45a",
+      "title": "H",
+      "category": "gloves",
+      "description": "F",
+      "price": 300,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868153436-IMG_6221.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:29:14.566626+00:00",
+      "updated_at": "2026-10-04T08:47:22.116521+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "5c85c132-bd32-4f28-a7b7-017b360f7d6d",
+      "title": "Bolero ",
+      "category": "wardrobe",
+      "description": "For styling your sleeve less tops",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788360024672-IMG_6660.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T14:40:27.40766+00:00",
+      "updated_at": "2026-09-02T14:40:27.40766+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0c74c113-4966-4c58-b5f4-21e902f3d6e7",
+      "title": "Bolero ",
+      "category": "wardrobe",
+      "description": "For styling your sleeve less tops",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788360216521-IMG_6661.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T14:43:53.016043+00:00",
+      "updated_at": "2026-09-02T14:43:53.016043+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "6b4f95f9-bb7e-496f-8ec6-27966148e8fa",
+      "title": "Bolero ",
+      "category": "wardrobe",
+      "description": "For styling your sleeve less tops",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788360835632-IMG_6662.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T14:53:58.04386+00:00",
+      "updated_at": "2026-09-02T14:53:58.04386+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "ac3eedaf-c88c-4604-9e6f-e22c141ef3ee",
+      "title": "Shrug ",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364408173-IMG_6668.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:53:30.073081+00:00",
+      "updated_at": "2026-09-02T15:53:30.073081+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "8204335f-242b-496f-9074-d25e1f3d75b7",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364443064-IMG_6669.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:54:05.241172+00:00",
+      "updated_at": "2026-09-02T15:54:05.241172+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d2dfcb85-aa87-45ca-b762-85a73e61e1ab",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364487203-IMG_6675.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:54:49.152973+00:00",
+      "updated_at": "2026-09-02T15:54:49.152973+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "6674745f-5019-423c-9b3a-40237d906a58",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364562091-IMG_6674.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:56:04.596916+00:00",
+      "updated_at": "2026-09-02T15:56:04.596916+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "53803410-565c-444c-b71d-d7152e95d768",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364608479-IMG_6677.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:56:50.234304+00:00",
+      "updated_at": "2026-09-02T15:56:50.234304+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0b88fddc-a802-4e2c-8554-f82b801ca2c2",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364637340-IMG_6681.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:57:18.857464+00:00",
+      "updated_at": "2026-09-02T15:57:18.857464+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "fcb9213e-76a0-42ae-b9aa-08fb8dd75f49",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364666657-IMG_6682.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:57:47.864378+00:00",
+      "updated_at": "2026-09-02T15:57:47.864378+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "522ba1d6-9de4-4584-998d-2e51894a7317",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364698271-IMG_6678.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:58:20.282181+00:00",
+      "updated_at": "2026-09-02T15:58:20.282181+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1076dffd-f717-4806-b0a3-d473c446ae60",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364743181-IMG_6676.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:59:05.498736+00:00",
+      "updated_at": "2026-09-02T15:59:05.498736+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "c2d11d32-3aac-4518-ac41-a4a1b42d2448",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364791698-IMG_6680.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T15:59:53.705491+00:00",
+      "updated_at": "2026-09-02T15:59:53.705491+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "56a91be9-cf0f-4986-92dd-c9a1c13db58f",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364824381-IMG_6670.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:00:26.94583+00:00",
+      "updated_at": "2026-09-02T16:00:26.94583+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "90cf12b1-1d43-4f84-aeac-85a5c58868bd",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364911529-IMG_6667.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:01:53.893944+00:00",
+      "updated_at": "2026-09-02T16:01:53.893944+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1d6007f2-2cb2-4c62-acb2-640fcf167dee",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364948186-IMG_6666.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:02:29.507443+00:00",
+      "updated_at": "2026-09-02T16:02:29.507443+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "2ee3d72e-44f7-4576-beed-715349eb31b3",
+      "title": "Granny square cat beanies",
+      "category": "cat beanies",
+      "description": "Wearing different this time",
+      "price": 1000,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673474841-IMG_6791.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T05:44:36.673472+00:00",
+      "updated_at": "2026-10-04T06:19:01.462679+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "29e352b8-fd32-47ca-84a0-fd93c144a9f7",
+      "title": "G",
+      "category": "checkered beanies",
+      "description": "H",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642794003-IMG_6716.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:13:15.652454+00:00",
+      "updated_at": "2026-10-04T07:08:24.934326+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "e3c9a18a-521e-44c1-9619-52a41b48b633",
+      "title": "Granny square beanies",
+      "category": "beanies",
+      "description": "H",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788643637033-IMG_6721.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:27:19.261847+00:00",
+      "updated_at": "2026-10-04T07:09:37.700732+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "4c6f0b62-7761-4c31-9463-3baaa3f65aed",
+      "title": "B",
+      "category": "bandana",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715624655-IMG_6805.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:27:05.809038+00:00",
+      "updated_at": "2026-10-04T08:27:50.909858+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "87f90184-b306-4cf6-bceb-549f851c0adb",
+      "title": "Granny square shrug",
+      "category": "wardrobe",
+      "description": "Brand new",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791107588624-IMG_7359.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T09:53:15.112935+00:00",
+      "updated_at": "2026-10-04T09:53:15.112935+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3c6adab8-6d69-48fb-9677-121942bd9ac5",
+      "title": "Leg warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108211250-IMG_7350.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:03:45.257544+00:00",
+      "updated_at": "2026-10-04T10:03:45.257544+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "ba0834ff-8d56-4bc1-8ce2-12981076f96c",
+      "title": "Leg warmers",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108561607-IMG_7349.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:09:29.196544+00:00",
+      "updated_at": "2026-10-04T10:09:29.196544+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d7ea41d5-240c-4b9d-a405-93bfc9c6e577",
+      "title": "Leg warmer ",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108778531-IMG_7340.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:13:04.802562+00:00",
+      "updated_at": "2026-10-04T10:13:04.802562+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "963f5798-17da-4e02-a151-5dafd8c95ac6",
+      "title": "Leg warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791109024925-IMG_7343.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:17:09.930859+00:00",
+      "updated_at": "2026-10-04T10:17:09.930859+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "238bc4e8-ff9a-4f88-b63c-2dbbafd56f56",
+      "title": "Leg warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791109201966-IMG_7342.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:20:19.511766+00:00",
+      "updated_at": "2026-10-04T10:20:19.511766+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "cf783d55-7079-4385-bb04-cc0efbb9f090",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788364983317-IMG_6673.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:03:04.38274+00:00",
+      "updated_at": "2026-09-02T16:03:04.38274+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "fd160c5d-549f-4a31-bb6e-229d888b0ab5",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365059227-IMG_6671.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:04:21.132819+00:00",
+      "updated_at": "2026-09-02T16:04:21.132819+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "ca3b88bf-525b-43c9-aa0e-1b475b96194e",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365107946-IMG_6679.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:05:09.324191+00:00",
+      "updated_at": "2026-09-02T16:05:09.324191+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "eb7515bc-c6a0-43af-b6f6-2d60cf9c3d46",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365439081-IMG_6672.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:10:42.021444+00:00",
+      "updated_at": "2026-09-02T16:10:42.021444+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "b6764e47-0aae-41cb-a85b-edc60c2c86c3",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365487025-IMG_6496.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:11:28.965416+00:00",
+      "updated_at": "2026-09-02T16:11:28.965416+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "49c81c6a-b261-4e1e-809e-9eb429f4fb10",
+      "title": "Shrug",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365566565-IMG_6484.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:12:48.338097+00:00",
+      "updated_at": "2026-09-02T16:12:48.338097+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "c86e55c0-9864-4f62-8dce-34170e62458d",
+      "title": "Shrug ",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365644906-IMG_6498.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:14:07.085819+00:00",
+      "updated_at": "2026-09-02T16:14:07.085819+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "518c1bfc-3cce-4b32-aebb-0f293f8613aa",
+      "title": "Shrug ",
+      "category": "wardrobe",
+      "description": "Your closet, but make it crochet",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788365822007-IMG_6497.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:17:04.671089+00:00",
+      "updated_at": "2026-09-02T16:17:04.671089+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "e8987714-2b21-4a0f-84b8-68b88371683b",
+      "title": "Balaclava",
+      "category": "balaclava",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641285778-IMG_6741.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:48:07.611194+00:00",
+      "updated_at": "2026-09-05T20:48:07.611194+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "a6628c6a-d739-4b8a-9d90-c91a728dee29",
+      "title": "V",
+      "category": "balaclava",
+      "description": "V",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641612697-IMG_6740.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:53:35.295255+00:00",
+      "updated_at": "2026-09-05T20:53:35.295255+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "029e759e-0780-4b6e-b516-06b190889eef",
+      "title": "G",
+      "category": "balaclava",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641657582-IMG_6739.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:54:19.291465+00:00",
+      "updated_at": "2026-09-05T20:54:19.291465+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "3f2cfd34-4893-481a-b00d-63b3d70a65a1",
+      "title": "H",
+      "category": "balaclava",
+      "description": "Y",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641685968-IMG_6738.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:54:47.01189+00:00",
+      "updated_at": "2026-09-05T20:54:47.01189+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "411e3694-889a-4340-9b95-c21e1f32639c",
+      "title": "G",
+      "category": "balaclava",
+      "description": "H",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641717244-IMG_6737.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:55:18.822502+00:00",
+      "updated_at": "2026-09-05T20:55:18.822502+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "051d3cdf-14a3-4941-a5f1-6a5e51ce9faa",
+      "title": "V",
+      "category": "balaclava",
+      "description": "F",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641746292-IMG_6736.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:55:47.567405+00:00",
+      "updated_at": "2026-09-05T20:55:47.567405+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "d481723e-ed79-40e1-9341-e55d003cade8",
+      "title": "V",
+      "category": "balaclava",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641784494-IMG_6735.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:56:25.389258+00:00",
+      "updated_at": "2026-09-05T20:56:25.389258+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0abb2136-0aa7-4250-a831-772d5f0f1d32",
+      "title": " B",
+      "category": "balaclava",
+      "description": "H",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641817470-IMG_6734.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:56:58.77534+00:00",
+      "updated_at": "2026-09-05T20:56:58.77534+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "8c61358f-0a5a-4596-8e81-cd51e8f16bc9",
+      "title": "V",
+      "category": "balaclava",
+      "description": "G",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641853803-IMG_6733.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:57:35.719433+00:00",
+      "updated_at": "2026-09-05T20:57:35.719433+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "742e93b9-45df-4146-aa05-93631fee5260",
+      "title": "Mini donut bag",
+      "category": "bags",
+      "description": "Looking Fancy",
+      "price": 1700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788368388748-IMG_6696.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:59:50.841395+00:00",
+      "updated_at": "2026-10-04T06:13:58.931672+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "e3903520-27c0-4a64-9928-e3476de42a9b",
+      "title": "Mini donut bag",
+      "category": "bags",
+      "description": "Looking fancy",
+      "price": 1700,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788368358888-IMG_6691.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:59:20.40574+00:00",
+      "updated_at": "2026-10-04T06:15:00.94837+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "b3fab7b4-0a83-47bb-bb20-924635ad7b0d",
+      "title": "Mini donut bag",
+      "category": "bags",
+      "description": "Something cool",
+      "price": 1900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788368316617-IMG_6690.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-02T16:58:39.728178+00:00",
+      "updated_at": "2026-10-04T06:16:29.711032+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "fbaf0eb9-1810-4710-9cf3-13ef5cec3e83",
+      "title": "Granny square cat beanies",
+      "category": "cat beanies",
+      "description": "Men’s edition",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642167970-IMG_6717.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:02:50.173311+00:00",
+      "updated_at": "2026-10-04T06:30:04.622049+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "02fdbc77-94a6-465d-b3d9-46e3505c8153",
+      "title": "Granny square cat beanies",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641143070-IMG_6784.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:45:44.979524+00:00",
+      "updated_at": "2026-10-04T06:30:47.046515+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "090f44f4-2b60-4f7f-bdc9-05834d5528e0",
+      "title": "H",
+      "category": "cat beanies",
+      "description": "U",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642215343-IMG_6709.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:03:37.157493+00:00",
+      "updated_at": "2026-10-04T06:32:19.287226+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "cab944f6-f0a2-43ee-9d86-783d6c8dd621",
+      "title": "H",
+      "category": "balaclava",
+      "description": "G",
+      "price": 1100,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641889569-IMG_6732.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:58:10.847822+00:00",
+      "updated_at": "2026-10-04T06:39:13.31051+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "a70e47ce-d1b9-44ef-a96f-e89b6e488a23",
+      "title": "H",
+      "category": "checkered beanies",
+      "description": "H",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642949712-IMG_6731.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:15:52.318091+00:00",
+      "updated_at": "2026-10-04T07:06:46.284599+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "a3a7f841-3d2e-4305-bc78-88e19e93a3d4",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "B",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673786300-IMG_6790.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T05:49:48.938964+00:00",
+      "updated_at": "2026-10-04T08:32:26.884412+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "061b826e-53f7-4e28-80d3-071db5be0396",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "Y",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642308376-IMG_6712.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:05:10.488409+00:00",
+      "updated_at": "2026-10-04T08:34:44.629388+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "4f65883c-4346-4b41-ae6c-bf7e340ea444",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "V",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642064513-IMG_6725.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:01:05.835952+00:00",
+      "updated_at": "2026-10-04T08:34:59.257352+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "c6ce537c-72ba-4a34-91de-f1a55b268138",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "G",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642001734-IMG_6726.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:00:03.254967+00:00",
+      "updated_at": "2026-10-04T08:35:13.985201+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "c9e1d64f-3aa6-4953-90c6-9128d5fcc665",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "V",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788641955596-IMG_6728.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T20:59:16.974971+00:00",
+      "updated_at": "2026-10-04T08:35:26.923289+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "a11346ff-33fd-4df8-8e75-40b99790956f",
+      "title": "G",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673354113-IMG_6786.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T05:42:37.369509+00:00",
+      "updated_at": "2026-10-04T08:37:27.038215+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "8734df29-a654-4312-9328-1f16ad35ca1c",
+      "title": "Granny square cat beanies",
+      "category": "cat beanies",
+      "description": "Need some color",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673387355-IMG_6785.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T05:43:08.789096+00:00",
+      "updated_at": "2026-10-04T06:23:05.42943+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "216082ba-55ed-4907-a357-82992173160d",
+      "title": "Slouchy beanie",
+      "category": "slouchy beanies",
+      "description": "G",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788643288035-IMG_6759.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:21:04.438526+00:00",
+      "updated_at": "2026-10-04T06:28:49.959741+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "54b2bd08-840f-41b5-aa70-68751fb4c2ae",
+      "title": "F",
+      "category": "cat beanies",
+      "description": "G",
+      "price": 850,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785867849466-IMG_6187.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-08-04T18:24:10.794347+00:00",
+      "updated_at": "2026-10-04T06:33:05.217773+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "923e036b-de64-4fd9-8954-f416b595d6ae",
+      "title": "B",
+      "category": "bandana",
+      "description": "G",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715759910-IMG_6799.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:29:20.952475+00:00",
+      "updated_at": "2026-10-04T08:26:12.814599+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "dabaad37-1da2-42bb-aa5c-fa64c365ab9e",
+      "title": "B",
+      "category": "bandana",
+      "description": "V",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715655457-IMG_6804.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:27:36.774905+00:00",
+      "updated_at": "2026-10-04T08:27:37.31763+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "8b8bb961-7c23-40a4-9886-38322dd33c80",
+      "title": "B",
+      "category": "bandana",
+      "description": "B",
+      "price": 400,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788715534594-IMG_6813.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T17:25:35.817549+00:00",
+      "updated_at": "2026-10-04T08:28:50.330507+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "cac086e7-5b09-4325-8356-f23fe163f3fe",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "V",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788673844931-IMG_6789.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-06T05:50:47.214383+00:00",
+      "updated_at": "2026-10-04T08:32:58.345272+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "7c2371c1-f005-449f-b325-0d8b06256f4e",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "B",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642451381-IMG_6711.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:07:33.1245+00:00",
+      "updated_at": "2026-10-04T08:34:13.316811+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "1966c505-51f9-4aa9-8c09-04cdf526bc49",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "H",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642361023-IMG_6714.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:06:02.203041+00:00",
+      "updated_at": "2026-10-04T08:34:30.481588+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "f789ca0e-b94d-47c9-a700-04140bf7d8f5",
+      "title": "Bucket hat",
+      "category": "hat",
+      "description": "H",
+      "price": 900,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1788642411073-IMG_6730.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-09-05T21:06:53.402167+00:00",
+      "updated_at": "2026-10-04T08:38:08.325157+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "faa21d3e-3c29-4c9a-b338-a75e6b884973",
+      "title": "Leg warmers",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108035484-IMG_7353.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:00:42.158033+00:00",
+      "updated_at": "2026-10-04T10:00:42.158033+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "27e48bba-ae34-4803-bab5-5e0917e7c0d2",
+      "title": "Leg warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108309163-IMG_7351.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:05:12.706768+00:00",
+      "updated_at": "2026-10-04T10:05:12.706768+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "b0db1dd2-6f22-4a07-8f02-4b79730c9aab",
+      "title": "Lag warmer",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108632891-IMG_7338.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:10:36.990753+00:00",
+      "updated_at": "2026-10-04T10:10:36.990753+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "95449064-5c15-41d7-8943-fde3a71e9d85",
+      "title": "Leg warmer ",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791108873050-IMG_7345.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:14:36.341522+00:00",
+      "updated_at": "2026-10-04T10:14:36.341522+00:00",
+      "color": null,
+      "colors": ""
+    },
+    {
+      "id": "0c28843c-bf17-4013-befa-c2c3126e59d4",
+      "title": "Leg warmer ",
+      "category": "accessories",
+      "description": "Cute and cozy",
+      "price": 250,
+      "images": [
+        "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1791109108767-IMG_7341.jpeg"
+      ],
+      "available": true,
+      "created_at": "2026-10-04T10:18:43.793491+00:00",
+      "updated_at": "2026-10-04T10:18:43.793491+00:00",
+      "color": null,
+      "colors": ""
+    }
+  ],
+  "messages": [],
+  "admin": [
+    {
+      "id": "76630029-8f70-439a-b6b6-aecdbf69cc3d",
+      "admin_password_hash": "wengel6567",
+      "updated_at": "2026-07-31T12:20:36.656203+00:00"
+    }
+  ],
+  "orders": [
+    {
+      "id": "aefa042a-f41b-4761-971a-b02f845fe3e9",
+      "order_ref": "ORD-5995",
+      "customer_name": "Wengel bewnet",
+      "customer_email": "wengelbewnet@order.com",
+      "customer_phone": "0951383865",
+      "shipping_address": "Phone Contact: 0951383865",
+      "total_amount": 1800,
+      "status": "Pending",
+      "delivery_preference": "3 Days",
+      "payment_method": "Standard Order",
+      "special_notes": "",
+      "created_at": "2026-08-04T15:17:39.193569+00:00",
+      "updated_at": "2026-08-04T15:17:39.193569+00:00",
+      "color": null
+    },
+    {
+      "id": "a417f0c1-0a5e-407e-8bb6-351db6420c14",
+      "order_ref": "ORD-4496",
+      "customer_name": "Ashenafi",
+      "customer_email": "ashenafi@order.com",
+      "customer_phone": "0997278932",
+      "shipping_address": "Phone Contact: 0997278932",
+      "total_amount": 250,
+      "status": "Confirmed",
+      "delivery_preference": "15 Days",
+      "payment_method": "Standard Order",
+      "special_notes": "",
+      "created_at": "2026-08-03T12:09:57.017177+00:00",
+      "updated_at": "2026-08-04T15:19:42.007316+00:00",
+      "color": null
+    },
+    {
+      "id": "3d918f6d-db1d-4d50-b09d-5475df33bd65",
+      "order_ref": "ORD-5765",
+      "customer_name": "john",
+      "customer_email": "john@order.com",
+      "customer_phone": "0911111004",
+      "shipping_address": "Phone Contact: 0911111004",
+      "total_amount": 250,
+      "status": "Pending",
+      "delivery_preference": "30 Days",
+      "payment_method": "Standard Order",
+      "special_notes": "",
+      "created_at": "2026-08-24T06:56:35.301226+00:00",
+      "updated_at": "2026-08-24T06:56:35.301226+00:00",
+      "color": null
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "268a77a9-a31f-44c6-94b2-b9449d83172e",
+      "order_id": "a417f0c1-0a5e-407e-8bb6-351db6420c14",
+      "product_id": "45cdf297-8267-4d85-91f3-1d6112e7284a",
+      "product_title": "1",
+      "product_image": "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785758124816-7f71547b75e2d2130909a0992bef715f.jpg",
+      "color": "",
+      "quantity": 1,
+      "price": 250,
+      "created_at": "2026-08-03T12:09:57.391583+00:00"
+    },
+    {
+      "id": "737cabef-60f3-4e0f-9579-663c66944f3b",
+      "order_id": "aefa042a-f41b-4761-971a-b02f845fe3e9",
+      "product_id": "f2d8f17d-a00e-425b-a72a-92e64c3f61e9",
+      "product_title": "Beanies",
+      "product_image": "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785856423835-IMG_6251.jpeg",
+      "color": "",
+      "quantity": 2,
+      "price": 900,
+      "created_at": "2026-08-04T15:17:39.557233+00:00"
+    },
+    {
+      "id": "a8e42bb4-0fac-44ad-b483-ff421e57d6dc",
+      "order_id": "3d918f6d-db1d-4d50-b09d-5475df33bd65",
+      "product_id": "ad2245aa-5c4c-429c-b3c7-d4652900ddf8",
+      "product_title": "V",
+      "product_image": "https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/product-images/1785868744017-IMG_6241.jpeg",
+      "color": "",
+      "quantity": 1,
+      "price": 250,
+      "created_at": "2026-08-24T06:56:35.472617+00:00"
+    }
+  ]
+}

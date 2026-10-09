@@ -42,6 +42,7 @@ export default function App() {
 
   // Selected Product for Details Modal
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProductInitialIndex, setSelectedProductInitialIndex] = useState<number>(0);
 
   // Admin Add Product Modal State
   const [isAdminAddProductOpen, setIsAdminAddProductOpen] = useState(false);
@@ -98,31 +99,39 @@ export default function App() {
   }, []);
 
   // Cart Management Functions
-  const handleAddToCart = (product: Product, selectedColor: string) => {
+  const handleAddToCart = (product: Product, selectedColor: string, preferredImage?: string) => {
+    const itemProduct = preferredImage && product.images?.includes(preferredImage)
+      ? { ...product, images: [preferredImage, ...product.images.filter(img => img !== preferredImage)] }
+      : product;
+
     setCart(prev => {
       const existingIdx = prev.findIndex(
-        i => i.product.id === product.id && i.selectedColor === selectedColor
+        i => i.product.id === product.id && i.selectedColor === selectedColor && i.product.images[0] === itemProduct.images[0]
       );
       if (existingIdx > -1) {
         const updated = [...prev];
         updated[existingIdx].quantity += 1;
         return updated;
       }
-      return [...prev, { product, selectedColor, quantity: 1 }];
+      return [...prev, { product: itemProduct, selectedColor, quantity: 1 }];
     });
   };
 
-  const handleAddToCartWithSpecs = (product: Product, selectedColor: string, quantity: number) => {
+  const handleAddToCartWithSpecs = (product: Product, selectedColor: string, quantity: number, preferredImage?: string) => {
+    const itemProduct = preferredImage && product.images?.includes(preferredImage)
+      ? { ...product, images: [preferredImage, ...product.images.filter(img => img !== preferredImage)] }
+      : product;
+
     setCart(prev => {
       const existingIdx = prev.findIndex(
-        i => i.product.id === product.id && i.selectedColor === selectedColor
+        i => i.product.id === product.id && i.selectedColor === selectedColor && i.product.images[0] === itemProduct.images[0]
       );
       if (existingIdx > -1) {
         const updated = [...prev];
         updated[existingIdx].quantity += quantity;
         return updated;
       }
-      return [...prev, { product, selectedColor, quantity }];
+      return [...prev, { product: itemProduct, selectedColor, quantity }];
     });
   };
 
@@ -285,8 +294,11 @@ export default function App() {
 
             <ProductShowcase
               products={products}
-              onSelectProduct={(p) => setSelectedProduct(p)}
-              onAddToCart={(product, color) => handleAddToCart(product, color)}
+              onSelectProduct={(p, imgIdx = 0) => {
+                setSelectedProduct(p);
+                setSelectedProductInitialIndex(imgIdx);
+              }}
+              onAddToCart={(product, color, preferredImg) => handleAddToCart(product, color, preferredImg)}
               searchQuery={searchQuery}
             />
 
@@ -429,6 +441,7 @@ export default function App() {
       {/* Product Quick Details Modal */}
       <ProductDetailsModal
         product={selectedProduct}
+        initialImageIndex={selectedProductInitialIndex}
         onClose={() => setSelectedProduct(null)}
         onAddToCartWithSpecs={handleAddToCartWithSpecs}
       />

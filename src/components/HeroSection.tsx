@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight, Eye, ShieldCheck, Heart, RefreshCw, Layers } from
 import { useLanguage } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { Product } from '../types';
+import { getDetailImageUrl } from '../utils/imageOptimizer';
 
 interface HeroSectionProps {
   onExploreClick: () => void;
@@ -25,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     id: product.id,
     title: product.title,
     category: product.category,
-    image: product.images[0] || '/src/assets/images/wengi_hero_crochet_1785323531326.jpg',
+    image: getDetailImageUrl(product.images[0]) || '/src/assets/images/wengi_hero_crochet_1785323531326.jpg',
     price: product.price,
     craftTime: '24h',
     desc: product.description,
@@ -119,11 +120,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="grid grid-cols-2 gap-1.5 sm:gap-4 py-1.5 sm:py-3 border-y border-[#FAF7F1]/10 text-left">
             <div>
               <span className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] block">{t('hero.handcrafted')}</span>
-              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Acrylic yarn</span>
+              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">acrylic and polyester yarn</span>
             </div>
             <div>
               <span className="font-serif-luxury text-sm sm:text-xl font-bold text-[#FAF7F1] block">{t('hero.masterArtisan')}</span>
-              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Dessie, Ethiopia</span>
+              <span className="text-[8px] sm:text-[11px] text-[#D8C3A5] tracking-wider uppercase block truncate">Gondar,Ethiopia</span>
             </div>
           </div>
 

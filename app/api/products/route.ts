@@ -17,8 +17,10 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const newProduct = await dbProducts.add(body);
     return NextResponse.json(newProduct, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating product:', error);
-    return NextResponse.json({ error: 'Failed to create product' }, { status: 500 });
+    const message = error?.message || 'Failed to create product';
+    const status = message.includes('Maximum') ? 400 : 500;
+    return NextResponse.json({ error: message }, { status });
   }
 }

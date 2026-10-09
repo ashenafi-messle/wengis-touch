@@ -35,6 +35,10 @@ export interface Order {
   paymentMethod: string;
   specialNotes?: string;
   createdAt: string;
+  telegramDeepLink?: string;
+  telegramAppDeepLink?: string;
+  telegramToken?: string;
+  telegramNotificationStatus?: string;
 }
 
 export interface Message {

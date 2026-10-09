@@ -12,9 +12,11 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
     return NextResponse.json(updated);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error updating product:', error);
-    return NextResponse.json({ error: 'Failed to update product' }, { status: 500 });
+    const message = error?.message || 'Failed to update product';
+    const status = message.includes('Maximum') ? 400 : 500;
+    return NextResponse.json({ error: message }, { status });
   }
 }
 

@@ -7,20 +7,28 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node scripts/test-neon-db.js && node scripts/test-cloudinary-and-order.js && node scripts/test-telegram-token-workflow.js",
+    "test:e2e": "node scripts/verify-e2e-order-telegram.js",
+    "migrate:neon": "node scripts/migrate-data-to-neon.js",
+    "migrate:images": "node scripts/migrate-images-to-cloudinary.js",
+    "telegram:poll": "node scripts/telegram-bot-polling.js",
+    "telegram:webhook": "node scripts/set-telegram-webhook.js"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
-    "@supabase/supabase-js": "^2.111.0",
+    "cloudinary": "^2.11.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.43.0",
     "next": "^15.0.0",
+    "pg": "^8.23.1",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "tailwindcss": "^3.4.19"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/pg": "^8.23.1",
     "@types/react": "19.2.18",
     "autoprefixer": "^10.4.21",
     "typescript": "~5.8.2"

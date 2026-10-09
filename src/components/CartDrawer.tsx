@@ -3,6 +3,7 @@ import { CartItem } from '../types';
 import { X, Trash2, ShoppingCart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
+import { getThumbnailImageUrl } from '../utils/imageOptimizer';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -65,7 +66,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 className="bg-[#F3E7D3] p-3.5 rounded-2xl border border-[#D8C3A5] flex items-center space-x-3 relative shadow-sm"
               >
                 <img
-                  src={item.product.images[0]}
+                  src={getThumbnailImageUrl(item.product.images[0])}
                   alt={item.product.title}
                   className="w-16 h-16 rounded-xl object-cover border border-[#C95A1A]/20"
                   referrerPolicy="no-referrer"

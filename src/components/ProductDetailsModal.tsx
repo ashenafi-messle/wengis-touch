@@ -4,15 +4,18 @@ import { X, ShoppingCart, ShieldCheck, Sparkles, Check, Heart, Maximize2, ZoomIn
 import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { ImageLightbox } from './ImageLightbox';
+import { getDetailImageUrl, getThumbnailImageUrl } from '../utils/imageOptimizer';
 
 interface ProductDetailsModalProps {
   product: Product | null;
+  initialImageIndex?: number;
   onClose: () => void;
-  onAddToCartWithSpecs: (product: Product, selectedColor: string, quantity: number) => void;
+  onAddToCartWithSpecs: (product: Product, selectedColor: string, quantity: number, preferredImage?: string) => void;
 }
 
 export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
   product,
+  initialImageIndex = 0,
   onClose,
   onAddToCartWithSpecs
 }) => {
@@ -21,7 +24,13 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
   const { language, t } = useLanguage();
   const translated = getProductTranslation(product.title, product.category, language);
 
-  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(initialImageIndex || 0);
+
+  // Sync activeImageIndex whenever product or initialImageIndex changes
+  React.useEffect(() => {
+    setActiveImageIndex(initialImageIndex || 0);
+  }, [product?.id, initialImageIndex]);
+
   const [selectedColor, setSelectedColor] = useState<string>(() => {
     if (typeof product.colors === 'string') {
       return product.colors.split(',')[0]?.trim() || '';
@@ -34,7 +43,8 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const handleAdd = () => {
-    onAddToCartWithSpecs(product, selectedColor, quantity);
+    const currentImg = product.images[activeImageIndex] || product.images[0];
+    onAddToCartWithSpecs(product, selectedColor, quantity, currentImg);
     setAddedNotice(true);
     setTimeout(() => setAddedNotice(false), 2000);
   };
@@ -57,7 +67,7 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
           <div className="md:col-span-6 bg-[#0F2747] p-6 flex flex-col justify-between">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#C95A1A]/30 mb-4 shadow-lg">
               <img
-                src={product.images[activeImageIndex] || product.images[0]}
+                src={getDetailImageUrl(product.images[activeImageIndex] || product.images[0])}
                 alt={translated.title}
                 className="w-full h-full object-cover transition-all duration-300"
                 referrerPolicy="no-referrer"
@@ -93,7 +103,7 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                     }`}
                     title={language === 'am' ? 'ለማሳየት ይጫኑ' : 'Double-click to view full size'}
                   >
-                    <img src={img} alt="Thumbnail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    <img src={getThumbnailImageUrl(img)} alt="Thumbnail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   </button>
                 ))}
               </div>

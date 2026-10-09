@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       }, { status: 400 });
     }
     
-    // Initialize admin password in Supabase
+    // Initialize admin password in database
     await dbAdmin.initializeAdminPassword(password);
     
     return NextResponse.json({ 

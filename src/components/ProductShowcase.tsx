@@ -4,11 +4,12 @@ import { Sparkles, Eye, Clock, Check, Filter, Layers, ShoppingCart, Maximize2 } 
 import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { ImageLightbox } from './ImageLightbox';
+import { getCardImageUrl } from '../utils/imageOptimizer';
 
 interface ProductShowcaseProps {
   products: Product[];
-  onSelectProduct: (product: Product) => void;
-  onAddToCart: (product: Product, selectedColor: string) => void;
+  onSelectProduct: (product: Product, initialImageIndex?: number) => void;
+  onAddToCart: (product: Product, selectedColor: string, preferredImage?: string) => void;
   searchQuery: string;
 }
 
@@ -67,6 +68,36 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     if (sortBy === 'price-high') return b.price - a.price;
     return 0;
   });
+
+  // Expand each product's images so that when a product has multiple images,
+  // each image is displayed as its own individual single product card in the showcase & category grid
+  const showcaseItems = React.useMemo(() => {
+    const items: Array<{
+      product: Product;
+      image: string;
+      imageIndex: number;
+      totalImages: number;
+      itemKey: string;
+    }> = [];
+
+    for (const product of filteredProducts) {
+      const images = Array.isArray(product.images) && product.images.length > 0
+        ? product.images
+        : ['https://picsum.photos/seed/crochet/600/450'];
+
+      images.forEach((img, imgIdx) => {
+        items.push({
+          product,
+          image: img,
+          imageIndex: imgIdx,
+          totalImages: images.length,
+          itemKey: `${product.id}-img-${imgIdx}`
+        });
+      });
+    }
+
+    return items;
+  }, [filteredProducts]);
 
   return (
     <section id="collection-showcase" className="py-4 sm:py-16 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -138,36 +169,48 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       </div>
 
       {/* Product Grid - 2 columns on mobile for high density & less vertical scroll */}
-      {filteredProducts.length === 0 ? (
+      {showcaseItems.length === 0 ? (
         <div className="text-center py-8 sm:py-20 bg-[#F3E7D3]/40 rounded-2xl sm:rounded-3xl border border-[#D8C3A5]/50">
           <Layers className="w-8 h-8 sm:w-12 sm:h-12 text-[#C95A1A] mx-auto mb-2 opacity-60" />
           <h3 className="font-serif-luxury text-base sm:text-xl font-bold text-[#0F2747]">{t('showcase.empty')}</h3>
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
-          {filteredProducts.map((product, idx) => {
+          {showcaseItems.map((item, idx) => {
+            const { product, image, imageIndex, totalImages, itemKey } = item;
             const translated = getProductTranslation(product.title, product.category, language);
 
             return (
               <div
-                key={product.id}
+                key={itemKey}
                 className="rounded-lg sm:rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 shadow-md sm:shadow-lg group flex flex-col justify-between bg-[#142E52] border border-[#C95A1A]/30 text-[#FAF7F1]"
               >
                 {/* Image Container */}
-                <div className="relative aspect-[4/3] overflow-hidden cursor-pointer" onClick={() => onSelectProduct(product)}>
+                <div
+                  className="relative aspect-[4/3] overflow-hidden cursor-pointer"
+                  onClick={() => onSelectProduct(product, imageIndex)}
+                >
                   <img
-                    src={product.images[0] || 'https://picsum.photos/seed/crochet/600/450'}
+                    src={getCardImageUrl(image)}
                     alt={translated.title}
+                    loading={idx < 4 ? 'eager' : 'lazy'}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
+
+                  {/* Multi-image indicator badge */}
+                  {totalImages > 1 && (
+                    <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-[#0F2747]/85 text-[#FAF7F1] text-[9px] sm:text-[10px] font-semibold border border-[#C95A1A]/40 backdrop-blur-md shadow-sm">
+                      {language === 'am' ? `ምስል ${imageIndex + 1}/${totalImages}` : `${imageIndex + 1}/${totalImages}`}
+                    </span>
+                  )}
 
                   {/* Hover Quick Action */}
                   <div className="absolute inset-0 bg-[#0F2747]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-2">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleImagePreview(product.images, 0);
+                        handleImagePreview(product.images, imageIndex);
                       }}
                       className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F1] text-[#0F2747] text-[9px] sm:text-xs font-semibold flex items-center space-x-1 shadow-md hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors"
                       title={language === 'am' ? 'ምስል በሙሉ እይ' : 'View full image'}
@@ -178,7 +221,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        onSelectProduct(product);
+                        onSelectProduct(product, imageIndex);
                       }}
                       className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F1] text-[#0F2747] text-[9px] sm:text-xs font-semibold flex items-center space-x-1 shadow-md hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors"
                     >
@@ -224,7 +267,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     </div>
 
                     <h3
-                      onClick={() => onSelectProduct(product)}
+                      onClick={() => onSelectProduct(product, imageIndex)}
                       className="font-serif-luxury text-[11px] sm:text-xl font-bold cursor-pointer transition-colors line-clamp-1 hover:text-[#C95A1A]"
                     >
                       {translated.title}
@@ -253,7 +296,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         const colorText = typeof product.colors === 'string' 
                           ? product.colors.split(',')[0]?.trim() || ''
                           : '';
-                        onAddToCart(product, selectedColors[product.id] || colorText);
+                        onAddToCart(product, selectedColors[product.id] || colorText, image);
                       }}
                       className="px-2 py-1 sm:px-4 sm:py-2.5 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-[9px] sm:text-xs font-semibold tracking-wider uppercase transition-colors shadow-md flex items-center space-x-1 cursor-pointer shrink-0"
                     >

@@ -81,7 +81,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
           <div>
             <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-[#142E52] border border-[#C95A1A]/30 text-[#D8C3A5] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider mb-2 sm:mb-4">
               <Sparkles className="w-3 h-3 text-[#C95A1A]" />
-              <span>{language === 'am' ? 'የደሲ ዋና አቴሊየር' : 'Dessie Flagship Atelier'}</span>
+              <span>{language === 'am' ? 'የጎንደር ዋና አቴሊየር' : 'Gondar Flagship Atelier'}</span>
             </div>
             <h3 className="font-serif-luxury text-xl sm:text-2xl font-bold text-[#FAF7F1]">
               {language === 'am' ? 'ይጎብኙን ወይም ይደውሉልን' : 'Visit or Call Us'}
@@ -100,7 +100,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                 <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C95A1A] block">
                   {language === 'am' ? 'አድራሻ' : 'Atelier Location'}
                 </span>
-                <p className="text-xs text-[#FAF7F1] mt-0.5">Dessie</p>
+                <p className="text-xs text-[#FAF7F1] mt-0.5">Gondar</p>
                 <p className="text-[11px] text-[#D8C3A5]">Ethiopia</p>
               </div>
             </div>
@@ -177,7 +177,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                 {language === 'am' ? 'መልእክትዎ ተልኳል!' : 'Message Dispatched!'}
               </h4>
               <p className="text-xs text-emerald-800 font-light max-w-sm mx-auto">
-                {language === 'am' ? 'ወንጊስ ታችን ስላነጋገሩ እናመሰግናለን። በ 24 ሰዓት ውስጥ እንመልሳለን።' : 'Thank you for contacting Wengi’s Touch. Our team will review your inquiry and respond within 24 business hours.'}
+                {language === 'am' ? 'ወንጊስ ተችን ስላነጋገሩ እናመሰግናለን። በ 24 ሰዓት ውስጥ እንመልሳለን።' : 'Thank you for contacting Wengi’s Touch. Our team will review your inquiry and respond within 24 business hours.'}
               </p>
               <button
                 onClick={() => setSubmitted(false)}

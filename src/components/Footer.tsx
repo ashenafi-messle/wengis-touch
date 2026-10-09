@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-40 sm:h-60 bg-[#C95A1A]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-4 sm:gap-8 md:gap-12 relative z-10">
-        
+
         {/* Brand Column */}
         <div className="sm:col-span-2 md:col-span-4 space-y-2 sm:space-y-4">
           <motion.div
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                 className="font-serif-luxury text-lg sm:text-2xl font-bold tracking-wider block"
               >
-                {language === 'am' ? 'ወንጊስ' : 'Wengi\'s'} <span className="italic font-normal">{language === 'am' ? 'ታች' : 'Touch'}</span>
+                {language === 'am' ? 'ወንጊስ' : 'Wengi\'s'} <span className="italic font-normal">{language === 'am' ? 'ተች' : 'Touch'}</span>
               </motion.span>
             </div>
           </motion.div>
@@ -91,13 +91,33 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <p className="text-[11px] sm:text-xs text-[#D8C3A5] leading-relaxed font-light max-w-sm line-clamp-2 sm:line-clamp-none">
             {t('footer.tagline')}
           </p>
+
+          {/* Atelier Highlights / Footer Images */}
+          <div className="flex items-center gap-2 pt-1">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border border-[#C95A1A]/40 shadow-sm shrink-0">
+              <img
+                src="https://res.cloudinary.com/oydsg6yc/image/upload/v1791528555/ee6fe89a61780d65c8c1f2aa501c3470.jpg"
+                alt="Wengi Atelier Craft"
+                loading="lazy"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border border-[#C95A1A]/40 shadow-sm shrink-0">
+              <img
+                src="https://res.cloudinary.com/oydsg6yc/image/upload/v1791528542/5ed8cbca7e257097c4672381d8b0a7a2.jpg"
+                alt="Wengi Atelier Floral"
+                loading="lazy"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Developer Info Column */}
         <div className="md:col-span-4 space-y-2 sm:space-y-3">
           <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#C95A1A] flex items-center gap-1.5">
             <Code className="w-3 h-3.5 sm:w-3.5 sm:h-3.5" />
-            <span>{language === 'am' ? 'የሶፍትዌር አልሚ' : 'Developer'}</span>
+            <span>{language === 'am' ? 'የሶፍትዌር ዲዛይነር' : 'Developer'}</span>
           </h4>
           <div className="space-y-1.5 sm:space-y-2.5 text-[11px] sm:text-xs text-[#D8C3A5] font-light">
             <div className="flex items-center gap-1.5 sm:gap-2">

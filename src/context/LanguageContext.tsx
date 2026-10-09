@@ -285,9 +285,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.orderList': 'የትእዛዝ ዝርዝር',
 
     // Hero
-    'hero.badge': 'በኢትዮጵያ የእጅ የተሰሩ የክሮሼት ምርቶች በጣም ጥሩ',
-    'hero.title': 'በኢትዮጵያ የእጅ የተሰሩ የክሮሼት ምርቶች በጣም ጥሩ',
-    'hero.description': 'የእጅ የተሰሩ የክሮሼት ቢኒዎች፣ ሹርጊዎች፣ ዱራጎች፣ ያሉት እጃቸው የሌለው ጓንትሎች እና ሌሎችንም ይመልከቱ፣ ለየዓመቱ የእርስዎ ዘይቤ የተሰሩ!',
+    'hero.badge': 'በእጅ የተሰሩ ቆንጆ እና ውብ የክሮሼት ስራዎች',
+    'hero.title': 'በእጅ የተሰሩ ቆንጆ እና ውብ የክሮሼት ስራዎች',
+    'hero.description': 'በእጅ የተሰሩ የክሮሼት ቢኒዎች፣ሽሩግ፣ዱራጎች፣ጓንቶች እና ሌሎችንም ይመልከቱ',
     'hero.exploreBtn': 'ስብስቡን ይመልከቱ',
     'hero.customRequestBtn': 'ልዩ ትእዛዝ ይጠይቁ',
     'hero.handcrafted': 'ከክሮሼት ጋር',
@@ -319,7 +319,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.prod4.tag': 'ዙር 4 • ዋና የጥበብ ስራ',
 
     // Showcase
-    'showcase.subtitle': 'በእጅ የተሰራ የቅንጦት ጥበብ',
+    'showcase.subtitle': 'በእጅ የተሰሩ ስራዎች',
     'showcase.title': 'የእኛ የክሮሼት ስብስብ 🧶',
     'showcase.desc': '',
     'showcase.cat.all': 'ሁሉም ምርቶች',
@@ -379,8 +379,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Brand Story
     'story.badge': 'የአቴሌየር ቅርስ',
-    'story.title': 'የወንጊ ታች (Wengi\'s Touch) ታሪክ',
-    'story.desc1': 'ወንጊ ታች የተመሰረተው የጥንታዊ የጨርቃጨርቅ እና የክሮሼት ጥበብን በመጠበቅ እና ለዘመናዊ የቅንጦት ህይወት በማቅረብ ፍላጎት ነው።',
+    'story.title': 'ወንጊስ ተች (Wengi\'s Touch) ታሪክ',
+    'story.desc1': 'ወንጊስ ተች የተመሰረተው የጥንታዊ የጨርቃጨርቅ እና የክሮሼት ጥበብን በመጠበቅ እና ለዘመናዊ የቅንጦት ህይወት በማቅረብ ፍላጎት ነው።',
     'story.desc2': 'የህንጻ ጥበብ ትክክለኝነትን ከኢትዮጵያ ሀብታም የባህል ሽመና ቴክኒኮች ጋር በማቀናጀት እያንዳንዱ ስፌት በትእግስት እና በፍቅር በእጅ ይሰራል።',
     'story.val1Title': 'ዘላቂ የቅንጦት ጥበብ',
     'story.val1Desc': '100% ተፈጥሯዊ እና ጥራት ያላቸው የጥጥ፣ ሐር እና የበግ ጠጉር ፈትሎች።',
@@ -404,7 +404,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.send': 'መልእክት ላክ',
     'contact.sending': 'መልእክቱ እየተላከ ነው...',
     'contact.successTitle': 'መልእክትዎ ደርሶናል!',
-    'contact.successDesc': 'ወንጊ ታችን ስላገኙ እናመሰግናለን። ቡድናችን በቅርቡ ያናግርዎታል።',
+    'contact.successDesc': 'ወንጊስ ተችን ስላገኙ እናመሰግናለን። ቡድናችን በቅርቡ ያናግርዎታል።',
     'contact.atelierTitle': 'አቴሌየራችንን ይጎብኙ',
     'contact.atelierLoc': 'አዲስ አበባ እና ፓሪስ አቴሌየር',
     'contact.directPhone': 'የቀጥታ ስልክ / ዋትስአፕ',
@@ -412,7 +412,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.hoursVal': 'ሰኞ - ቅዳሜ፡ ከጠዋቱ 3:00 - ከሰአት 1:00',
 
     // Footer
-    'footer.tagline': 'የእጅ የተሰሩ የክሮሼት ቢኒዎች፣ ሹርጊዎች፣ ዱራጎች፣ ያሉት እጃቸው የሌለው ጓንትሎች እና ሌሎችንም ለየዓመቱ የእርስዎ ዘይቤ የተሰሩ!',
+    'footer.tagline': 'በእጅ የተሰሩ የክሮሼት ቢኒዎች፣ሽሩግ፣ዱራጎች፣ጓንቶች እና ሌሎችንም ይመልከቱ',
     'footer.quickNav': 'ፈጣን ማውጫ',
     'footer.gazette': 'የአቴሌየር ዜና',
     'footer.gazetteDesc': 'ስለ አዳዲስ የምርት ስብስቦች እና ልዩ ቅናሾች መረጃ ለማግኘት ይመዝገቡ።',

@@ -4,6 +4,7 @@ import { Search, Filter, Clock, CheckCircle2, Truck, Package, XCircle, Eye, User
 import { useLanguage } from '../../context/LanguageContext';
 import { formatCurrency } from '../../utils/currency';
 import { BackButton } from '../BackButton';
+import { getThumbnailImageUrl } from '../../utils/imageOptimizer';
 
 interface AdminOrdersProps {
   orders: Order[];
@@ -215,7 +216,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ orders, onUpdateOrderS
                 {selectedOrder.items.map((item, idx) => (
                   <div key={idx} className="bg-[#142E52] p-3 rounded-xl flex items-center justify-between border border-white/5">
                     <div className="flex items-center space-x-3">
-                      <img src={item.productImage} alt={item.productTitle} className="w-10 h-10 rounded-lg object-cover" referrerPolicy="no-referrer" />
+                      <img src={getThumbnailImageUrl(item.productImage)} alt={item.productTitle} className="w-10 h-10 rounded-lg object-cover" referrerPolicy="no-referrer" />
                       <div>
                         <span className="font-bold text-[#FAF7F1] text-xs block">{item.productTitle}</span>
                         <div className="flex items-center space-x-2">

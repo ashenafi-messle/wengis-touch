@@ -1,246 +1,327 @@
-import { supabaseAdmin } from './supabase';
+import { query } from './neon';
 import { Product, Order, Message, OrderItem } from '../src/types';
+import { deleteFromCloudinary, MAX_IMAGES_PER_PRODUCT } from './cloudinary';
+
+function formatProduct(p: any): Product {
+  let colorsStr = '';
+  if (typeof p.colors === 'string') {
+    colorsStr = p.colors;
+  } else if (Array.isArray(p.colors)) {
+    colorsStr = p.colors.map((c: any) => (typeof c === 'object' && c ? c.name || JSON.stringify(c) : String(c))).join(', ');
+  } else if (p.color) {
+    colorsStr = String(p.color);
+  }
+
+  return {
+    id: String(p.id),
+    title: p.title || '',
+    category: p.category || '',
+    description: p.description || '',
+    price: Number(p.price || 0),
+    images: Array.isArray(p.images) ? p.images : [],
+    colors: colorsStr,
+    available: Boolean(p.available),
+    createdAt: p.created_at ? new Date(p.created_at).toISOString() : new Date().toISOString()
+  };
+}
 
 // Database operations for Products
 export const dbProducts = {
   getAll: async (): Promise<Product[]> => {
-    const { data, error } = await supabaseAdmin
-      .from('products')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (error) throw error;
-    
-    return data.map(p => ({
-      id: p.id,
-      title: p.title,
-      category: p.category,
-      description: p.description,
-      price: Number(p.price),
-      images: p.images,
-      colors: typeof p.colors === 'string' ? p.colors : 
-        (Array.isArray(p.colors) ? p.colors.map((c: any) => c.name || c).join(', ') : JSON.stringify(p.colors)),
-      available: p.available,
-      createdAt: p.created_at
-    }));
+    const res = await query(
+      `SELECT id, title, category, description, price, images, color, colors, available, created_at, updated_at
+       FROM products
+       ORDER BY created_at DESC`
+    );
+    return res.rows.map(formatProduct);
+  },
+
+  getById: async (id: string): Promise<Product | null> => {
+    const res = await query(
+      `SELECT id, title, category, description, price, images, color, colors, available, created_at, updated_at
+       FROM products
+       WHERE id = $1
+       LIMIT 1`,
+      [id]
+    );
+    if (res.rows.length === 0) return null;
+    return formatProduct(res.rows[0]);
   },
 
   add: async (product: Omit<Product, 'id' | 'createdAt'>): Promise<Product> => {
-    const { data, error } = await supabaseAdmin
-      .from('products')
-      .insert({
-        title: product.title,
-        category: product.category,
-        description: product.description,
-        price: product.price,
-        images: product.images,
-        colors: product.colors,
-        available: product.available
-      })
-      .select()
-      .single();
-    
-    if (error) throw error;
-    
-    return {
-      id: data.id,
-      title: data.title,
-      category: data.category,
-      description: data.description,
-      price: Number(data.price),
-      images: data.images,
-      colors: typeof data.colors === 'string' ? data.colors : 
-        (Array.isArray(data.colors) ? data.colors.map((c: any) => c.name || c).join(', ') : JSON.stringify(data.colors)),
-      available: data.available,
-      createdAt: data.created_at
-    };
+    if (product.images && product.images.length > MAX_IMAGES_PER_PRODUCT) {
+      throw new Error(`Maximum ${MAX_IMAGES_PER_PRODUCT} images are allowed for one product.`);
+    }
+
+    const res = await query(
+      `INSERT INTO products (title, category, description, price, images, colors, color, available)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+       RETURNING id, title, category, description, price, images, color, colors, available, created_at, updated_at`,
+      [
+        product.title,
+        product.category,
+        product.description,
+        product.price,
+        product.images || [],
+        product.colors || '',
+        product.colors || '',
+        product.available !== undefined ? product.available : true
+      ]
+    );
+    return formatProduct(res.rows[0]);
   },
 
   update: async (id: string, updates: Partial<Product>): Promise<Product | null> => {
-    const updateData: any = {};
-    if (updates.title) updateData.title = updates.title;
-    if (updates.category) updateData.category = updates.category;
-    if (updates.description) updateData.description = updates.description;
-    if (updates.price) updateData.price = updates.price;
-    if (updates.images) updateData.images = updates.images;
-    if (updates.colors) updateData.colors = updates.colors;
-    if (updates.available !== undefined) updateData.available = updates.available;
+    if (updates.images && updates.images.length > MAX_IMAGES_PER_PRODUCT) {
+      throw new Error(`Maximum ${MAX_IMAGES_PER_PRODUCT} images are allowed for one product.`);
+    }
 
-    const { data, error } = await supabaseAdmin
-      .from('products')
-      .update(updateData)
-      .eq('id', id)
-      .select()
-      .single();
-    
-    if (error) throw error;
-    if (!data) return null;
-    
-    return {
-      id: data.id,
-      title: data.title,
-      category: data.category,
-      description: data.description,
-      price: Number(data.price),
-      images: data.images,
-      colors: typeof data.colors === 'string' ? data.colors : 
-        (Array.isArray(data.colors) ? data.colors.map((c: any) => c.name || c).join(', ') : JSON.stringify(data.colors)),
-      available: data.available,
-      createdAt: data.created_at
-    };
+    // Capture previous images to clean up removed Cloudinary assets
+    let previousImages: string[] = [];
+    if (updates.images !== undefined) {
+      const prev = await dbProducts.getById(id);
+      if (prev && Array.isArray(prev.images)) {
+        previousImages = prev.images;
+      }
+    }
+
+    const fields: string[] = [];
+    const values: any[] = [];
+    let paramIndex = 1;
+
+    if (updates.title !== undefined) {
+      fields.push(`title = $${paramIndex++}`);
+      values.push(updates.title);
+    }
+    if (updates.category !== undefined) {
+      fields.push(`category = $${paramIndex++}`);
+      values.push(updates.category);
+    }
+    if (updates.description !== undefined) {
+      fields.push(`description = $${paramIndex++}`);
+      values.push(updates.description);
+    }
+    if (updates.price !== undefined) {
+      fields.push(`price = $${paramIndex++}`);
+      values.push(updates.price);
+    }
+    if (updates.images !== undefined) {
+      fields.push(`images = $${paramIndex++}`);
+      values.push(updates.images);
+    }
+    if (updates.colors !== undefined) {
+      fields.push(`colors = $${paramIndex++}`);
+      values.push(updates.colors);
+      fields.push(`color = $${paramIndex++}`);
+      values.push(updates.colors);
+    }
+    if (updates.available !== undefined) {
+      fields.push(`available = $${paramIndex++}`);
+      values.push(updates.available);
+    }
+
+    if (fields.length === 0) {
+      return dbProducts.getById(id);
+    }
+
+    fields.push(`updated_at = NOW()`);
+    values.push(id);
+
+    const sql = `UPDATE products
+                 SET ${fields.join(', ')}
+                 WHERE id = $${paramIndex}
+                 RETURNING id, title, category, description, price, images, color, colors, available, created_at, updated_at`;
+
+    const res = await query(sql, values);
+    if (res.rows.length === 0) return null;
+
+    // After DB update succeeds, clean up any removed Cloudinary images
+    if (updates.images !== undefined && previousImages.length > 0) {
+      const newSet = new Set(updates.images);
+      const removed = previousImages.filter(img => !newSet.has(img));
+      for (const removedImg of removed) {
+        deleteFromCloudinary(removedImg).catch(err =>
+          console.error('Cloudinary cleanup error for removed asset:', err)
+        );
+      }
+    }
+
+    return formatProduct(res.rows[0]);
   },
 
   delete: async (id: string): Promise<boolean> => {
-    const { error } = await supabaseAdmin
-      .from('products')
-      .delete()
-      .eq('id', id);
-    
-    if (error) throw error;
-    return true;
+    const prev = await dbProducts.getById(id);
+    const res = await query(`DELETE FROM products WHERE id = $1`, [id]);
+    const success = (res.rowCount ?? 0) > 0;
+
+    // After DB delete succeeds, clean up all associated Cloudinary assets
+    if (success && prev && prev.images && prev.images.length > 0) {
+      for (const img of prev.images) {
+        deleteFromCloudinary(img).catch(err =>
+          console.error('Cloudinary cleanup error on product deletion:', err)
+        );
+      }
+    }
+
+    return success;
   }
 };
 
 // Database operations for Orders
 export const dbOrders = {
   getAll: async (): Promise<Order[]> => {
-    const { data: orders, error } = await supabaseAdmin
-      .from('orders')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (error) throw error;
-    
-    const ordersWithItems = await Promise.all(
-      orders.map(async (order: any) => {
-        const { data: items } = await supabaseAdmin
-          .from('order_items')
-          .select('*')
-          .eq('order_id', order.id);
-        
-        return {
-          id: order.id,
-          orderRef: order.order_ref,
-          customerName: order.customer_name,
-          customerEmail: order.customer_email,
-          customerPhone: order.customer_phone,
-          shippingAddress: order.shipping_address,
-          items: items?.map((item: any) => ({
-            productId: item.product_id,
-            productTitle: item.product_title,
-            productImage: item.product_image,
-            color: item.color,
-            quantity: item.quantity,
-            price: Number(item.price)
-          })) || [],
-          totalAmount: Number(order.total_amount),
-          status: order.status,
-          deliveryPreference: order.delivery_preference,
-          paymentMethod: order.payment_method,
-          specialNotes: order.special_notes,
-          createdAt: order.created_at
-        };
-      })
+    const ordersRes = await query(
+      `SELECT id, order_ref, customer_name, customer_email, customer_phone, shipping_address,
+              total_amount, status, delivery_preference, payment_method, special_notes, created_at
+       FROM orders
+       ORDER BY created_at DESC`
     );
-    
-    return ordersWithItems;
+
+    const orders = ordersRes.rows;
+    if (orders.length === 0) return [];
+
+    const orderIds = orders.map((o) => o.id);
+    const itemsRes = await query(
+      `SELECT id, order_id, product_id, product_title, product_image, color, quantity, price
+       FROM order_items
+       WHERE order_id = ANY($1::uuid[])`,
+      [orderIds]
+    );
+
+    const itemsByOrder = new Map<string, OrderItem[]>();
+    for (const item of itemsRes.rows) {
+      const list = itemsByOrder.get(item.order_id) || [];
+      list.push({
+        productId: item.product_id,
+        productTitle: item.product_title,
+        productImage: item.product_image,
+        color: item.color || '',
+        quantity: Number(item.quantity),
+        price: Number(item.price)
+      });
+      itemsByOrder.set(item.order_id, list);
+    }
+
+    return orders.map((order) => ({
+      id: String(order.id),
+      orderRef: order.order_ref,
+      customerName: order.customer_name,
+      customerEmail: order.customer_email,
+      customerPhone: order.customer_phone,
+      shippingAddress: order.shipping_address,
+      items: itemsByOrder.get(order.id) || [],
+      totalAmount: Number(order.total_amount),
+      status: order.status,
+      deliveryPreference: order.delivery_preference,
+      paymentMethod: order.payment_method,
+      specialNotes: order.special_notes,
+      createdAt: order.created_at ? new Date(order.created_at).toISOString() : new Date().toISOString()
+    }));
   },
 
   add: async (order: Omit<Order, 'id' | 'createdAt'>): Promise<Order> => {
-    const orderRef = `ORD-${Math.floor(1000 + Math.random() * 9000)}`;
-    
-    // Create order
-    const { data: orderData, error: orderError } = await supabaseAdmin
-      .from('orders')
-      .insert({
-        order_ref: orderRef,
-        customer_name: order.customerName,
-        customer_email: order.customerEmail,
-        customer_phone: order.customerPhone,
-        shipping_address: order.shippingAddress,
-        total_amount: order.totalAmount,
-        status: order.status || 'Pending',
-        delivery_preference: order.deliveryPreference,
-        payment_method: order.paymentMethod,
-        special_notes: order.specialNotes
-      })
-      .select()
-      .single();
-    
-    if (orderError) throw orderError;
-    
-    // Create order items
-    const orderItems = order.items.map(item => ({
-      order_id: orderData.id,
-      product_id: item.productId,
-      product_title: item.productTitle,
-      product_image: item.productImage,
-      color: item.color,
-      quantity: item.quantity,
-      price: item.price
-    }));
-    
-    const { error: itemsError } = await supabaseAdmin
-      .from('order_items')
-      .insert(orderItems);
-    
-    if (itemsError) throw itemsError;
-    
+    const orderRef = order.orderRef || `ORD-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    const orderRes = await query(
+      `INSERT INTO orders (order_ref, customer_name, customer_email, customer_phone, shipping_address,
+                           total_amount, status, delivery_preference, payment_method, special_notes)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       RETURNING id, order_ref, customer_name, customer_email, customer_phone, shipping_address,
+                 total_amount, status, delivery_preference, payment_method, special_notes, created_at`,
+      [
+        orderRef,
+        order.customerName,
+        order.customerEmail,
+        order.customerPhone,
+        order.shippingAddress,
+        order.totalAmount,
+        order.status || 'Pending',
+        order.deliveryPreference || '',
+        order.paymentMethod || '',
+        order.specialNotes || ''
+      ]
+    );
+
+    const createdOrder = orderRes.rows[0];
+
+    if (order.items && order.items.length > 0) {
+      for (const item of order.items) {
+        await query(
+          `INSERT INTO order_items (order_id, product_id, product_title, product_image, color, quantity, price)
+           VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+          [
+            createdOrder.id,
+            item.productId || null,
+            item.productTitle,
+            item.productImage,
+            item.color || '',
+            item.quantity,
+            item.price
+          ]
+        );
+      }
+    }
+
     return {
-      id: orderData.id,
-      orderRef: orderData.order_ref,
-      customerName: orderData.customer_name,
-      customerEmail: orderData.customer_email,
-      customerPhone: orderData.customer_phone,
-      shippingAddress: orderData.shipping_address,
-      items: order.items,
-      totalAmount: Number(orderData.total_amount),
-      status: orderData.status,
-      deliveryPreference: orderData.delivery_preference,
-      paymentMethod: orderData.payment_method,
-      specialNotes: orderData.special_notes,
-      createdAt: orderData.created_at
+      id: String(createdOrder.id),
+      orderRef: createdOrder.order_ref,
+      customerName: createdOrder.customer_name,
+      customerEmail: createdOrder.customer_email,
+      customerPhone: createdOrder.customer_phone,
+      shippingAddress: createdOrder.shipping_address,
+      items: order.items || [],
+      totalAmount: Number(createdOrder.total_amount),
+      status: createdOrder.status,
+      deliveryPreference: createdOrder.delivery_preference,
+      paymentMethod: createdOrder.payment_method,
+      specialNotes: createdOrder.special_notes,
+      createdAt: createdOrder.created_at ? new Date(createdOrder.created_at).toISOString() : new Date().toISOString()
     };
   },
 
   updateStatus: async (id: string, status: string): Promise<Order | null> => {
-    const { data, error } = await supabaseAdmin
-      .from('orders')
-      .update({ status })
-      .eq('id', id)
-      .select()
-      .single();
-    
-    if (error) throw error;
-    if (!data) return null;
-    
-    // Get order items
-    const { data: items } = await supabaseAdmin
-      .from('order_items')
-      .select('*')
-      .eq('order_id', data.id);
-    
+    const res = await query(
+      `UPDATE orders
+       SET status = $1, updated_at = NOW()
+       WHERE id = $2
+       RETURNING id, order_ref, customer_name, customer_email, customer_phone, shipping_address,
+                 total_amount, status, delivery_preference, payment_method, special_notes, created_at`,
+      [status, id]
+    );
+
+    if (res.rows.length === 0) return null;
+    const order = res.rows[0];
+
+    const itemsRes = await query(
+      `SELECT product_id, product_title, product_image, color, quantity, price
+       FROM order_items
+       WHERE order_id = $1`,
+      [id]
+    );
+
+    const items: OrderItem[] = itemsRes.rows.map((item) => ({
+      productId: item.product_id,
+      productTitle: item.product_title,
+      productImage: item.product_image,
+      color: item.color || '',
+      quantity: Number(item.quantity),
+      price: Number(item.price)
+    }));
+
     return {
-      id: data.id,
-      orderRef: data.order_ref,
-      customerName: data.customer_name,
-      customerEmail: data.customer_email,
-      customerPhone: data.customer_phone,
-      shippingAddress: data.shipping_address,
-      items: items?.map((item: any) => ({
-        productId: item.product_id,
-        productTitle: item.product_title,
-        productImage: item.product_image,
-        color: item.color,
-        quantity: item.quantity,
-        price: Number(item.price)
-      })) || [],
-      totalAmount: Number(data.total_amount),
-      status: data.status,
-      deliveryPreference: data.delivery_preference,
-      paymentMethod: data.payment_method,
-      specialNotes: data.special_notes,
-      createdAt: data.created_at
+      id: String(order.id),
+      orderRef: order.order_ref,
+      customerName: order.customer_name,
+      customerEmail: order.customer_email,
+      customerPhone: order.customer_phone,
+      shippingAddress: order.shipping_address,
+      items,
+      totalAmount: Number(order.total_amount),
+      status: order.status,
+      deliveryPreference: order.delivery_preference,
+      paymentMethod: order.payment_method,
+      specialNotes: order.special_notes,
+      createdAt: order.created_at ? new Date(order.created_at).toISOString() : new Date().toISOString()
     };
   }
 };
@@ -248,84 +329,71 @@ export const dbOrders = {
 // Database operations for Messages
 export const dbMessages = {
   getAll: async (): Promise<Message[]> => {
-    const { data, error } = await supabaseAdmin
-      .from('messages')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (error) throw error;
-    
-    return data.map(m => ({
-      id: m.id,
+    const res = await query(
+      `SELECT id, name, email, phone, subject, message, read, created_at
+       FROM messages
+       ORDER BY created_at DESC`
+    );
+
+    return res.rows.map((m) => ({
+      id: String(m.id),
       name: m.name,
       email: m.email,
-      phone: m.phone,
+      phone: m.phone || '',
       subject: m.subject,
       message: m.message,
-      read: m.read,
-      createdAt: m.created_at
+      read: Boolean(m.read),
+      createdAt: m.created_at ? new Date(m.created_at).toISOString() : new Date().toISOString()
     }));
   },
 
   add: async (message: Omit<Message, 'id' | 'createdAt' | 'read'>): Promise<Message> => {
-    const { data, error } = await supabaseAdmin
-      .from('messages')
-      .insert({
-        name: message.name,
-        email: message.email,
-        phone: message.phone,
-        subject: message.subject,
-        message: message.message,
-        read: false
-      })
-      .select()
-      .single();
-    
-    if (error) throw error;
-    
+    const res = await query(
+      `INSERT INTO messages (name, email, phone, subject, message, read)
+       VALUES ($1, $2, $3, $4, $5, false)
+       RETURNING id, name, email, phone, subject, message, read, created_at`,
+      [message.name, message.email, message.phone || null, message.subject, message.message]
+    );
+
+    const m = res.rows[0];
     return {
-      id: data.id,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      subject: data.subject,
-      message: data.message,
-      read: data.read,
-      createdAt: data.created_at
+      id: String(m.id),
+      name: m.name,
+      email: m.email,
+      phone: m.phone || '',
+      subject: m.subject,
+      message: m.message,
+      read: Boolean(m.read),
+      createdAt: m.created_at ? new Date(m.created_at).toISOString() : new Date().toISOString()
     };
   },
 
   toggleRead: async (id: string, read: boolean): Promise<Message | null> => {
-    const { data, error } = await supabaseAdmin
-      .from('messages')
-      .update({ read })
-      .eq('id', id)
-      .select()
-      .single();
-    
-    if (error) throw error;
-    if (!data) return null;
-    
+    const res = await query(
+      `UPDATE messages
+       SET read = $1
+       WHERE id = $2
+       RETURNING id, name, email, phone, subject, message, read, created_at`,
+      [read, id]
+    );
+
+    if (res.rows.length === 0) return null;
+    const m = res.rows[0];
     return {
-      id: data.id,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      subject: data.subject,
-      message: data.message,
-      read: data.read,
-      createdAt: data.created_at
+      id: String(m.id),
+      name: m.name,
+      email: m.email,
+      phone: m.phone || '',
+      subject: m.subject,
+      message: m.message,
+      read: Boolean(m.read),
+      createdAt: m.created_at ? new Date(m.created_at).toISOString() : new Date().toISOString()
     };
   },
 
   delete: async (id: string): Promise<boolean> => {
-    const { error } = await supabaseAdmin
-      .from('messages')
-      .delete()
-      .eq('id', id);
-    
-    if (error) throw error;
-    return true;
+    const res = await query(`DELETE FROM messages WHERE id = $1`, [id]);
+    return (res.rowCount ?? 0) > 0;
   }
 };
 
@@ -333,72 +401,62 @@ export const dbMessages = {
 export const dbAdmin = {
   verifyPassword: async (password: string): Promise<boolean> => {
     try {
-      // Get the stored password hash from admin_settings table
-      const { data, error } = await supabaseAdmin
-        .from('admin_settings')
-        .select('admin_password_hash')
-        .single();
-      
-      if (error || !data) {
-        console.error('Error fetching admin settings:', error);
-        return false;
+      const res = await query(
+        `SELECT id, admin_password_hash FROM admin_settings ORDER BY updated_at DESC LIMIT 1`
+      );
+
+      if (res.rows.length === 0) {
+        // Fallback default admin password if table not yet seeded
+        return password === 'wengi123' || password === 'wengel6567';
       }
-      
-      // Simple comparison (in production, use bcrypt for proper hashing)
-      // For now, we'll store plain text or simple hash
-      return data.admin_password_hash === password;
+
+      return res.rows[0].admin_password_hash === password;
     } catch (error) {
-      console.error('Error verifying password:', error);
+      console.error('Error verifying admin password:', error);
       return false;
     }
   },
 
   updatePassword: async (currentPassword: string, newPassword: string): Promise<boolean> => {
     try {
-      // First verify current password
       const isValid = await dbAdmin.verifyPassword(currentPassword);
-      if (!isValid) {
-        return false;
+      if (!isValid) return false;
+
+      const currentSettings = await query(`SELECT id FROM admin_settings ORDER BY updated_at DESC LIMIT 1`);
+      if (currentSettings.rows.length > 0) {
+        await query(
+          `UPDATE admin_settings
+           SET admin_password_hash = $1, updated_at = NOW()
+           WHERE id = $2`,
+          [newPassword, currentSettings.rows[0].id]
+        );
+      } else {
+        await query(
+          `INSERT INTO admin_settings (admin_password_hash) VALUES ($1)`,
+          [newPassword]
+        );
       }
-      
-      // Update password
-      const { error } = await supabaseAdmin
-        .from('admin_settings')
-        .update({ admin_password_hash: newPassword, updated_at: new Date().toISOString() })
-        .eq('id', (await supabaseAdmin.from('admin_settings').select('id').single()).data?.id);
-      
-      if (error) {
-        console.error('Error updating password:', error);
-        return false;
-      }
-      
       return true;
     } catch (error) {
-      console.error('Error updating password:', error);
+      console.error('Error updating admin password:', error);
       return false;
     }
   },
 
   initializeAdminPassword: async (defaultPassword: string): Promise<void> => {
     try {
-      // Check if admin settings exist
-      const { data, error } = await supabaseAdmin
-        .from('admin_settings')
-        .select('id')
-        .maybeSingle();
-      
-      if (error) throw error;
-      
-      // If no settings exist, create with default password
-      if (!data) {
-        const { error: insertError } = await supabaseAdmin
-          .from('admin_settings')
-          .insert({ admin_password_hash: defaultPassword });
-        
-        if (insertError) throw insertError;
+      const res = await query(`SELECT id FROM admin_settings LIMIT 1`);
+      if (res.rows.length === 0) {
+        await query(`INSERT INTO admin_settings (admin_password_hash) VALUES ($1)`, [defaultPassword]);
+      } else {
+        await query(`UPDATE admin_settings SET admin_password_hash = $1, updated_at = NOW() WHERE id = $2`, [
+          defaultPassword,
+          res.rows[0].id
+        ]);
       }
     } catch (error) {
       console.error('Error initializing admin password:', error);
+      throw error;
     }
   }
 };
