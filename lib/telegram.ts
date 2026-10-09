@@ -417,7 +417,7 @@ export async function sendTelegramPhoto(
       : 'jpg';
     formData.append(
       'photo',
-      new Blob([downloaded.buffer], { type: downloaded.contentType }),
+      new Blob([downloaded.buffer as unknown as BlobPart], { type: downloaded.contentType }),
       `product.${ext}`
     );
 
