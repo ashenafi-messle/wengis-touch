@@ -116,14 +116,16 @@ export async function POST(req: NextRequest) {
         }
       : undefined;
 
-    await sendTelegramMessage(
-      chatId,
-      `🧶 <b>Wengi's Touch Atelier</b>\n\n` +
-      `We received your message! For order submissions, please place an order on our website or use your order confirmation link.\n\n` +
-      `For direct custom inquiries, you can also reach our atelier at @${config.adminUsername}.`,
-      'HTML',
-      returnMarkup
-    );
+    if (String(chatId) !== String(config.adminChatId)) {
+      await sendTelegramMessage(
+        chatId,
+        `🧶 <b>Wengi's Touch Atelier</b>\n\n` +
+        `We received your message! For order submissions, please place an order on our website or use your order confirmation link.\n\n` +
+        `For direct custom inquiries, you can also reach our atelier at @${config.adminUsername}.`,
+        'HTML',
+        returnMarkup
+      );
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error: any) {

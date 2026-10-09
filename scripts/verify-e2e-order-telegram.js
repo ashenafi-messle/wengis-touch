@@ -10,6 +10,11 @@ import {
   formatTelegramOrderMessage,
   getTelegramConfig,
   sendTelegramMessage,
+  isValidProductImageUrl,
+  extractPrimaryProductImageUrl,
+  sendTelegramPhoto,
+  sendTelegramMediaGroup,
+  sendCustomerResponse,
 } from '../lib/telegram.ts';
 
 const { Pool } = pg;
@@ -80,6 +85,29 @@ async function runEndToEndVerification() {
   const chatData = await chatRes.json();
   assert(chatData.ok === true && chatData.result?.id === 7619865911, `Admin chat 7619865911 verified: @${chatData.result?.username}`);
 
+  // Image validation unit tests
+  console.log('\n--- VERIFYING IMAGE URL VALIDATION & EXTRACTION ---');
+  assert(isValidProductImageUrl('https://res.cloudinary.com/oydsg6yc/image/upload/sample.jpg') === true, 'Cloudinary HTTPS URL is accepted');
+  assert(isValidProductImageUrl('https://xiutwblkoardcbavhsem.supabase.co/storage/v1/object/public/test.jpg') === true, 'Supabase HTTPS URL is accepted');
+  assert(isValidProductImageUrl('http://res.cloudinary.com/sample.jpg') === false, 'Insecure HTTP URL is rejected');
+  assert(isValidProductImageUrl('https://localhost/test.jpg') === false, 'Localhost URL is rejected');
+  assert(isValidProductImageUrl('https://127.0.0.1/test.jpg') === false, 'Loopback IP URL is rejected');
+  assert(isValidProductImageUrl('https://192.168.1.1/test.jpg') === false, 'Private IP URL is rejected');
+  assert(isValidProductImageUrl('file:///etc/passwd') === false, 'File URI scheme is rejected');
+
+  assert(
+    extractPrimaryProductImageUrl('https://res.cloudinary.com/test.jpg') === 'https://res.cloudinary.com/test.jpg',
+    'Extracts direct string image URL'
+  );
+  assert(
+    extractPrimaryProductImageUrl(null, ['https://res.cloudinary.com/cat1.jpg', 'https://res.cloudinary.com/cat2.jpg']) === 'https://res.cloudinary.com/cat1.jpg',
+    'Extracts primary image from catalog array when item image is missing'
+  );
+  assert(
+    extractPrimaryProductImageUrl(null, JSON.stringify(['https://res.cloudinary.com/json.jpg'])) === 'https://res.cloudinary.com/json.jpg',
+    'Extracts primary image from JSON string array'
+  );
+
   const pool = new Pool({
     connectionString: databaseUrl,
     ssl: { rejectUnauthorized: false },
@@ -148,8 +176,9 @@ async function runEndToEndVerification() {
     const updatedToken = await pool.query(`SELECT used_at FROM telegram_order_tokens WHERE id = $1`, [tokenDb.rows[0].id]);
     assert(updatedToken.rows[0].used_at !== null, 'Token marked as used (used_at has timestamp)');
 
-    const updatedOrder = await pool.query(`SELECT telegram_notification_status FROM orders WHERE id = $1`, [orderId]);
+    const updatedOrder = await pool.query(`SELECT telegram_notification_status, telegram_images_status FROM orders WHERE id = $1`, [orderId]);
     assert(updatedOrder.rows[0].telegram_notification_status === 'SENT', 'Order status updated to telegram_notification_status = SENT');
+    assert(updatedOrder.rows[0].telegram_images_status === 'SENT', 'Order images status updated to telegram_images_status = SENT');
 
     // 4. Test Token Replay Protection
     console.log('\n--- TESTING REPLAY / IDEMPOTENCY PROTECTION ---');
@@ -157,10 +186,110 @@ async function runEndToEndVerification() {
     assert(replayResult.success === false, 'Replaying the same token was safely rejected');
     assert(replayResult.message.includes('used'), 'Correct "Token already used" message returned');
 
-    // 5. Test Missing Token Handling (/start without token)
+    // 5. Test Missing Image Resilience (Order with no images should still succeed safely)
+    console.log('\n--- TESTING MISSING IMAGE SAFETY ---');
+    const noImgOrder = await pool.query(
+      `INSERT INTO orders (order_ref, customer_name, customer_email, customer_phone, shipping_address,
+                           total_amount, status, delivery_preference, payment_method, telegram_notification_status)
+       VALUES ('WT-E2E-NOIMG-001', 'Test Customer No Img', 'noimg@test.com', '+251911000000', 'Addis Ababa',
+               500, 'Pending', 'Standard', 'Cash on Delivery', 'PENDING')
+       RETURNING id`
+    );
+    const noImgOrderId = noImgOrder.rows[0].id;
+    createdOrderIds.push(noImgOrderId);
+
+    await pool.query(
+      `INSERT INTO order_items (order_id, product_title, quantity, price, color, product_image)
+       VALUES ($1, 'Plain Handcrafted Item (No Photo)', 1, 500, 'Natural', '')`,
+      [noImgOrderId]
+    );
+
+    const noImgTokenRes = await generateTelegramOrderToken(noImgOrderId);
+    createdTokenIds.push(
+      (await pool.query(`SELECT id FROM telegram_order_tokens WHERE token_hash = $1`, [
+        crypto.createHash('sha256').update(noImgTokenRes.rawToken).digest('hex')
+      ])).rows[0].id
+    );
+
+    const noImgDispatch = await processTelegramStartToken(noImgTokenRes.rawToken, config.adminChatId);
+    assert(noImgDispatch.success === true, 'Order without images dispatched text notification successfully');
+    const noImgDb = await pool.query(`SELECT telegram_images_status FROM orders WHERE id = $1`, [noImgOrderId]);
+    assert(noImgDb.rows[0].telegram_images_status === 'NONE', 'Order without images marked telegram_images_status = NONE');
+
+    // 6. Test Missing Token Handling (/start without token)
     console.log('\n--- TESTING /start WITHOUT TOKEN (TELEGRAM WEB COMPATIBILITY) ---');
     const noTokenResult = await handleTelegramStartWithoutToken(config.adminChatId);
     assert(noTokenResult.success === true, 'Handled /start without token safely with guidance message');
+
+    // 7. Test Admin Chat Isolation (Customer messages NEVER reach administrator)
+    console.log('\n--- TESTING ADMINISTRATOR CHAT ISOLATION ---');
+    const customerResponseToAdmin = await sendCustomerResponse(config.adminChatId, '✅ Order received!');
+    assert(customerResponseToAdmin.skipped === true, 'Customer confirmation text is strictly suppressed for administrator chat');
+
+    const welcomeResponseToAdmin = await sendCustomerResponse(config.adminChatId, '🧶 Welcome to Wengi\'s Touch!');
+    assert(welcomeResponseToAdmin.skipped === true, 'Customer welcome text is strictly suppressed for administrator chat');
+
+    // 8. Test Exact Formatting Requirements
+    console.log('\n--- TESTING EXACT NOTIFICATION FORMATTING ---');
+    const testFormattedMessage = formatTelegramOrderMessage({
+      orderRef: 'WT-E2E-LIVE-001',
+      customerName: 'Abebe Bikila (E2E Test)',
+      customerPhone: '+251911223344',
+      customerEmail: 'abebe.test@wengistouch.com',
+      shippingAddress: 'Gondar, Piazza, House #42',
+      deliveryPreference: 'Express 2-Day',
+      paymentMethod: 'Cash on Delivery',
+      status: 'Pending',
+      specialNotes: 'Automated End-to-End Verification Test Order',
+      totalAmount: 1850,
+      createdAt: '2026-10-09T00:00:00.000Z',
+      items: [
+        {
+          productTitle: 'Royal Crochet Beanie',
+          quantity: 1,
+          price: 650,
+          color: 'Burgundy',
+        },
+        {
+          productTitle: 'Atelier Handcrafted Shrug',
+          quantity: 1,
+          price: 1200,
+          color: 'Warm Sand',
+        },
+      ],
+    });
+
+    assert(testFormattedMessage.includes("🛍 <b>WENGI'S TOUCH — NEW ORDER</b>"), 'Format includes exact title');
+    assert(testFormattedMessage.includes('━━━━━━━━━━━━━━━━━━━━━━━━━━━━'), 'Format includes separator lines');
+    assert(testFormattedMessage.includes('<b>Order ID:</b> <code>#WT-E2E-LIVE-001</code>'), 'Format includes Order ID');
+    assert(testFormattedMessage.includes('<b>Date:</b> 2026-10-09'), 'Format includes Date');
+    assert(testFormattedMessage.includes('👤 <b>CUSTOMER INFORMATION</b>'), 'Format includes Customer header');
+    assert(testFormattedMessage.includes('• <b>Name:</b> Abebe Bikila (E2E Test)'), 'Format includes Customer Name');
+    assert(testFormattedMessage.includes('• <b>Phone:</b> <code>+251911223344</code>'), 'Format includes Customer Phone');
+    assert(testFormattedMessage.includes('• <b>Email:</b> abebe.test@wengistouch.com'), 'Format includes Customer Email');
+    assert(testFormattedMessage.includes('📍 <b>DELIVERY INFORMATION</b>'), 'Format includes Delivery header');
+    assert(testFormattedMessage.includes('• <b>Address:</b> Gondar, Piazza, House #42'), 'Format includes Delivery Address');
+    assert(testFormattedMessage.includes('• <b>Delivery Preference:</b> Express 2-Day'), 'Format includes Delivery Preference');
+    assert(testFormattedMessage.includes('🛒 <b>ORDERED PRODUCTS</b>'), 'Format includes Ordered Products header');
+    assert(testFormattedMessage.includes('<b>1. Royal Crochet Beanie</b>\nQuantity: <b>1</b>\nUnit Price: <b>650.00 ETB</b>\nSubtotal: <b>650.00 ETB</b>\nColor: <b>Burgundy</b>'), 'Product 1 matches exact unindented structure');
+    assert(testFormattedMessage.includes('<b>2. Atelier Handcrafted Shrug</b>\nQuantity: <b>1</b>\nUnit Price: <b>1200.00 ETB</b>\nSubtotal: <b>1200.00 ETB</b>\nColor: <b>Warm Sand</b>'), 'Product 2 matches exact unindented structure');
+    assert(testFormattedMessage.includes('💰 <b>ORDER SUMMARY</b>\n• <b>Subtotal:</b> 1850.00 ETB\n• <b>Delivery Fee:</b> 0.00 ETB\n• <b>Discount:</b> 0.00 ETB\n• <b>TOTAL:</b> <b>1850.00 ETB</b>'), 'Order summary matches exact numbers and labels');
+    assert(testFormattedMessage.includes('💳 <b>PAYMENT</b>\n• <b>Payment Method:</b> Cash on Delivery\n• <b>Payment Status:</b> Pending'), 'Payment section matches exact format');
+    assert(testFormattedMessage.includes('📝 <b>Special Notes:</b>\nAutomated End-to-End Verification Test Order'), 'Special notes matches exact format');
+    assert(testFormattedMessage.includes('📦 <b>ORDER STATUS</b>\nNew Order (Confirmed via Telegram)'), 'Order status matches exact format');
+    assert(testFormattedMessage.includes('Admin Destination: @wengi67'), 'Admin destination matches @wengi67');
+
+    // Test omission of optional absent fields
+    const minimalOrder = formatTelegramOrderMessage({
+      orderRef: 'WT-MINIMAL',
+      customerName: 'Minimal Customer',
+      customerPhone: '0900000000',
+      totalAmount: 100,
+    });
+    assert(!minimalOrder.includes('• <b>Email:</b>'), 'Omitted absent email');
+    assert(!minimalOrder.includes('• <b>Address:</b>'), 'Omitted absent address');
+    assert(!minimalOrder.includes('• <b>Delivery Preference:</b>'), 'Omitted absent delivery preference');
+    assert(!minimalOrder.includes('📝 <b>Special Notes:</b>'), 'Omitted absent special notes');
 
     console.log('\n========================================================');
     console.log(`  ALL E2E VERIFICATION TESTS PASSED! (${passed}/${total})`);

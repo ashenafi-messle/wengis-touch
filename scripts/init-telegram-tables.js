@@ -39,9 +39,10 @@ async function initTables() {
   });
 
   try {
-    console.log('Ensuring telegram_notification_status column exists in orders...');
+    console.log('Ensuring telegram_notification_status and telegram_images_status columns exist in orders...');
     await pool.query(`
       ALTER TABLE orders ADD COLUMN IF NOT EXISTS telegram_notification_status VARCHAR(20) DEFAULT 'PENDING';
+      ALTER TABLE orders ADD COLUMN IF NOT EXISTS telegram_images_status VARCHAR(20) DEFAULT 'NONE';
     `);
 
     console.log('Ensuring telegram_order_tokens table exists...');

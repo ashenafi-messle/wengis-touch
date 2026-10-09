@@ -122,14 +122,16 @@ async function startPolling() {
               }
             : undefined;
 
-          await sendTelegramMessage(
-            chatId,
-            `🧶 <b>Wengi's Touch Atelier</b>\n\n` +
-            `We received your message! For order confirmations, please place an order on our website or click your order link.\n\n` +
-            `For direct custom inquiries, you can also reach our atelier at @${config.adminUsername}.`,
-            'HTML',
-            returnMarkup
-          );
+          if (String(chatId) !== String(config.adminChatId)) {
+            await sendTelegramMessage(
+              chatId,
+              `🧶 <b>Wengi's Touch Atelier</b>\n\n` +
+              `We received your message! For order confirmations, please place an order on our website or click your order link.\n\n` +
+              `For direct custom inquiries, you can also reach our atelier at @${config.adminUsername}.`,
+              'HTML',
+              returnMarkup
+            );
+          }
         }
       }
     } catch (err) {
