@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { dbOrders, dbProducts } from '@/lib/db';
 import { query } from '@/lib/neon';
 import { generateTelegramOrderToken } from '@/lib/telegram';
+import { initTelegramBotService } from '@/lib/telegram-service';
 import { OrderItem } from '@/src/types';
 
 export async function GET() {
@@ -134,6 +135,9 @@ export async function POST(req: NextRequest) {
     } catch (tokenErr) {
       console.error('Error generating Telegram order token:', tokenErr);
     }
+
+    // Ensure Telegram bot listener is active to process customer START clicks
+    initTelegramBotService().catch(() => {});
 
     return NextResponse.json(
       {
