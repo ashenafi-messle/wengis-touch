@@ -5,6 +5,8 @@ import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { ImageLightbox } from './ImageLightbox';
 import { getDetailImageUrl, getThumbnailImageUrl } from '../utils/imageOptimizer';
+import { BackButton } from './BackButton';
+import { OptimizedImage } from './OptimizedImage';
 
 interface ProductDetailsModalProps {
   product: Product | null;
@@ -53,6 +55,16 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F2747]/80 backdrop-blur-md overflow-y-auto">
       <div className="bg-[#FAF7F1] w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-[#C95A1A]/30 relative animate-fadeIn my-8">
         
+        {/* Navigation & Action Bar */}
+        <div className="absolute top-4 left-4 z-20">
+          <BackButton
+            onClick={onClose}
+            variant="pill"
+            size="sm"
+            label={language === 'am' ? 'ወደ ስብስቦች' : 'Back to Shop'}
+          />
+        </div>
+
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -66,11 +78,13 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
           {/* Left Column: Images Gallery */}
           <div className="md:col-span-6 bg-[#0F2747] p-6 flex flex-col justify-between">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#C95A1A]/30 mb-4 shadow-lg">
-              <img
-                src={getDetailImageUrl(product.images[activeImageIndex] || product.images[0])}
+              <OptimizedImage
+                src={product.images[activeImageIndex] || product.images[0]}
                 alt={translated.title}
+                preset="detail"
+                priority={true}
+                aspectRatio="4/3"
                 className="w-full h-full object-cover transition-all duration-300"
-                referrerPolicy="no-referrer"
               />
               <span className="absolute top-3 left-3 bg-[#C95A1A] text-[#FAF7F1] text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
                 {translated.category}
@@ -103,7 +117,13 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                     }`}
                     title={language === 'am' ? 'ለማሳየት ይጫኑ' : 'Double-click to view full size'}
                   >
-                    <img src={getThumbnailImageUrl(img)} alt="Thumbnail" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    <OptimizedImage
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      preset="thumbnail"
+                      aspectRatio="1/1"
+                      className="w-full h-full object-cover"
+                    />
                   </button>
                 ))}
               </div>

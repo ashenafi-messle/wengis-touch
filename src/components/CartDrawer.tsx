@@ -4,6 +4,8 @@ import { X, Trash2, ShoppingCart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { getThumbnailImageUrl } from '../utils/imageOptimizer';
+import { BackButton } from './BackButton';
+import { OptimizedImage } from './OptimizedImage';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -32,10 +34,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       <div className="w-full max-w-md bg-[#FAF7F1] h-full shadow-2xl flex flex-col justify-between border-l border-[#C95A1A]/30 text-left">
         
         {/* Drawer Header */}
-        <div className="bg-[#0F2747] p-5 flex items-center justify-between text-[#FAF7F1] border-b border-[#C95A1A]/30">
+        <div className="bg-[#0F2747] p-4 sm:p-5 flex items-center justify-between text-[#FAF7F1] border-b border-[#C95A1A]/30">
           <div className="flex items-center space-x-2">
+            <BackButton
+              onClick={onClose}
+              size="sm"
+              variant="ghost"
+              label={language === 'am' ? 'ተመለስ' : 'Back'}
+            />
             <ShoppingCart className="w-5 h-5 text-[#C95A1A]" />
-            <span className="font-serif-luxury text-lg font-bold">
+            <span className="font-serif-luxury text-base sm:text-lg font-bold">
               {language === 'am' ? `የጋሪዎ (${cart.length})` : `Your Cart (${cart.length})`}
             </span>
           </div>
@@ -65,11 +73,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 key={idx}
                 className="bg-[#F3E7D3] p-3.5 rounded-2xl border border-[#D8C3A5] flex items-center space-x-3 relative shadow-sm"
               >
-                <img
-                  src={getThumbnailImageUrl(item.product.images[0])}
+                <OptimizedImage
+                  src={item.product.images[0]}
                   alt={item.product.title}
+                  preset="thumbnail"
+                  aspectRatio="1/1"
                   className="w-16 h-16 rounded-xl object-cover border border-[#C95A1A]/20"
-                  referrerPolicy="no-referrer"
                 />
 
                 <div className="flex-1 min-w-0">

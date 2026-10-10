@@ -62,41 +62,97 @@ export default function App() {
     }
   }, []);
 
-  // Fetch initial data from backend - Parallel loading with caching for better performance
+  // Navigate tab while synchronizing browser history URL hash
+  const navigateToTab = (tab: 'home' | 'contact' | 'admin') => {
+    setActiveTab(tab);
+    if (typeof window !== 'undefined') {
+      const hash = tab === 'home' ? '' : `#${tab}`;
+      const newUrl = hash ? `${window.location.pathname}${hash}` : window.location.pathname;
+      window.history.pushState({ tab }, '', newUrl);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Sync browser back/forward buttons and mobile gestures via popstate
   useEffect(() => {
-    const fetchAllData = async () => {
+    if (typeof window !== 'undefined') {
+      const initialHash = window.location.hash.replace('#', '');
+      if (initialHash === 'contact' || initialHash === 'admin') {
+        setActiveTab(initialHash as 'contact' | 'admin');
+      }
+    }
+
+    const handlePopState = (e: PopStateEvent) => {
+      // 1. Dismiss open modals first on back gesture
+      if (selectedProduct) {
+        setSelectedProduct(null);
+        return;
+      }
+      if (isOrderModalOpen) {
+        setIsOrderModalOpen(false);
+        return;
+      }
+      if (isCartOpen) {
+        setIsCartOpen(false);
+        return;
+      }
+
+      // 2. Navigate tab
+      const targetTab = e.state?.tab || (window.location.hash ? window.location.hash.replace('#', '') : 'home');
+      if (targetTab === 'contact' || targetTab === 'admin' || targetTab === 'home') {
+        setActiveTab(targetTab as 'home' | 'contact' | 'admin');
+      } else {
+        setActiveTab('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [selectedProduct, isOrderModalOpen, isCartOpen]);
+
+  // Fast first-visit data loading: fetch products immediately so customer view renders with zero blocking delay
+  useEffect(() => {
+    const fetchProducts = async () => {
       setIsLoading(true);
       try {
-        // Fetch all data in parallel for faster loading
-        const [productsRes, ordersRes, messagesRes] = await Promise.all([
-          fetch('/api/products'),
-          fetch('/api/orders'),
-          fetch('/api/messages')
-        ]);
-
-        if (productsRes.ok) {
-          const productsData = await productsRes.json();
+        const res = await fetch('/api/products');
+        if (res.ok) {
+          const productsData = await res.json();
           setProducts(productsData);
         }
-        
-        if (ordersRes.ok) {
-          const ordersData = await ordersRes.json();
-          setOrders(ordersData);
-        }
-        
-        if (messagesRes.ok) {
-          const messagesData = await messagesRes.json();
-          setMessages(messagesData);
-        }
       } catch (err) {
-        console.error('Failed to fetch initial data', err);
+        console.error('Failed to fetch products', err);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchAllData();
+    fetchProducts();
   }, []);
+
+  // Lazily fetch admin-specific data (orders & messages) only when viewing admin portal
+  useEffect(() => {
+    if (activeTab === 'admin' || adminSession.isAuthenticated) {
+      const fetchAdminData = async () => {
+        try {
+          const [ordersRes, messagesRes] = await Promise.all([
+            fetch('/api/orders'),
+            fetch('/api/messages')
+          ]);
+          if (ordersRes.ok) {
+            setOrders(await ordersRes.json());
+          }
+          if (messagesRes.ok) {
+            setMessages(await messagesRes.json());
+          }
+        } catch (err) {
+          console.error('Failed to fetch admin data', err);
+        }
+      };
+
+      fetchAdminData();
+    }
+  }, [activeTab, adminSession.isAuthenticated]);
 
   // Cart Management Functions
   const handleAddToCart = (product: Product, selectedColor: string, preferredImage?: string) => {
@@ -259,7 +315,7 @@ export default function App() {
       {/* Top Header Navbar */}
       <Navbar
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={navigateToTab}
         cart={cart}
         setIsCartOpen={setIsCartOpen}
         searchQuery={searchQuery}
@@ -288,7 +344,7 @@ export default function App() {
                 const el = document.getElementById('collection-showcase');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              onCustomRequestClick={() => setActiveTab('contact')}
+              onCustomRequestClick={() => navigateToTab('contact')}
               products={products}
             />
 
@@ -297,6 +353,9 @@ export default function App() {
               onSelectProduct={(p, imgIdx = 0) => {
                 setSelectedProduct(p);
                 setSelectedProductInitialIndex(imgIdx);
+                if (typeof window !== 'undefined') {
+                  window.history.pushState({ modal: 'product', productId: p.id }, '', window.location.href);
+                }
               }}
               onAddToCart={(product, color, preferredImg) => handleAddToCart(product, color, preferredImg)}
               searchQuery={searchQuery}
@@ -308,7 +367,7 @@ export default function App() {
 
         {/* Customer Public Website: Contact Page */}
         {!isLoading && activeTab === 'contact' && (
-          <ContactPage onBack={() => setActiveTab('home')} />
+          <ContactPage onBack={() => navigateToTab('home')} />
         )}
 
         {/* Protected Admin Portal */}
@@ -318,7 +377,7 @@ export default function App() {
               <AdminLogin
                 session={adminSession}
                 onLoginSuccess={handleAdminLoginSuccess}
-                onBack={() => setActiveTab('home')}
+                onBack={() => navigateToTab('home')}
               />
             ) : (
               <div className="max-w-7xl mx-auto space-y-8">
@@ -398,7 +457,7 @@ export default function App() {
                       setAdminTab('products');
                       setIsAdminAddProductOpen(true);
                     }}
-                    onBack={() => setActiveTab('home')}
+                    onBack={() => navigateToTab('home')}
                   />
                 )}
 
@@ -410,7 +469,7 @@ export default function App() {
                     onDeleteProduct={handleDeleteProduct}
                     isAddOpen={isAdminAddProductOpen}
                     setIsAddOpen={setIsAdminAddProductOpen}
-                    onBack={() => setActiveTab('home')}
+                    onBack={() => navigateToTab('home')}
                   />
                 )}
 
@@ -418,7 +477,7 @@ export default function App() {
                   <AdminOrders
                     orders={orders}
                     onUpdateOrderStatus={handleUpdateOrderStatus}
-                    onBack={() => setActiveTab('home')}
+                    onBack={() => navigateToTab('home')}
                   />
                 )}
 
@@ -427,7 +486,7 @@ export default function App() {
                     messages={messages}
                     onToggleReadMessage={handleToggleReadMessage}
                     onDeleteMessage={handleDeleteMessage}
-                    onBack={() => setActiveTab('home')}
+                    onBack={() => navigateToTab('home')}
                   />
                 )}
 
@@ -465,7 +524,7 @@ export default function App() {
       />
 
       {/* Global Footer */}
-      <Footer setActiveTab={setActiveTab} />
+      <Footer setActiveTab={navigateToTab} />
 
     </div>
   );

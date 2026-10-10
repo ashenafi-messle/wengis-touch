@@ -5,6 +5,8 @@ import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { ImageLightbox } from './ImageLightbox';
 import { getCardImageUrl } from '../utils/imageOptimizer';
+import { OptimizedImage } from './OptimizedImage';
+import { BackButton } from './BackButton';
 
 interface ProductShowcaseProps {
   products: Product[];
@@ -122,7 +124,16 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2 sm:gap-3 mb-4 sm:mb-6 bg-[#F3E7D3] p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-[#D8C3A5]">
 
         {/* Category Pills (Horizontal Scroll on Mobile) */}
-        <div className="flex flex-nowrap overflow-x-auto gap-1 sm:gap-2 w-full lg:w-auto no-scrollbar pb-0.5">
+        <div className="flex flex-nowrap items-center overflow-x-auto gap-1 sm:gap-2 w-full lg:w-auto no-scrollbar pb-0.5">
+          {selectedCategory !== 'All' && (
+            <BackButton
+              size="sm"
+              variant="pill"
+              label={language === 'am' ? 'ወደ ሁሉም' : 'All Products'}
+              onClick={() => setSelectedCategory('All')}
+              className="mr-1 shadow-sm"
+            />
+          )}
           {categories.map((cat) => (
             <button
               key={cat}
@@ -190,12 +201,13 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                   className="relative aspect-[4/3] overflow-hidden cursor-pointer"
                   onClick={() => onSelectProduct(product, imageIndex)}
                 >
-                  <img
-                    src={getCardImageUrl(image)}
+                  <OptimizedImage
+                    src={image}
                     alt={translated.title}
-                    loading={idx < 4 ? 'eager' : 'lazy'}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
+                    preset="card"
+                    priority={idx < 2}
+                    aspectRatio="4/3"
+                    className="transform group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Multi-image indicator badge */}

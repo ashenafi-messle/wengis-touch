@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparkles, Heart, Shield, Award } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { OptimizedImage } from './OptimizedImage';
 
 const heroImg = 'https://res.cloudinary.com/oydsg6yc/image/upload/v1791546044/5926965701123970020.jpg';
 const flowersImg = 'https://res.cloudinary.com/oydsg6yc/image/upload/v1791528542/5ed8cbca7e257097c4672381d8b0a7a2.jpg';
@@ -20,10 +21,10 @@ export const BrandStory: React.FC = () => {
           {/* Visual Showcase Collage - Compact 2-column flex on mobile */}
           <div className="lg:col-span-6 space-y-2.5 sm:space-y-4">
             <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
-              <img
+              <OptimizedImage
                 src={heroImg}
                 alt="Wengi Atelier Craft"
-                loading="lazy"
+                preset="card"
                 className="w-full h-36 sm:h-72 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -37,10 +38,10 @@ export const BrandStory: React.FC = () => {
               </p>
             </div>
             <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-[#C95A1A]/30 shadow-lg">
-              <img
+              <OptimizedImage
                 src={flowersImg}
                 alt="Crochet Floral Art"
-                loading="lazy"
+                preset="card"
                 className="w-full h-32 sm:h-64 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>

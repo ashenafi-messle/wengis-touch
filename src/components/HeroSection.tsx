@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { Product } from '../types';
 import { getDetailImageUrl } from '../utils/imageOptimizer';
+import { OptimizedImage } from './OptimizedImage';
 
 interface HeroSectionProps {
   onExploreClick: () => void;
@@ -175,11 +176,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 }}
                 className="relative z-20 w-full max-w-[280px] sm:max-w-md aspect-[16/10] sm:aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_15px_40px_-10px_rgba(201,90,26,0.35)] border-2 border-[#C95A1A]/50 bg-[#142E52] group mt-6 sm:mt-8"
               >
-                <img
+                <OptimizedImage
                   src={currentProduct.image}
                   alt={currentProduct.title}
+                  preset="hero"
+                  priority={true}
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
                 
                 {/* Hover Info Overlay */}

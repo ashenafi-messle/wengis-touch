@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, ArrowRight, Heart, Code, Phone, User } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { OptimizedImage } from './OptimizedImage';
 
 interface FooterProps {
   setActiveTab: (tab: 'home' | 'contact' | 'admin') => void;
@@ -95,18 +96,18 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           {/* Atelier Highlights / Footer Images */}
           <div className="flex items-center gap-2 pt-1">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border border-[#C95A1A]/40 shadow-sm shrink-0">
-              <img
+              <OptimizedImage
                 src="https://res.cloudinary.com/oydsg6yc/image/upload/v1791546044/5926965701123970020.jpg"
                 alt="Wengi Atelier Craft"
-                loading="lazy"
+                preset="thumbnail"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
               />
             </div>
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border border-[#C95A1A]/40 shadow-sm shrink-0">
-              <img
+              <OptimizedImage
                 src="https://res.cloudinary.com/oydsg6yc/image/upload/v1791528542/5ed8cbca7e257097c4672381d8b0a7a2.jpg"
                 alt="Wengi Atelier Floral"
-                loading="lazy"
+                preset="thumbnail"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
               />
             </div>

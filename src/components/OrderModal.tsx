@@ -4,6 +4,8 @@ import { X, CheckCircle, Truck, CreditCard, ShieldCheck, ShoppingCart, ArrowRigh
 import { useLanguage } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
 import { getThumbnailImageUrl } from '../utils/imageOptimizer';
+import { BackButton } from './BackButton';
+import { OptimizedImage } from './OptimizedImage';
 
 interface OrderModalProps {
   isOpen: boolean;
@@ -101,18 +103,24 @@ export const OrderModal: React.FC<OrderModalProps> = ({
       <div className="bg-[#FAF7F1] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-[#C95A1A]/30 relative animate-fadeIn my-8 text-left">
         
         {/* Header */}
-        <div className="bg-[#0F2747] px-6 py-5 flex items-center justify-between border-b border-[#C95A1A]/30">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-full bg-[#C95A1A] flex items-center justify-center text-[#FAF7F1]">
+        <div className="bg-[#0F2747] px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between border-b border-[#C95A1A]/30">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <BackButton
+              onClick={onClose}
+              size="sm"
+              variant="ghost"
+              label={submittedOrder ? (language === 'am' ? 'ተመለስ' : 'Back') : (language === 'am' ? 'ተመለስ' : 'Back')}
+            />
+            <div className="w-8 h-8 rounded-full bg-[#C95A1A] hidden sm:flex items-center justify-center text-[#FAF7F1]">
               <ShoppingCart className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-serif-luxury text-xl font-bold text-[#FAF7F1]">
+              <h3 className="font-serif-luxury text-base sm:text-xl font-bold text-[#FAF7F1]">
                 {submittedOrder 
                   ? (language === 'am' ? 'ትእዛዝዎ ተመዝግቧል!' : 'Order Saved in Database') 
                   : t('orderModal.title')}
               </h3>
-              <p className="text-[11px] text-[#D8C3A5]">
+              <p className="text-[10px] sm:text-[11px] text-[#D8C3A5]">
                 {submittedOrder 
                   ? (language === 'am' ? 'የቴሌግራም ማረጋገጫ በመጠባበቅ ላይ' : 'Telegram Confirmation Pending') 
                   : (language === 'am' ? 'የእጅ ጥበብ ትእዛዝ' : 'Bespoke Handcrafted Order')}
@@ -274,11 +282,12 @@ export const OrderModal: React.FC<OrderModalProps> = ({
                 {cartItems.map((item, i) => (
                   <div key={i} className="flex items-center justify-between text-xs bg-[#FAF7F1] p-2.5 rounded-xl border border-[#D8C3A5]/50">
                     <div className="flex items-center space-x-3">
-                      <img 
-                        src={getThumbnailImageUrl(item.product.images[0])} 
+                      <OptimizedImage 
+                        src={item.product.images[0]} 
                         alt={item.product.title} 
+                        preset="thumbnail"
+                        aspectRatio="1/1"
                         className="w-10 h-10 rounded-lg object-cover" 
-                        referrerPolicy="no-referrer" 
                       />
                       <div>
                         <span className="font-semibold text-[#0F2747] block truncate max-w-[180px]">{item.product.title}</span>

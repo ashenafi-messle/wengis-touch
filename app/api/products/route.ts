@@ -5,7 +5,11 @@ import { Product } from '@/src/types';
 export async function GET() {
   try {
     const products = await dbProducts.getAll();
-    return NextResponse.json(products);
+    return NextResponse.json(products, {
+      headers: {
+        'Cache-Control': 'public, max-age=60, s-maxage=120, stale-while-revalidate=300',
+      },
+    });
   } catch (error) {
     console.error('Error fetching products:', error);
     return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
