@@ -42,7 +42,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
   const handleSubmitOrder = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!customerName || !customerPhone) {
-      setErrorMessage(language === 'am' ? 'እባክዎ ስምዎን እና ስልክ ቁጥርዎን ያሟሉ።' : 'Please fill in your name and phone number.');
+      setErrorMessage(language === 'am' ? 'እባክዎ ስምዎን እና የቴሌግራም ቁጥር/መለያዎን ያሟሉ።' : 'Please fill in your name and Telegram number/username.');
       return;
     }
 
@@ -338,7 +338,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({
                     required
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
-                    placeholder={language === 'am' ? 'ስልክ ቁጥርዎን ያስገቡ' : 'Enter your phone number'}
+                    placeholder={language === 'am' ? 'የቴሌግራም ቁጥር ወይም መለያዎን ያስገቡ' : 'Enter your Telegram number or username'}
                     className="w-full bg-[#FAF7F1] border border-[#D8C3A5] rounded-xl px-3.5 py-2.5 text-xs text-[#0F2747] focus:outline-none focus:border-[#C95A1A]"
                   />
                 </div>
