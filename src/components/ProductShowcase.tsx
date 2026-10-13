@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { Sparkles, Eye, Clock, Check, Filter, Layers, ShoppingCart, Maximize2 } from 'lucide-react';
+import { Eye, Filter, Layers, ShoppingCart } from 'lucide-react';
 import { useLanguage, getProductTranslation } from '../context/LanguageContext';
 import { formatCurrency } from '../utils/currency';
-import { ImageLightbox } from './ImageLightbox';
-import { getCardImageUrl } from '../utils/imageOptimizer';
 import { OptimizedImage } from './OptimizedImage';
 import { BackButton } from './BackButton';
 
@@ -26,8 +24,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
   const [inStockOnly, setInStockOnly] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high'>('featured');
   const [selectedColors, setSelectedColors] = useState<Record<string, string>>({});
-  const [lightboxImages, setLightboxImages] = useState<string[] | null>(null);
-  const [lightboxInitialIndex, setLightboxInitialIndex] = useState<number>(0);
 
   // Extract unique categories from products dynamically
   const categories = React.useMemo(() => {
@@ -39,15 +35,6 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     if (cat === 'All') return t('showcase.cat.all');
     // For dynamic categories, just return the category name as-is
     return cat;
-  };
-
-  const handleImagePreview = (images: string[], index: number = 0) => {
-    setLightboxImages(images);
-    setLightboxInitialIndex(index);
-  };
-
-  const closeLightbox = () => {
-    setLightboxImages(null);
   };
 
   // Filter products based on search, category, availability
@@ -71,34 +58,21 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     return 0;
   });
 
-  // Expand each product's images so that when a product has multiple images,
-  // each image is displayed as its own individual single product card in the showcase & category grid
+  // Keep each product as one card and preserve the uploaded image order.
   const showcaseItems = React.useMemo(() => {
-    const items: Array<{
-      product: Product;
-      image: string;
-      imageIndex: number;
-      totalImages: number;
-      itemKey: string;
-    }> = [];
-
-    for (const product of filteredProducts) {
-      const images = Array.isArray(product.images) && product.images.length > 0
+    return filteredProducts.map(product => {
+      const images = Array.isArray(product.images)
         ? product.images
-        : ['https://picsum.photos/seed/crochet/600/450'];
+            .map((url, index) => ({ url: typeof url === 'string' ? url : '', index }))
+            .filter(image => image.url.trim().length > 0)
+        : [];
 
-      images.forEach((img, imgIdx) => {
-        items.push({
-          product,
-          image: img,
-          imageIndex: imgIdx,
-          totalImages: images.length,
-          itemKey: `${product.id}-img-${imgIdx}`
-        });
-      });
-    }
-
-    return items;
+      return {
+        product,
+        images: images.length > 0 ? images : [{ url: '', index: 0 }],
+        itemKey: product.id
+      };
+    });
   }, [filteredProducts]);
 
   return (
@@ -188,59 +162,42 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
           {showcaseItems.map((item, idx) => {
-            const { product, image, imageIndex, totalImages, itemKey } = item;
+            const { product, images, itemKey } = item;
             const translated = getProductTranslation(product.title, product.category, language);
+            const hasMultipleImages = images.length > 1;
 
             return (
               <div
                 key={itemKey}
                 className="rounded-lg sm:rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 shadow-md sm:shadow-lg group flex flex-col justify-between bg-[#142E52] border border-[#C95A1A]/30 text-[#FAF7F1]"
               >
-                {/* Image Container */}
-                <div
-                  className="relative aspect-[4/3] overflow-hidden cursor-pointer"
-                  onClick={() => onSelectProduct(product, imageIndex)}
-                >
-                  <OptimizedImage
-                    src={image}
-                    alt={translated.title}
-                    preset="card"
-                    priority={idx < 2}
-                    aspectRatio="4/3"
-                    className="transform group-hover:scale-105 transition-transform duration-500"
-                  />
-
-                  {/* Multi-image indicator badge */}
-                  {totalImages > 1 && (
-                    <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-[#0F2747]/85 text-[#FAF7F1] text-[9px] sm:text-[10px] font-semibold border border-[#C95A1A]/40 backdrop-blur-md shadow-sm">
-                      {language === 'am' ? `ምስል ${imageIndex + 1}/${totalImages}` : `${imageIndex + 1}/${totalImages}`}
-                    </span>
-                  )}
-
-                  {/* Hover Quick Action */}
-                  <div className="absolute inset-0 bg-[#0F2747]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-2">
+                {/* All uploaded images are visible in this product's card. */}
+                <div className={hasMultipleImages ? 'grid grid-cols-2 gap-1 p-1' : ''}>
+                  {images.map(({ url, index: imageIndex }) => (
                     <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleImagePreview(product.images, imageIndex);
-                      }}
-                      className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F1] text-[#0F2747] text-[9px] sm:text-xs font-semibold flex items-center space-x-1 shadow-md hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors"
-                      title={language === 'am' ? 'ምስል በሙሉ እይ' : 'View full image'}
+                      key={`${itemKey}-image-${imageIndex}`}
+                      type="button"
+                      onClick={() => onSelectProduct(product, imageIndex)}
+                      aria-label={`${translated.title} - image ${imageIndex + 1}`}
+                      className={`relative block w-full overflow-hidden bg-[#0F2747] cursor-pointer ${
+                        hasMultipleImages ? 'aspect-square rounded-lg' : 'aspect-[4/3]'
+                      }`}
                     >
-                      <Maximize2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      <span className="hidden sm:inline">{language === 'am' ? 'ሙሉ ምስል' : 'Full Image'}</span>
+                      <OptimizedImage
+                        src={url}
+                        alt={`${translated.title} - image ${imageIndex + 1}`}
+                        preset="card"
+                        priority={idx < 2 && imageIndex === 0}
+                        sizes={hasMultipleImages
+                          ? '(max-width: 1024px) 25vw, 17vw'
+                          : undefined}
+                        aspectRatio={hasMultipleImages ? '1/1' : '4/3'}
+                        className={hasMultipleImages
+                          ? '!object-contain p-1 transition-transform duration-300 group-hover:scale-[1.03]'
+                          : 'transform group-hover:scale-105 transition-transform duration-500'}
+                      />
                     </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectProduct(product, imageIndex);
-                      }}
-                      className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F1] text-[#0F2747] text-[9px] sm:text-xs font-semibold flex items-center space-x-1 shadow-md hover:bg-[#C95A1A] hover:text-[#FAF7F1] transition-colors"
-                    >
-                      <Eye className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      <span className="hidden sm:inline">{t('showcase.viewDetails')}</span>
-                    </button>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Card Body */}
@@ -279,7 +236,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     </div>
 
                     <h3
-                      onClick={() => onSelectProduct(product, imageIndex)}
+                      onClick={() => onSelectProduct(product)}
                       className="font-serif-luxury text-[11px] sm:text-xl font-bold cursor-pointer transition-colors line-clamp-1 hover:text-[#C95A1A]"
                     >
                       {translated.title}
@@ -308,7 +265,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         const colorText = typeof product.colors === 'string' 
                           ? product.colors.split(',')[0]?.trim() || ''
                           : '';
-                        onAddToCart(product, selectedColors[product.id] || colorText, image);
+                        onAddToCart(product, selectedColors[product.id] || colorText, images[0].url || undefined);
                       }}
                       className="px-2 py-1 sm:px-4 sm:py-2.5 rounded-full bg-[#C95A1A] hover:bg-[#A94712] text-[#FAF7F1] text-[9px] sm:text-xs font-semibold tracking-wider uppercase transition-colors shadow-md flex items-center space-x-1 cursor-pointer shrink-0"
                     >
@@ -325,17 +282,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         </div>
       )}
 
-      {/* Image Lightbox */}
-      {lightboxImages && (
-        <ImageLightbox
-          images={lightboxImages}
-          initialIndex={lightboxInitialIndex}
-          onClose={closeLightbox}
-          alt="Product image preview"
-        />
-      )}
     </section>
   );
 
 };
-
